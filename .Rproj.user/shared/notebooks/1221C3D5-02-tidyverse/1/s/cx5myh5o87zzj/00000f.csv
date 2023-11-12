@@ -1,0 +1,3 @@
+"0","compute_log_ratio <- function(mpg, wt, log_base = exp(1)) {"
+"0","  log(mpg/wt, base = log_base)"
+"0","}"

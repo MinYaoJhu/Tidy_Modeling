@@ -1,0 +1,7 @@
+"0","compute_log_ratio <- function(mpg, wt) {"
+"0","  log_base <- getOption(""log_base"", default = exp(1)) # gets external data"
+"0","  results <- log(mpg/wt, base = log_base)"
+"0","  print(mean(results))                                # prints to the console"
+"0","  done <<- TRUE                                       # sets external data"
+"0","  results"
+"0","}"

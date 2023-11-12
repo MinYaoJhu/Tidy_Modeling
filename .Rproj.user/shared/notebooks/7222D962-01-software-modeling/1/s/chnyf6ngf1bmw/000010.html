@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+</head>
+<body>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>Hypothetical inner monologue of a model developer.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Thoughts </th>
+   <th style="text-align:left;"> Activity </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> The daily ridership values between stations are extremely correlated. </td>
+   <td style="text-align:left;"> EDA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Weekday and weekend ridership look very different. </td>
+   <td style="text-align:left;"> EDA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> One day in the summer of 2010 has an abnormally large number of riders. </td>
+   <td style="text-align:left;"> EDA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Which stations had the lowest daily ridership values? </td>
+   <td style="text-align:left;"> EDA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Dates should at least be encoded as day-of-the-week, and year. </td>
+   <td style="text-align:left;"> Feature Engineering </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Maybe PCA could be used on the correlated predictors to make it easier for the models to use them. </td>
+   <td style="text-align:left;"> Feature Engineering </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hourly weather records should probably be summarized into daily measurements. </td>
+   <td style="text-align:left;"> Feature Engineering </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Let’s start with simple linear regression, K-nearest neighbors, and a boosted decision tree. </td>
+   <td style="text-align:left;"> Model Fitting </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> How many neighbors should be used? </td>
+   <td style="text-align:left;"> Model Tuning </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Should we run a lot of boosting iterations or just a few? </td>
+   <td style="text-align:left;"> Model Tuning </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> How many neighbors seemed to be optimal for these data? </td>
+   <td style="text-align:left;"> Model Tuning </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Which models have the lowest root mean squared errors? </td>
+   <td style="text-align:left;"> Model Evaluation </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Which days were poorly predicted? </td>
+   <td style="text-align:left;"> EDA </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Variable importance scores indicate that the weather information is not predictive. We’ll drop them from the next set of models. </td>
+   <td style="text-align:left;"> Model Evaluation </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> It seems like we should focus on a lot of boosting iterations for that model. </td>
+   <td style="text-align:left;"> Model Evaluation </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> We need to encode holiday features to improve predictions on (and around) those dates. </td>
+   <td style="text-align:left;"> Feature Engineering </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Let’s drop KNN from the model list. </td>
+   <td style="text-align:left;"> Model Evaluation </td>
+  </tr>
+</tbody>
+</table> <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"]]}})</script><script async src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
