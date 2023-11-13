@@ -117,6 +117,16 @@ interaction_fit <-  lm(rate ~ (temp + species)^2, data = crickets)
 interaction_fit
 ```
 
+```{r}
+summary(interaction_fit)
+str(interaction_fit)
+```
+
+```{r}
+tidy(interaction_fit)
+```
+
+
 This output is a little hard to read. For the species indicator variables, R mashes the variable name (`species`) together with the factor level (`O. niveus`) with no delimiter. 
 
 Before going into any inferential results for this model, the fit should be assessed using diagnostic plots. We can use the `plot()` method for `lm` objects. This method produces a set of four plots for the object, each showing different aspects of the fit, as shown in Figure \@ref(fig:interaction-plots).
@@ -164,6 +174,7 @@ We can use the `summary()` method to inspect the coefficients, standard errors, 
 
 ```{r base-r-main-coef}
 summary(main_effect_fit)
+glance(main_effect_fit)
 ```
 
 The chirp rate for each species increases by `r round(coef(main_effect_fit)[2], 2)` chirps as the temperature increases by a single degree. This term shows strong statistical significance as evidenced by the p-value.  The species term has a value of `r round(coef(main_effect_fit)[3], 2)`. This indicates that, across all temperature values, _O. niveus_ has a chirp rate that is about `r floor(abs(coef(main_effect_fit)[3]))` fewer chirps per minute than _O. exclamationis_. Similar to the temperature term, the species effect is associated with a very small p-value.  
@@ -312,7 +323,7 @@ If we want to use these results in a plot, the standard format of hypothesis tes
 
 ```{r base-r-corr-tidy}
 library(broom)
-
+corr_res[[1]]
 tidy(corr_res[[1]])
 ```
 
@@ -345,10 +356,27 @@ Creating such a plot is possible using core R language functions, but automatica
 R modeling functions from the core language or other R packages can be used in conjunction with the tidyverse, especially with the r pkg(dplyr), r pkg(purrr), and r pkg(tidyr) packages. For example, if we wanted to fit separate models for each cricket species, we can first break out the cricket data by this column using `dplyr::group_nest()`: 
 
 ```{r base-r-by-species-split}
+crickets
+
+crickets %>% 
+  group_by(species) 
+
+crickets %>% 
+  group_nest(species) 
+
+crickets_split <- crickets %>% 
+  group_split(species)
+
+
+
 split_by_species <- 
   crickets %>% 
   group_nest(species) 
 split_by_species
+
+str(crickets)
+str(split_by_species)
+str(crickets_split)
 ```
 
 The `data` column contains the `rate` and `temp` columns from `crickets` in a _list column_. From this, the `purrr::map()` function can create individual models for each species:

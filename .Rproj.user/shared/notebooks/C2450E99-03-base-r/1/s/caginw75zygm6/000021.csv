@@ -1,0 +1,12 @@
+"0","crickets_split
+"
+"1","<list_of<
+  tbl_df<
+    species: factor<9b1b4>
+    temp   : double
+    rate   : double
+  >
+>[2]>
+"
+"1","[[1]]
+"
