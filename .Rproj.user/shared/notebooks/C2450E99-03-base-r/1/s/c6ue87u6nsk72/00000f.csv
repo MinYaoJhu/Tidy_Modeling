@@ -1,0 +1,8 @@
+"0","#| out.width = '70%',"
+"0","#| fig.width = 6, "
+"0","#| fig.height = 4, "
+"0","#| warning = FALSE,"
+"0","#| message = FALSE,"
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Relationship between chirp rate and temperature for two different species of crickets"","
+"0","#| fig.alt = ""A scatter plot of the chirp rate and temperature for two different species of crickets with linear trend lines per species. The trends are linearly increasing with a separation between the two species."""

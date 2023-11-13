@@ -1,0 +1,4 @@
+"0","knitr::opts_chunk$set(fig.path = ""figures/"")"
+"0","data(crickets, package = ""modeldata"")"
+"0","library(tidyverse)"
+"0","library(kableExtra)"

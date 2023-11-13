@@ -1,0 +1,4 @@
+"0","model_by_species <- "
+"0","  split_by_species %>% "
+"0","  mutate(model = map(data, ~ lm(rate ~ temp, data = .x)))"
+"0","model_by_species"

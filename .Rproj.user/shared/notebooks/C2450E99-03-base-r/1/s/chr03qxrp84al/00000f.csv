@@ -1,0 +1,7 @@
+"0","#| out.width = '100%',"
+"0","#| fig.width = 8,"
+"0","#| fig.height = 4.5,"
+"0","#| warning = FALSE,"
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Residual diagnostic plots for the linear model with interactions, which appear reasonable enough to conduct inferential analysis"","
+"0","#| fig.alt = ""On the left is a scatter plot of the model residuals versus predicted values. There are no strong trends in the data. The right-hand panel shows a normal quantile-quantile plot where the points indicate that normality is probably a good assumption."""

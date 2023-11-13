@@ -1,0 +1,7 @@
+"0","pkgs <- paste0(""package:"", "
+"0","               c(""kableExtra"", "
+"0","                 ""tidyverse"", ""tidymodels"", "
+"0","                 tidyverse:::core, tidymodels:::core))"
+"0","for (i in pkgs) {"
+"0","  try(detach(i, unload = TRUE, character.only = TRUE, force = TRUE), silent = TRUE)"
+"0","}"

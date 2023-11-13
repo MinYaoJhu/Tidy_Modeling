@@ -1,0 +1,13 @@
+"0","rate ~ temp + species + temp:species"
+"1","rate ~ temp + species + temp:species
+"
+"0","# A shortcut can be used to expand all interactions containing"
+"0","# interactions with two variables:"
+"0","rate ~ (temp + species)^2"
+"1","rate ~ (temp + species)^2
+"
+"0","# Another shortcut to expand factors to include all possible"
+"0","# interactions (equivalent for this example):"
+"0","rate ~ temp * species"
+"1","rate ~ temp * species
+"

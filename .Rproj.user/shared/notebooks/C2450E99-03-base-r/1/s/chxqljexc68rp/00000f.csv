@@ -1,0 +1,4 @@
+"0","model_by_species %>% "
+"0","  mutate(coef = map(model, tidy)) %>% "
+"0","  select(species, coef) %>% "
+"0","  unnest(cols = c(coef))"

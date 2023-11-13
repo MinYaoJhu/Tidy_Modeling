@@ -1,0 +1,1 @@
+{"frames":[{"func":"plot(plot_data$x, plot_data$y)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error: object 'plot_data' not found\n"}

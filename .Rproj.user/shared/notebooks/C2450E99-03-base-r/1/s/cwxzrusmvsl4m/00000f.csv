@@ -1,0 +1,3 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Correlations (and 95% confidence intervals) between predictors and the outcome in the `mtcars` data set"","
+"0","#| fig.alt = ""A plot of the correlations (and 95% confidence intervals) between predictors and the outcome in the `mtcars` data set. None of the intervals overlap with zero. The car weight had the largest negative correlation and the rear axle ratio has the highest positive correlation."""
