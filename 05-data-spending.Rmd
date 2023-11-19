@@ -52,6 +52,10 @@ ames_train <- training(ames_split)
 ames_test  <-  testing(ames_split)
 
 dim(ames_train)
+dim(ames_test)
+
+str(ames_train)
+str(ames_test)
 ```
 
 These objects are data frames with the same columns as the original data but only the appropriate rows for each set. 

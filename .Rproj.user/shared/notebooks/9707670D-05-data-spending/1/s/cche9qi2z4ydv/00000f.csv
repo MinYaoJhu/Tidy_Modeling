@@ -1,0 +1,8 @@
+"0","library(tidymodels)"
+"0","data(ames)"
+"0","ames <- ames %>% mutate(Sale_Price = log10(Sale_Price))"
+"0",""
+"0","set.seed(502)"
+"0","ames_split <- initial_split(ames, prop = 0.80, strata = Sale_Price)"
+"0","ames_train <- training(ames_split)"
+"0","ames_test  <-  testing(ames_split)"

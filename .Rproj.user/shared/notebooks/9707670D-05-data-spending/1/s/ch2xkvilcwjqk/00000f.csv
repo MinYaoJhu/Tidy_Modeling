@@ -1,0 +1,3 @@
+"0","ames_train <- training(ames_val_split)"
+"0","ames_test <- testing(ames_val_split)"
+"0","ames_val <- validation(ames_val_split)"
