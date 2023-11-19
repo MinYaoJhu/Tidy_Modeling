@@ -1,0 +1,7 @@
+"0","#| out.width = ""100%"", "
+"0","#| echo = FALSE, "
+"0","#| warning = FALSE,"
+"0","#| fig.cap = ""Neighborhoods in Ames, IA"","
+"0","#| fig.alt = ""A scatter plot of house locations in Ames superimposed over a street map. There is a significant area in the center of the map where no homes were sold."""
+"0","# See file extras/ames_sf.R"
+"0","knitr::include_graphics(""premade/ames.png"")"

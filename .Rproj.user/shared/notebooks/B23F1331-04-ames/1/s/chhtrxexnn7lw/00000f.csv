@@ -1,0 +1,1 @@
+"0","ames <- ames %>% mutate(Sale_Price = log10(Sale_Price))"

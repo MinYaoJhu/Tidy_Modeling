@@ -1,0 +1,3 @@
+"0","ggplot(ames, aes(x = Sale_Price)) + "
+"0","  geom_histogram(bins = 50, col= ""white"") +"
+"0","  scale_x_log10()"

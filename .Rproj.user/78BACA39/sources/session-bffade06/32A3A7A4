@@ -1,26 +1,26 @@
 {
-    "id": "6D398492",
-    "path": "D:/Oldroyd_lab/GitHub/Tidy_Modeling/03-base-r.Rmd",
-    "project_path": "03-base-r.Rmd",
+    "id": "32A3A7A4",
+    "path": "D:/Oldroyd_lab/GitHub/Tidy_Modeling/05-data-spending.Rmd",
+    "project_path": "05-data-spending.Rmd",
     "type": "r_markdown",
-    "hash": "435999600",
+    "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1699831197812.0,
+    "created": 1700327202839.0,
     "source_on_save": false,
     "relative_order": 3,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "122,0",
-        "scrollLine": "123"
+        "cursorPosition": "98,240",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1699899578,
+    "lastKnownWriteTime": 1700327329,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1699899578783,
+    "last_content_update": 1700327329892,
     "read_only": false,
     "read_only_alternatives": []
 }
