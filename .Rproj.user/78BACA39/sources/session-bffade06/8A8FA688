@@ -3,7 +3,7 @@
     "path": "D:/Oldroyd_lab/GitHub/Tidy_Modeling/06-fitting-models.Rmd",
     "project_path": "06-fitting-models.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3852511046",
     "contents": "",
     "dirty": false,
     "created": 1700327350883.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "368,42",
-        "scrollLine": "362"
+        "cursorPosition": "365,0",
+        "scrollLine": "355"
     },
     "folds": "",
-    "lastKnownWriteTime": 1700327675,
+    "lastKnownWriteTime": 1700429342,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1700327675906,
+    "last_content_update": 1700429342069,
     "read_only": false,
     "read_only_alternatives": []
 }

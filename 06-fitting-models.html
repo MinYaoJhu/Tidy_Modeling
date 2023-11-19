@@ -1266,7 +1266,12 @@ found at <a href="https://www.tidymodels.org/find/" class="uri">https://www.tidy
 remember how to write the code to generate them. The r pkg(parsnip)
 package includes an RStudio addin<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> that can help. Either choosing this addin
 from the <em>Addins</em> toolbar menu or running the code:</p>
-<pre class="r"><code>parsnip_addin()</code></pre>
+<pre class="r"><code>parsnip_addin()
+
+svm_linear_LiblineaR_spec &lt;-
+  svm_linear(cost = tune(), margin = tune()) %&gt;%
+  set_engine(&#39;LiblineaR&#39;) %&gt;%
+  set_mode(&#39;classification&#39;)</code></pre>
 <p>will open a window in the Viewer panel of the RStudio IDE with a list
 of possible models for each model mode. These can be written to the
 source code panel.</p>

@@ -584,6 +584,11 @@ It may become tedious to write many model specifications, or to remember how to 
 
 ```r
 parsnip_addin()
+
+svm_linear_LiblineaR_spec <-
+  svm_linear(cost = tune(), margin = tune()) %>%
+  set_engine('LiblineaR') %>%
+  set_mode('classification')
 ```
 
 will open a window in the Viewer panel of the RStudio IDE with a list of possible models for each model mode. These can be written to the source code panel.
