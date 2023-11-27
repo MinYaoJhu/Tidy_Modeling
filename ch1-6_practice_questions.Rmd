@@ -14,6 +14,8 @@ library(kableExtra)
 library(tidyr)
 library(multilevelmod)
 library(gridExtra)
+library(broom.mixed)
+library(lmerTest)
 ```
 
 
@@ -77,6 +79,12 @@ skimr::skim(chick_train)
 ```{r}
 skimr::skim(chick_test)
 ```
+
+```{r}
+chick_train %>% group_by(Diet) %>% summarize(chicks = length(unique(Chick)))
+chick_test %>% group_by(Diet) %>% summarize(chicks = length(unique(Chick)))
+```
+
 
 # 2. fit an lm to the ChickWeight (training) data set, modelling weight as a function of diet and time (and their interaction?),  using parsnip tools.  This really should be a mixed-effects model, so see if you can do that instead (e.g. with lme4 or stan as the engine).
 
@@ -160,6 +168,11 @@ lmer_fit |>
   summary()
 ```
 
+```{r}
+tidy(lmer_fit)
+glance(lmer_fit)
+```
+
 ### model4: mixed-effects model with `Chick` as random effects
 
 ```{r}
@@ -179,6 +192,20 @@ lmer_fit_i |>
   extract_fit_engine() |>
   summary()
 ```
+
+```{r}
+tidy(lmer_fit_i)
+```
+
+```{r}
+glance(lmer_fit_i)
+```
+
+```{r}
+bind_rows(glance(lm_form_fit1), glance(lm_form_fit2), glance(lmer_fit),glance(lmer_fit_i))
+```
+
+
 
 
 # 3. use your model to predict weight in your test set chicks. (using parsnip tools)
@@ -350,6 +377,14 @@ predict_plot_4
 ```
 
 ### compare
+
+```{r}
+anova(extract_fit_engine(lm_form_fit1),
+      extract_fit_engine(lm_form_fit2))
+
+anova(extract_fit_engine(lmer_fit),
+      extract_fit_engine(lmer_fit_i))
+```
 
 ```{r}
 grid.arrange(plot1, plot2, plot3, plot4) 

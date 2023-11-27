@@ -1,0 +1,1 @@
+"0","bind_rows(glance(lm_form_fit1), glance(lm_form_fit2), glance(lmer_fit),glance(lmer_fit_i))"

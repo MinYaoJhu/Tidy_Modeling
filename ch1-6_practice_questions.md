@@ -69,6 +69,53 @@ library(gridExtra)
 ##     combine
 ```
 
+```r
+library(broom.mixed)
+library(lmerTest)
+```
+
+```
+## Loading required package: lme4
+```
+
+```
+## Loading required package: Matrix
+```
+
+```
+## 
+## Attaching package: 'Matrix'
+```
+
+```
+## The following objects are masked from 'package:tidyr':
+## 
+##     expand, pack, unpack
+```
+
+```
+## 
+## Attaching package: 'lmerTest'
+```
+
+```
+## The following object is masked from 'package:lme4':
+## 
+##     lmer
+```
+
+```
+## The following object is masked from 'package:recipes':
+## 
+##     step
+```
+
+```
+## The following object is masked from 'package:stats':
+## 
+##     step
+```
+
 
 For next week:
 
@@ -596,6 +643,36 @@ skimr::skim(chick_test)
 </tbody>
 </table>
 
+
+```r
+chick_train %>% group_by(Diet) %>% summarize(chicks = length(unique(Chick)))
+```
+
+```
+## # A tibble: 4 × 2
+##   Diet  chicks
+##   <fct>  <int>
+## 1 1         16
+## 2 2          8
+## 3 3          8
+## 4 4          8
+```
+
+```r
+chick_test %>% group_by(Diet) %>% summarize(chicks = length(unique(Chick)))
+```
+
+```
+## # A tibble: 4 × 2
+##   Diet  chicks
+##   <fct>  <int>
+## 1 1          4
+## 2 2          2
+## 3 3          2
+## 4 4          2
+```
+
+
 # 2. fit an lm to the ChickWeight (training) data set, modelling weight as a function of diet and time (and their interaction?),  using parsnip tools.  This really should be a mixed-effects model, so see if you can do that instead (e.g. with lme4 or stan as the engine).
 
 ### model1: basic model without interaction
@@ -876,6 +953,35 @@ lmer_fit |>
 ## Diet4 -0.551 -0.012  0.339  0.339
 ```
 
+
+```r
+tidy(lmer_fit)
+```
+
+```
+## # A tibble: 7 × 6
+##   effect   group    term            estimate std.error statistic
+##   <chr>    <chr>    <chr>              <dbl>     <dbl>     <dbl>
+## 1 fixed    <NA>     (Intercept)        10.9      6.43       1.70
+## 2 fixed    <NA>     Time                9.07     0.192     47.3 
+## 3 fixed    <NA>     Diet2              17.1     10.5        1.63
+## 4 fixed    <NA>     Diet3              35.0     10.5        3.33
+## 5 fixed    <NA>     Diet4              28.9     10.5        2.75
+## 6 ran_pars Chick    sd__(Intercept)    22.8     NA         NA   
+## 7 ran_pars Residual sd__Observation    27.9     NA         NA
+```
+
+```r
+glance(lmer_fit)
+```
+
+```
+## # A tibble: 1 × 7
+##    nobs sigma logLik   AIC   BIC REMLcrit df.residual
+##   <int> <dbl>  <dbl> <dbl> <dbl>    <dbl>       <int>
+## 1   466  27.9 -2243. 4499. 4528.    4485.         459
+```
+
 ### model4: mixed-effects model with `Chick` as random effects
 
 
@@ -957,6 +1063,58 @@ lmer_fit_i |>
 ```
 
 
+```r
+tidy(lmer_fit_i)
+```
+
+```
+## # A tibble: 10 × 6
+##    effect   group    term            estimate std.error statistic
+##    <chr>    <chr>    <chr>              <dbl>     <dbl>     <dbl>
+##  1 fixed    <NA>     (Intercept)       31.1       6.77     4.60  
+##  2 fixed    <NA>     Time               7.11      0.282   25.2   
+##  3 fixed    <NA>     Diet2             -4.43     11.7     -0.379 
+##  4 fixed    <NA>     Diet3            -13.7      11.7     -1.17  
+##  5 fixed    <NA>     Diet4             -0.264    11.7     -0.0226
+##  6 fixed    <NA>     Time:Diet2         2.09      0.473    4.42  
+##  7 fixed    <NA>     Time:Diet3         4.58      0.473    9.68  
+##  8 fixed    <NA>     Time:Diet4         2.79      0.473    5.89  
+##  9 ran_pars Chick    sd__(Intercept)   23.1      NA       NA     
+## 10 ran_pars Residual sd__Observation   25.2      NA       NA
+```
+
+
+```r
+glance(lmer_fit_i)
+```
+
+```
+## # A tibble: 1 × 7
+##    nobs sigma logLik   AIC   BIC REMLcrit df.residual
+##   <int> <dbl>  <dbl> <dbl> <dbl>    <dbl>       <int>
+## 1   466  25.2 -2197. 4413. 4455.    4393.         456
+```
+
+
+```r
+bind_rows(glance(lm_form_fit1), glance(lm_form_fit2), glance(lmer_fit),glance(lmer_fit_i))
+```
+
+```
+## # A tibble: 4 × 13
+##   r.squared adj.r.squared sigma statistic    p.value    df logLik   AIC   BIC
+##       <dbl>         <dbl> <dbl>     <dbl>      <dbl> <dbl>  <dbl> <dbl> <dbl>
+## 1     0.764         0.762  35.5      373.  4.26e-143     4 -2322. 4656. 4680.
+## 2     0.790         0.786  33.6      245.  1.33e-150     7 -2295. 4609. 4646.
+## 3    NA            NA      27.9       NA  NA            NA -2243. 4499. 4528.
+## 4    NA            NA      25.2       NA  NA            NA -2197. 4413. 4455.
+## # ℹ 4 more variables: deviance <dbl>, df.residual <int>, nobs <int>,
+## #   REMLcrit <dbl>
+```
+
+
+
+
 # 3. use your model to predict weight in your test set chicks. (using parsnip tools)
 plot predicted vs observed in your test data set.
 
@@ -973,7 +1131,7 @@ ChickWeight |>
 ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-24-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-29-1.png)<!-- -->
 
 
 ```r
@@ -982,7 +1140,7 @@ ChickWeight |>
   geom_line(aes(colour=Chick))
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-25-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-30-1.png)<!-- -->
 
 ### model1:
 
@@ -1122,7 +1280,7 @@ plot1 <- predict1 |>
 plot1
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-27-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-32-1.png)<!-- -->
 
 ### model2:
 
@@ -1262,7 +1420,7 @@ plot2 <- predict2 |>
 plot2
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-29-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-34-1.png)<!-- -->
 
 ### model2:
 
@@ -1402,7 +1560,7 @@ plot3 <- predict3 |>
 plot3
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-31-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-36-1.png)<!-- -->
 
 ### model2:
 
@@ -1542,7 +1700,7 @@ plot4 <- predict4 |>
 plot4
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-33-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-38-1.png)<!-- -->
 
 
 ### model1
@@ -1585,7 +1743,7 @@ predict_plot_1
 ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-35-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-40-1.png)<!-- -->
 
 ### model2
 
@@ -1627,7 +1785,7 @@ predict_plot_2
 ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-37-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-42-1.png)<!-- -->
 
 
 ### model3
@@ -1670,7 +1828,7 @@ predict_plot_3
 ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-39-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-44-1.png)<!-- -->
 
 
 ### model4
@@ -1713,16 +1871,58 @@ predict_plot_4
 ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-41-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-46-1.png)<!-- -->
 
 ### compare
+
+
+```r
+anova(extract_fit_engine(lm_form_fit1),
+      extract_fit_engine(lm_form_fit2))
+```
+
+```
+## Analysis of Variance Table
+## 
+## Model 1: weight ~ Diet + Time
+## Model 2: weight ~ Diet * Time
+##   Res.Df    RSS Df Sum of Sq      F    Pr(>F)    
+## 1    461 580181                                  
+## 2    458 517708  3     62473 18.422 2.668e-11 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+anova(extract_fit_engine(lmer_fit),
+      extract_fit_engine(lmer_fit_i))
+```
+
+```
+## refitting model(s) with ML (instead of REML)
+```
+
+```
+## Data: data
+## Models:
+## extract_fit_engine(lmer_fit): weight ~ Time + Diet + (1 | Chick)
+## extract_fit_engine(lmer_fit_i): weight ~ Time * Diet + (1 | Chick)
+##                                npar    AIC    BIC  logLik deviance  Chisq Df
+## extract_fit_engine(lmer_fit)      7 4521.2 4550.2 -2253.6   4507.2          
+## extract_fit_engine(lmer_fit_i)   10 4436.1 4477.5 -2208.1   4416.1 91.111  3
+##                                Pr(>Chisq)    
+## extract_fit_engine(lmer_fit)                 
+## extract_fit_engine(lmer_fit_i)  < 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
 
 
 ```r
 grid.arrange(plot1, plot2, plot3, plot4) 
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-42-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-48-1.png)<!-- -->
 
 
 ```r
@@ -1736,7 +1936,7 @@ grid.arrange(predict_plot_1, predict_plot_2, predict_plot_3, predict_plot_4)
 ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-43-1.png)<!-- -->
+![](ch1-6_practice_questions_files/figure-html/unnamed-chunk-49-1.png)<!-- -->
 
 
 Optional: recreate an Ames Neighborhood plot.
