@@ -1,0 +1,5 @@
+"0","predict1 <- chick_test |> "
+"0","  select(Time, Diet, weight) |> "
+"0","  bind_cols(predict(lm_form_fit1, chick_test))"
+"0",""
+"0","predict1"

@@ -1,0 +1,5 @@
+"0","predict4 <- chick_test |> "
+"0","  select(Time, Diet, weight) |> "
+"0","  bind_cols(predict(lmer_fit_i, chick_test))"
+"0",""
+"0","predict4"

@@ -1,3 +1,0 @@
-"0","ChickWeight %>%"
-"0","  ggplot(aes(x=Time, y=weight)) +"
-"0","  geom_smooth(aes(colour=Diet))"

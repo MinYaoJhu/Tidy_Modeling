@@ -33,7 +33,7 @@ library(tidymodels)
 ## ✖ dplyr::filter()  masks stats::filter()
 ## ✖ dplyr::lag()     masks stats::lag()
 ## ✖ recipes::step()  masks stats::step()
-## • Dig deeper into tidy modeling with R at https://www.tmwr.org
+## • Use tidymodels_prefer() to resolve common conflicts.
 ```
 
 ```r
@@ -603,11 +603,11 @@ skimr::skim(chick_test)
 
 ```r
 lm_model <- 
-  linear_reg() %>% 
+  linear_reg() |> 
   set_engine("lm")
 
 lm_form_fit1 <- 
-  lm_model %>% 
+  lm_model |> 
   # Recall that Sale_Price has been pre-logged
   fit(weight ~ Diet + Time, data = chick_train)
 
@@ -657,8 +657,8 @@ glance(lm_form_fit1)
 
 
 ```r
-lm_form_fit1 %>%
-  extract_fit_engine() %>%
+lm_form_fit1 |>
+  extract_fit_engine() |>
   summary()
 ```
 
@@ -692,7 +692,7 @@ lm_form_fit1 %>%
 
 ```r
 lm_form_fit2 <- 
-  lm_model %>% 
+  lm_model |> 
   # Recall that Sale_Price has been pre-logged
   fit(weight ~ Diet * Time, data = chick_train)
 
@@ -747,8 +747,8 @@ glance(lm_form_fit2)
 
 
 ```r
-lm_form_fit2 %>%
-  extract_fit_engine() %>%
+lm_form_fit2 |>
+  extract_fit_engine() |>
   summary()
 ```
 
@@ -809,11 +809,11 @@ show_engines('linear_reg')
 
 ```r
 lmer_spec <- 
-  linear_reg() %>% 
+  linear_reg() |> 
   set_engine("lmer")
 
 lmer_fit <- 
-  lmer_spec %>% 
+  lmer_spec |> 
   fit(weight ~ Time + Diet + (1|Chick), data = chick_train)
 
 lmer_fit
@@ -838,8 +838,8 @@ lmer_fit
 
 
 ```r
-lmer_fit %>%
-  extract_fit_engine() %>%
+lmer_fit |>
+  extract_fit_engine() |>
   summary()
 ```
 
@@ -881,11 +881,11 @@ lmer_fit %>%
 
 ```r
 lmer_spec <- 
-  linear_reg() %>% 
+  linear_reg() |> 
   set_engine("lmer")
 
 lmer_fit_i <- 
-  lmer_spec %>% 
+  lmer_spec |> 
   fit(weight ~ Time*Diet + (1|Chick), data = chick_train)
 
 lmer_fit_i
@@ -912,8 +912,8 @@ lmer_fit_i
 
 
 ```r
-lmer_fit_i %>%
-  extract_fit_engine() %>%
+lmer_fit_i |>
+  extract_fit_engine() |>
   summary()
 ```
 
@@ -964,7 +964,7 @@ plot predicted vs observed in your test data set.
 
 
 ```r
-ChickWeight %>%
+ChickWeight |>
   ggplot(aes(x=Time, y=weight)) +
   geom_smooth(aes(colour=Diet))
 ```
@@ -977,7 +977,7 @@ ChickWeight %>%
 
 
 ```r
-ChickWeight %>%
+ChickWeight |>
   ggplot(aes(x=Time, y=weight)) +
   geom_line(aes(colour=Chick))
 ```
@@ -988,8 +988,8 @@ ChickWeight %>%
 
 
 ```r
-predict1 <- chick_test %>% 
-  select(Time, Diet, weight) %>% 
+predict1 <- chick_test |> 
+  select(Time, Diet, weight) |> 
   bind_cols(predict(lm_form_fit1, chick_test))
 
 predict1
@@ -1128,8 +1128,8 @@ plot1
 
 
 ```r
-predict2 <- chick_test %>% 
-  select(Time, Diet, weight) %>% 
+predict2 <- chick_test |> 
+  select(Time, Diet, weight) |> 
   bind_cols(predict(lm_form_fit2, chick_test))
 
 predict2
@@ -1268,8 +1268,8 @@ plot2
 
 
 ```r
-predict3 <- chick_test %>% 
-  select(Time, Diet, weight) %>% 
+predict3 <- chick_test |> 
+  select(Time, Diet, weight) |> 
   bind_cols(predict(lmer_fit, chick_test))
 
 predict3
@@ -1408,8 +1408,8 @@ plot3
 
 
 ```r
-predict4 <- chick_test %>% 
-  select(Time, Diet, weight) %>% 
+predict4 <- chick_test |> 
+  select(Time, Diet, weight) |> 
   bind_cols(predict(lmer_fit_i, chick_test))
 
 predict4
