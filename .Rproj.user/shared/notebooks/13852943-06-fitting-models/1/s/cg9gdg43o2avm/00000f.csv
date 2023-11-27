@@ -1,0 +1,74 @@
+"0","linear_reg() %>% set_engine(""lm"") %>% translate()"
+"1","Linear Regression"
+"1",""
+"1"," Model Specification ("
+"1",""
+"1","regression"
+"1",""
+"1",")
+
+"
+"1","Computational engine:"
+"1"," "
+"1","lm"
+"1"," "
+"1","
+
+"
+"1","Model fit template:
+"
+"1","stats::lm(formula = missing_arg(), data = missing_arg(), weights = missing_arg())
+"
+"0","linear_reg(penalty = 1) %>% set_engine(""glmnet"") %>% translate()"
+"1","Linear Regression"
+"1",""
+"1"," Model Specification ("
+"1",""
+"1","regression"
+"1",""
+"1",")
+
+"
+"1","Main Arguments:
+"
+"1","  penalty = 1
+"
+"1",""
+"1","
+"
+"1","Computational engine:"
+"1"," "
+"1","glmnet"
+"1"," "
+"1","
+
+"
+"1","Model fit template:
+"
+"1","glmnet::glmnet(x = missing_arg(), y = missing_arg(), weights = missing_arg(), 
+"
+"1","    family = ""gaussian"")
+"
+"0","linear_reg() %>% set_engine(""stan"") %>% translate()"
+"1","Linear Regression"
+"1",""
+"1"," Model Specification ("
+"1",""
+"1","regression"
+"1",""
+"1",")
+
+"
+"1","Computational engine:"
+"1"," "
+"1","stan"
+"1"," "
+"1","
+
+"
+"1","Model fit template:
+"
+"1","rstanarm::stan_glm(formula = missing_arg(), data = missing_arg(), 
+"
+"1","    weights = missing_arg(), family = stats::gaussian, refresh = 0)
+"

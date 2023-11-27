@@ -1,0 +1,5 @@
+"0","ames_test_small %>% "
+"0","  select(Sale_Price) %>% "
+"0","  bind_cols(predict(lm_form_fit, ames_test_small)) %>% "
+"0","  # Add 95% prediction intervals to the results:"
+"0","  bind_cols(predict(lm_form_fit, ames_test_small, type = ""pred_int"")) "

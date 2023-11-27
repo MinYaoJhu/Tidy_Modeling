@@ -1,0 +1,6 @@
+"0","predict_plot_3 <- predict3_l |> "
+"0","  ggplot(aes(x=Time, y=value, color=Diet, lty=name)) +"
+"0","  geom_smooth() +"
+"0","  theme_light() +"
+"0","  labs(title = ""predict_3: weight ~ Time + Diet + (1|Chick)"")"
+"0","predict_plot_3"

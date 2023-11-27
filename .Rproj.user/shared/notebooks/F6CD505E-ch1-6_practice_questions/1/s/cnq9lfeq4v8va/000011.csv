@@ -1,0 +1,3 @@
+"0","predict4_l <- predict4 |> "
+"0","  pivot_longer(cols=c(weight, .pred))"
+"0","predict4_l"

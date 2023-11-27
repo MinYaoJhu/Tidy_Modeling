@@ -1,0 +1,23 @@
+"0","skimr::skim(chick_test)"
+"1","── Data Summary ────────────────────────
+"
+"1","                           Values    
+"
+"1","Name                       chick_test
+"
+"1","Number of rows             112       
+"
+"1","Number of columns          4         
+"
+"1","_______________________              
+"
+"1","Column type frequency:               
+"
+"1","  factor                   2         
+"
+"1","  numeric                  2         
+"
+"1","________________________             
+"
+"1","Group variables            None      
+"

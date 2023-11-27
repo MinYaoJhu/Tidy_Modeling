@@ -1,0 +1,38 @@
+"0","rand_forest(trees = 1000, min_n = 5) %>% "
+"0","  set_engine(""ranger"") %>% "
+"0","  set_mode(""regression"") %>% "
+"0","  translate()"
+"1","Random Forest"
+"1",""
+"1"," Model Specification ("
+"1",""
+"1","regression"
+"1",""
+"1",")
+
+"
+"1","Main Arguments:
+"
+"1","  trees = 1000
+"
+"1",""
+"1","  min_n = 5
+"
+"1",""
+"1","
+"
+"1","Computational engine:"
+"1"," "
+"1","ranger"
+"1"," "
+"1","
+
+"
+"1","Model fit template:
+"
+"1","ranger::ranger(x = missing_arg(), y = missing_arg(), weights = missing_arg(), 
+"
+"1","    num.trees = 1000, min.node.size = min_rows(~5, x), num.threads = 1, 
+"
+"1","    verbose = FALSE, seed = sample.int(10^5, 1))
+"

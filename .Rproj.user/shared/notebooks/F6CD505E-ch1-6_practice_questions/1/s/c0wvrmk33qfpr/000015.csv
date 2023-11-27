@@ -1,0 +1,7 @@
+"0","plot4 <- predict4 |> "
+"0","  ggplot(aes(x=weight, y=.pred, color=Diet)) +"
+"0","  geom_point() +"
+"0","  theme_light() +"
+"0","  labs(title = ""predict_4: weight ~ Time*Diet + (1|Chick)"")"
+"0",""
+"0","plot4"

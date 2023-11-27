@@ -298,7 +298,17 @@ ames_val_split
 ## <1758/586/586/2930>
 ```
 
-Printing the split now shows the size of the training set (1,758), validation set (586), and test set ((586). 
+```r
+ames_val_split <- initial_validation_split(ames, prop = c(0.6, 0.2), strata = Sale_Price)
+ames_val_split
+```
+
+```
+## <Training/Validation/Testing/Total>
+## <1756/587/587/2930>
+```
+
+Printing the split now shows the size of the training set (1,756), validation set (587), and test set ((587). 
 
 To get the training, validation, and testing data, the same syntax is used: 
 
