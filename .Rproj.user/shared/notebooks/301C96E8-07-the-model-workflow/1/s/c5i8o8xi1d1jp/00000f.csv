@@ -1,0 +1,8 @@
+"0","knitr::opts_chunk$set(fig.path = ""figures/"")"
+"0","library(tidymodels)"
+"0","library(workflowsets)"
+"0","library(kableExtra)"
+"0","library(censored)"
+"0","library(survival)"
+"0","tidymodels_prefer()"
+"0","source(""ames_snippets.R"")"

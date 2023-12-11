@@ -1,0 +1,1 @@
+"0","predict(lm_fit, ames_test %>% slice(1:3))"

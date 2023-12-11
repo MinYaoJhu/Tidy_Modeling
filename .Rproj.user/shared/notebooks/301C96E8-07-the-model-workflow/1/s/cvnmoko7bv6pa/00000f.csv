@@ -1,0 +1,3 @@
+"0","library(workflowsets)"
+"0","location_models <- workflow_set(preproc = location, models = list(lm = lm_model))"
+"0","location_models"

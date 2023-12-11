@@ -1,0 +1,3 @@
+"0","#| fig.cap = ""Correct mental model of where model estimation occurs in the data analysis process"","
+"0","#| fig.alt = ""A correct mental model of where model estimation occurs in the data analysis process. The data and predictor set are substrates for an initial preprocessing step using PCA. These data are passed to the model fitting algorithm to produce a fitted model. The figure indicates that the model workflow includes the model fitting process and the PCA step. This implies that both operations should be considered estimation steps."""
+"0","knitr::include_graphics(""premade/proper-workflow.svg"")"

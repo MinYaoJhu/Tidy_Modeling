@@ -1,0 +1,4 @@
+"0","location_models <-"
+"0","   location_models %>%"
+"0","   mutate(fit = map(info, ~ fit(.x$workflow[[1]], ames_train)))"
+"0","location_models"

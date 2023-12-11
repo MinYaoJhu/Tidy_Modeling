@@ -1,0 +1,6 @@
+"0","library(tidymodels)  # Includes the workflows package"
+"0","tidymodels_prefer()"
+"0",""
+"0","lm_model <- "
+"0","  linear_reg() %>% "
+"0","  set_engine(""lm"")"

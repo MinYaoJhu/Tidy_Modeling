@@ -1,0 +1,10 @@
+"0","final_lm_res <- last_fit(lm_wflow, ames_split)"
+"0","final_lm_res"
+"1","# Resampling results
+"
+"1","#"
+"1"," "
+"1","Manual resampling"
+"1"," "
+"1","
+"

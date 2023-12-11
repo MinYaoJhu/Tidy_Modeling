@@ -1,0 +1,3 @@
+"0","#| fig.cap = ""Incorrect mental model of where model estimation occurs in the data analysis process"","
+"0","#| fig.alt = ""An incorrect mental model of where model estimation occurs in the data analysis process. The data and predictor set are substrates for an initial preprocessing step using PCA. These data are passed to the model fitting algorithm to produce a fitted model. The figure indicates that the model workflow only includes the model fitting process. This implies that the model fit is the only place where estimation occurs."""
+"0","knitr::include_graphics(""premade/bad-workflow.svg"")"
