@@ -3,7 +3,7 @@
     "path": "D:/Oldroyd_lab/GitHub/Tidy_Modeling/07-the-model-workflow.Rmd",
     "project_path": "07-the-model-workflow.Rmd",
     "type": "r_markdown",
-    "hash": "2745916088",
+    "hash": "1528125518",
     "contents": "",
     "dirty": false,
     "created": 1702131894404.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "84,43",
-        "scrollLine": "77"
+        "cursorPosition": "1,29",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1702283272,
+    "lastKnownWriteTime": 1702283510,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1702283272215,
+    "last_content_update": 1702283510113,
     "read_only": false,
     "read_only_alternatives": []
 }

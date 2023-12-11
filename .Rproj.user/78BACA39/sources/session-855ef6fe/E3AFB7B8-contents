@@ -1,0 +1,404 @@
+---
+title: "ch1-6_practice_questions"
+author: "Min-Yao"
+date: "2023-11-26"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r}
+library(tidymodels)
+library(kknn)
+library(kableExtra)
+library(tidyr)
+library(multilevelmod)
+library(gridExtra)
+library(broom.mixed)
+library(lmerTest)
+```
+
+
+For next week:
+
+We will use the ChickWeight data set.  It is a built in dataset
+
+For info
+
+```{r}
+?ChickWeight
+```
+
+To use it
+
+```{r}
+data(ChickWeight)
+```
+
+### then it is an object in your environment
+
+```{r}
+summary(ChickWeight)
+```
+
+### Or if you have skimr installed
+
+```{r}
+skimr::skim(ChickWeight) #nicer summary
+```
+
+```{r}
+str(ChickWeight)
+```
+
+
+# 1. use `rsample` to create training and test sets from ChickWeight.  Think about how you want this to be split.  hint:: you may need to also use a function from Chapter 3.  message me if you are stuck.
+
+```{r}
+
+# Create a simple random sample of Chick indices
+set.seed(123)
+chick_indices <- group_initial_split(ChickWeight, group = Chick, prop = 0.8, strata = Diet)
+chick_indices
+
+```
+
+```{r}
+# Extract the training and test sets
+chick_train <- training(chick_indices)
+chick_test <- testing(chick_indices)
+
+str(chick_train)
+str(chick_test)
+```
+
+```{r}
+skimr::skim(chick_train)
+```
+
+```{r}
+skimr::skim(chick_test)
+```
+
+```{r}
+chick_train %>% group_by(Diet) %>% summarize(chicks = length(unique(Chick)))
+chick_test %>% group_by(Diet) %>% summarize(chicks = length(unique(Chick)))
+```
+
+
+# 2. fit an lm to the ChickWeight (training) data set, modelling weight as a function of diet and time (and their interaction?),  using parsnip tools.  This really should be a mixed-effects model, so see if you can do that instead (e.g. with lme4 or stan as the engine).
+
+### model1: basic model without interaction
+
+```{r}
+lm_model <- 
+  linear_reg() |> 
+  set_engine("lm")
+
+lm_form_fit1 <- 
+  lm_model |> 
+  # Recall that Sale_Price has been pre-logged
+  fit(weight ~ Diet + Time, data = chick_train)
+
+lm_form_fit1
+```
+
+```{r}
+tidy(lm_form_fit1)
+```
+
+```{r}
+glance(lm_form_fit1)
+```
+
+```{r}
+lm_form_fit1 |>
+  extract_fit_engine() |>
+  summary()
+```
+
+
+### model2: basic model with interaction 
+
+```{r}
+lm_form_fit2 <- 
+  lm_model |> 
+  # Recall that Sale_Price has been pre-logged
+  fit(weight ~ Diet * Time, data = chick_train)
+
+lm_form_fit2
+```
+
+```{r}
+tidy(lm_form_fit2)
+```
+
+```{r}
+glance(lm_form_fit2)
+```
+
+```{r}
+lm_form_fit2 |>
+  extract_fit_engine() |>
+  summary()
+```
+
+
+### model3: mixed-effects model with `Chick` as random effects
+
+```{r}
+show_engines('linear_reg')
+```
+
+```{r}
+lmer_spec <- 
+  linear_reg() |> 
+  set_engine("lmer")
+
+lmer_fit <- 
+  lmer_spec |> 
+  fit(weight ~ Time + Diet + (1|Chick), data = chick_train)
+
+lmer_fit
+```
+
+```{r}
+lmer_fit |>
+  extract_fit_engine() |>
+  summary()
+```
+
+```{r}
+tidy(lmer_fit)
+glance(lmer_fit)
+```
+
+### model4: mixed-effects model with `Chick` as random effects
+
+```{r}
+lmer_spec <- 
+  linear_reg() |> 
+  set_engine("lmer")
+
+lmer_fit_i <- 
+  lmer_spec |> 
+  fit(weight ~ Time*Diet + (1|Chick), data = chick_train)
+
+lmer_fit_i
+```
+
+```{r}
+lmer_fit_i |>
+  extract_fit_engine() |>
+  summary()
+```
+
+```{r}
+tidy(lmer_fit_i)
+```
+
+```{r}
+glance(lmer_fit_i)
+```
+
+```{r}
+bind_rows(glance(lm_form_fit1), glance(lm_form_fit2), glance(lmer_fit),glance(lmer_fit_i))
+```
+
+
+
+
+# 3. use your model to predict weight in your test set chicks. (using parsnip tools)
+plot predicted vs observed in your test data set.
+
+### original data
+
+```{r}
+ChickWeight |>
+  ggplot(aes(x=Time, y=weight)) +
+  geom_smooth(aes(colour=Diet))
+```
+
+```{r}
+ChickWeight |>
+  ggplot(aes(x=Time, y=weight)) +
+  geom_line(aes(colour=Chick))
+```
+
+### model1:
+
+```{r}
+predict1 <- chick_test |> 
+  select(Time, Diet, weight) |> 
+  bind_cols(predict(lm_form_fit1, chick_test))
+
+predict1
+```
+
+```{r}
+plot1 <- predict1 |> 
+  ggplot(aes(x=weight, y=.pred, color=Diet)) +
+  geom_point() +
+  theme_light() +
+  labs(title = "predict_1: weight ~ Diet + Time")
+
+plot1
+```
+
+### model2:
+
+```{r}
+predict2 <- chick_test |> 
+  select(Time, Diet, weight) |> 
+  bind_cols(predict(lm_form_fit2, chick_test))
+
+predict2
+```
+
+```{r}
+plot2 <- predict2 |> 
+  ggplot(aes(x=weight, y=.pred, color=Diet)) +
+  geom_point() +
+  theme_light() +
+  labs(title = "predict_2: weight ~ Diet * Time")
+
+plot2
+```
+
+### model2:
+
+```{r}
+predict3 <- chick_test |> 
+  select(Time, Diet, weight) |> 
+  bind_cols(predict(lmer_fit, chick_test))
+
+predict3
+```
+
+```{r}
+plot3 <- predict3 |> 
+  ggplot(aes(x=weight, y=.pred, color=Diet)) +
+  geom_point() +
+  theme_light() +
+  labs(title = "predict_3: weight ~ Time + Diet + (1|Chick)")
+
+plot3
+```
+
+### model2:
+
+```{r}
+predict4 <- chick_test |> 
+  select(Time, Diet, weight) |> 
+  bind_cols(predict(lmer_fit_i, chick_test))
+
+predict4
+```
+
+```{r}
+plot4 <- predict4 |> 
+  ggplot(aes(x=weight, y=.pred, color=Diet)) +
+  geom_point() +
+  theme_light() +
+  labs(title = "predict_4: weight ~ Time*Diet + (1|Chick)")
+
+plot4
+```
+
+
+### model1
+
+```{r}
+predict1_l <- predict1 |> 
+  pivot_longer(cols=c(weight, .pred))
+predict1_l
+```
+
+```{r}
+predict_plot_1 <- predict1_l |> 
+  ggplot(aes(x=Time, y=value, color=Diet, lty=name)) +
+  geom_smooth() +
+  theme_light() +
+  labs(title = "predict_1: weight ~ Diet + Time")
+predict_plot_1
+```
+
+### model2
+
+```{r}
+predict2_l <- predict2 |> 
+  pivot_longer(cols=c(weight, .pred))
+predict2_l
+```
+
+```{r}
+predict_plot_2 <- predict2_l |> 
+  ggplot(aes(x=Time, y=value, color=Diet, lty=name)) +
+  geom_smooth() +
+  theme_light() +
+  labs(title = "predict_2: weight ~ Diet * Time")
+predict_plot_2
+```
+
+
+### model3
+
+```{r}
+predict3_l <- predict3 |> 
+  pivot_longer(cols=c(weight, .pred))
+predict3_l
+```
+
+```{r}
+predict_plot_3 <- predict3_l |> 
+  ggplot(aes(x=Time, y=value, color=Diet, lty=name)) +
+  geom_smooth() +
+  theme_light() +
+  labs(title = "predict_3: weight ~ Time + Diet + (1|Chick)")
+predict_plot_3
+```
+
+
+### model4
+
+```{r}
+predict4_l <- predict4 |> 
+  pivot_longer(cols=c(weight, .pred))
+predict4_l
+```
+
+```{r}
+predict_plot_4 <- predict4_l |> 
+  ggplot(aes(x=Time, y=value, color=Diet, lty=name)) +
+  geom_smooth() +
+  theme_light() +
+  labs(title = "predict_4: weight ~ Time*Diet + (1|Chick)")
+predict_plot_4
+```
+
+### compare
+
+```{r}
+anova(extract_fit_engine(lm_form_fit1),
+      extract_fit_engine(lm_form_fit2))
+
+anova(extract_fit_engine(lmer_fit),
+      extract_fit_engine(lmer_fit_i))
+```
+
+```{r}
+grid.arrange(plot1, plot2, plot3, plot4) 
+```
+
+```{r}
+grid.arrange(predict_plot_1, predict_plot_2, predict_plot_3, predict_plot_4) 
+```
+
+
+Optional: recreate an Ames Neighborhood plot.
+Tutorials are at
+https://ggplot2tutor.com/tutorials/streetmaps
+https://joshuamccrain.com/tutorials/maps/streets_tutorial.html
+ggplot2tutor.com
+Streetmaps
+Get really good at ggplot2 with tutorials, educational apps, and courses
