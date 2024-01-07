@@ -19,7 +19,7 @@
 "1",""
 "1","
 "
-"1","Sale_Price ~ Longitude + Latitude"
+"1","Sale_Price ~ Longitude * Latitude"
 "1",""
 "1","
 "

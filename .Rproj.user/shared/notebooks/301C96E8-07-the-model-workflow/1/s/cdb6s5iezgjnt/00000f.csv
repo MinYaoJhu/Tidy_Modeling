@@ -1,6 +1,6 @@
 "0","location <- list("
 "0","  longitude = Sale_Price ~ Longitude,"
 "0","  latitude = Sale_Price ~ Latitude,"
-"0","  coords = Sale_Price ~ Longitude + Latitude,"
+"0","  coords = Sale_Price ~ Longitude * Latitude,"
 "0","  neighborhood = Sale_Price ~ Neighborhood"
 "0",")"
