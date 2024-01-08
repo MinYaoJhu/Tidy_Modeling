@@ -1,0 +1,3 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Sale price versus latitude, with trend lines using natural splines with different degrees of freedom"","
+"0","#| fig.alt = ""Scatter plots of sale price versus latitude with trend lines using natural splines with different degrees of freedom. As the degrees of freedom increase, the lines are more responsive to trends in the data but begin to become excessively complex with 100 spline terms."""

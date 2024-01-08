@@ -1,0 +1,3 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Gross living area (in log-10 units) versus sale price (also in log-10 units) for five different building types"","
+"0","#| fig.alt = ""Scatter plots of gross living area (in log-10 units) versus sale price (also in log-10 units) for five different building types. All trends are linear but appear to have different slopes and intercepts for the different building types."""

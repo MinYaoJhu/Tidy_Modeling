@@ -1,0 +1,7 @@
+"0","ggplot(ames_train, aes(x = Gr_Liv_Area, y = 10^Sale_Price)) + "
+"0","  geom_point(alpha = .2) + "
+"0","  facet_wrap(~ Bldg_Type) + "
+"0","  geom_smooth(method = lm, formula = y ~ x, se = FALSE, color = ""lightblue"") + "
+"0","  scale_x_log10() + "
+"0","  scale_y_log10() + "
+"0","  labs(x = ""Gross Living Area"", y = ""Sale Price (USD)"")"

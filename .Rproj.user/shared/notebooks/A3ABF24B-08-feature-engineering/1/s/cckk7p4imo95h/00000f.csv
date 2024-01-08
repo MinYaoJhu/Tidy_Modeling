@@ -1,0 +1,5 @@
+"0","#| fig.cap = ""Frequencies of neighborhoods in the Ames training set"","
+"0","#| fig.alt = ""A bar chart of the frequencies of neighborhoods in the Ames training set. The most homes are in North Ames while the Greens, Green Hills, and Landmark neighborhood have very few instances."""
+"0","ggplot(ames_train, aes(y = Neighborhood)) + "
+"0","  geom_bar() + "
+"0","  labs(y = NULL)"

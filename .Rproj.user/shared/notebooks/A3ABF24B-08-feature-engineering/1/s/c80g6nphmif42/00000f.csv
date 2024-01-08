@@ -1,0 +1,34 @@
+"0","recipe(Sale_Price ~ Neighborhood + Gr_Liv_Area + Year_Built + Bldg_Type + Latitude,"
+"0","         data = ames_train) %>%"
+"0","  step_log(Gr_Liv_Area, base = 10) %>% "
+"0","  step_other(Neighborhood, threshold = 0.01) %>% "
+"0","  step_dummy(all_nominal_predictors()) %>% "
+"0","  step_interact( ~ Gr_Liv_Area:starts_with(""Bldg_Type_"") ) %>% "
+"0","  step_ns(Latitude, deg_free = 20)"
+"2","
+"
+"2","[36m──[39m [1mRecipe[22m [36m────────────────────────────────────────────────────────────[39m
+"
+"2","
+"
+"2","── Inputs 
+"
+"2","Number of variables by role
+"
+"2","outcome:   1
+predictor: 5
+"
+"2","
+"
+"2","── Operations 
+"
+"2","[36m•[39m Log transformation on: [34mGr_Liv_Area[39m
+"
+"2","[36m•[39m Collapsing factor levels for: [34mNeighborhood[39m
+"
+"2","[36m•[39m Dummy variables from: [34mall_nominal_predictors()[39m
+"
+"2","[36m•[39m Interactions with: [34mGr_Liv_Area:starts_with(""Bldg_Type_"")[39m
+"
+"2","[36m•[39m Natural splines on: [34mLatitude[39m
+"

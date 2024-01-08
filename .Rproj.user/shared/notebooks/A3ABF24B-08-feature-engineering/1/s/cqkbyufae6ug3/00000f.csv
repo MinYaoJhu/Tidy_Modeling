@@ -1,0 +1,30 @@
+"0","library(tidymodels) # Includes the recipes package"
+"0","tidymodels_prefer()"
+"0",""
+"0","simple_ames <- "
+"0","  recipe(Sale_Price ~ Neighborhood + Gr_Liv_Area + Year_Built + Bldg_Type,"
+"0","         data = ames_train) %>%"
+"0","  step_log(Gr_Liv_Area, base = 10) %>% "
+"0","  step_dummy(all_nominal_predictors())"
+"0","simple_ames"
+"2","
+"
+"2","[36m──[39m [1mRecipe[22m [36m────────────────────────────────────────────────────────────[39m
+"
+"2","
+"
+"2","── Inputs 
+"
+"2","Number of variables by role
+"
+"2","outcome:   1
+predictor: 4
+"
+"2","
+"
+"2","── Operations 
+"
+"2","[36m•[39m Log transformation on: [34mGr_Liv_Area[39m
+"
+"2","[36m•[39m Dummy variables from: [34mall_nominal_predictors()[39m
+"

@@ -1,0 +1,8 @@
+"0","simple_ames <- "
+"0","  recipe(Sale_Price ~ Neighborhood + Gr_Liv_Area + Year_Built + Bldg_Type,"
+"0","         data = ames_train) %>%"
+"0","  step_log(Gr_Liv_Area, base = 10) %>% "
+"0","  step_other(Neighborhood, threshold = 0.01) %>% "
+"0","  step_dummy(all_nominal_predictors()) %>% "
+"0","  # Gr_Liv_Area is on the log scale from a previous step"
+"0","  step_interact( ~ Gr_Liv_Area:starts_with(""Bldg_Type_"") )"

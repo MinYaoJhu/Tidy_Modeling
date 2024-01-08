@@ -1,0 +1,8 @@
+"0","lm_wflow %>% "
+"0","  add_recipe(simple_ames)"
+"1","[1m[33mError[39m in `add_recipe()`:[22m
+[33m![39m A recipe cannot be added when variables already exist.
+Backtrace:
+[90m 1. [39mlm_wflow %>% add_recipe(simple_ames)
+[90m 2. [39m[1m[94mworkflows::add_recipe([39m[22m., simple_ames[1m[94m)[39m[22m
+"
