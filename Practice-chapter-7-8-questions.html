@@ -364,15 +364,171 @@ data(&quot;Chicago&quot;)
 Chicago</code></pre>
 <p>Read about it with <code>?Chicago</code>; read more about it in <a href="https://bookdown.org/max/FES/chicago-intro.html">Kuhn and
 Johnson</a></p>
+<pre class="r"><code>#?Chicago</code></pre>
+<pre class="r"><code>library(tidymodels)</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────────── tidymodels 1.1.1 ──</code></pre>
+<pre><code>## ✔ broom        1.0.5     ✔ recipes      1.0.9
+## ✔ dials        1.2.0     ✔ rsample      1.2.0
+## ✔ dplyr        1.1.4     ✔ tibble       3.2.1
+## ✔ ggplot2      3.4.4     ✔ tidyr        1.3.0
+## ✔ infer        1.0.5     ✔ tune         1.1.2
+## ✔ modeldata    1.2.0     ✔ workflows    1.1.3
+## ✔ parsnip      1.1.1     ✔ workflowsets 1.0.1
+## ✔ purrr        1.0.2     ✔ yardstick    1.2.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+## ✖ purrr::discard() masks scales::discard()
+## ✖ dplyr::filter()  masks stats::filter()
+## ✖ dplyr::lag()     masks stats::lag()
+## ✖ recipes::step()  masks stats::step()
+## • Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+<pre class="r"><code>library(lubridate)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ forcats 1.0.0     ✔ stringr 1.5.1
+## ✔ readr   2.1.4</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ readr::col_factor() masks scales::col_factor()
+## ✖ purrr::discard()    masks scales::discard()
+## ✖ dplyr::filter()     masks stats::filter()
+## ✖ stringr::fixed()    masks recipes::fixed()
+## ✖ dplyr::lag()        masks stats::lag()
+## ✖ readr::spec()       masks yardstick::spec()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(workflowsets)</code></pre>
 <div id="explore-the-data" class="section level2">
 <h2>1. Explore the data</h2>
-<p>Make a histogram of ridership. What might be causing the two peaks.
-Is there a predictor variable that can account for this (or that can be
-used to make a new variable to account for it)?</p>
+<ol style="list-style-type: decimal">
+<li>Make a histogram of ridership.</li>
+</ol>
+<pre class="r"><code>str(Chicago)</code></pre>
+<pre><code>## tibble [5,698 × 50] (S3: tbl_df/tbl/data.frame)
+##  $ ridership       : num [1:5698] 15.7 15.8 15.9 15.9 15.4 ...
+##  $ Austin          : num [1:5698] 1.46 1.5 1.52 1.49 1.5 ...
+##  $ Quincy_Wells    : num [1:5698] 8.37 8.35 8.36 7.85 7.62 ...
+##  $ Belmont         : num [1:5698] 4.6 4.72 4.68 4.77 4.72 ...
+##  $ Archer_35th     : num [1:5698] 2.01 2.09 2.11 2.17 2.06 ...
+##  $ Oak_Park        : num [1:5698] 1.42 1.43 1.49 1.45 1.42 ...
+##  $ Western         : num [1:5698] 3.32 3.34 3.36 3.36 3.27 ...
+##  $ Clark_Lake      : num [1:5698] 15.6 15.7 15.6 15.7 15.6 ...
+##  $ Clinton         : num [1:5698] 2.4 2.4 2.37 2.42 2.42 ...
+##  $ Merchandise_Mart: num [1:5698] 6.48 6.48 6.41 6.49 5.8 ...
+##  $ Irving_Park     : num [1:5698] 3.74 3.85 3.86 3.84 3.88 ...
+##  $ Washington_Wells: num [1:5698] 7.56 7.58 7.62 7.36 7.09 ...
+##  $ Harlem          : num [1:5698] 2.65 2.76 2.79 2.81 2.73 ...
+##  $ Monroe          : num [1:5698] 5.67 6.01 5.79 5.96 5.77 ...
+##  $ Polk            : num [1:5698] 2.48 2.44 2.53 2.45 2.57 ...
+##  $ Ashland         : num [1:5698] 1.32 1.31 1.32 1.35 1.35 ...
+##  $ Kedzie          : num [1:5698] 3.01 3.02 2.98 3.01 3.08 ...
+##  $ Addison         : num [1:5698] 2.5 2.57 2.59 2.53 2.56 ...
+##  $ Jefferson_Park  : num [1:5698] 6.59 6.75 6.97 7.01 6.92 ...
+##  $ Montrose        : num [1:5698] 1.84 1.92 1.98 1.98 1.95 ...
+##  $ California      : num [1:5698] 0.756 0.781 0.812 0.776 0.789 0.37 0.274 0.473 0.844 0.835 ...
+##  $ temp_min        : num [1:5698] 15.1 25 19 15.1 21 19 15.1 26.6 34 33.1 ...
+##  $ temp            : num [1:5698] 19.4 30.4 25 22.4 27 ...
+##  $ temp_max        : num [1:5698] 30 36 28.9 27 32 30 28.9 41 43 36 ...
+##  $ temp_change     : num [1:5698] 14.9 11 9.9 11.9 11 11 13.8 14.4 9 2.9 ...
+##  $ dew             : num [1:5698] 13.4 25 18 10.9 21.9 ...
+##  $ humidity        : num [1:5698] 78 79 81 66.5 84 71 74 93 93 89 ...
+##  $ pressure        : num [1:5698] 30.4 30.2 30.2 30.4 29.9 ...
+##  $ pressure_change : num [1:5698] 0.12 0.18 0.23 0.16 0.65 ...
+##  $ wind            : num [1:5698] 5.2 8.1 10.4 9.8 12.7 12.7 8.1 8.1 9.2 11.5 ...
+##  $ wind_max        : num [1:5698] 10.4 11.5 19.6 16.1 19.6 17.3 13.8 17.3 23 16.1 ...
+##  $ gust            : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ gust_max        : num [1:5698] 0 0 0 0 25.3 26.5 0 26.5 31.1 0 ...
+##  $ percip          : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ percip_max      : num [1:5698] 0 0 0 0 0 0 0 0.07 0.11 0.01 ...
+##  $ weather_rain    : num [1:5698] 0 0 0 0 0 ...
+##  $ weather_snow    : num [1:5698] 0 0 0.214 0 0.516 ...
+##  $ weather_cloud   : num [1:5698] 0.708 1 0.357 0.292 0.452 ...
+##  $ weather_storm   : num [1:5698] 0 0.2083 0.0714 0.0417 0.4516 ...
+##  $ Blackhawks_Away : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Blackhawks_Home : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Bulls_Away      : num [1:5698] 0 0 1 0 0 0 0 0 1 0 ...
+##  $ Bulls_Home      : num [1:5698] 0 1 0 0 0 1 0 0 0 0 ...
+##  $ Bears_Away      : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Bears_Home      : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ WhiteSox_Away   : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ WhiteSox_Home   : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Cubs_Away       : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Cubs_Home       : num [1:5698] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ date            : Date[1:5698], format: &quot;2001-01-22&quot; &quot;2001-01-23&quot; ...</code></pre>
+<pre class="r"><code>stations</code></pre>
+<pre><code>##  [1] &quot;Austin&quot;           &quot;Quincy_Wells&quot;     &quot;Belmont&quot;          &quot;Archer_35th&quot;     
+##  [5] &quot;Oak_Park&quot;         &quot;Western&quot;          &quot;Clark_Lake&quot;       &quot;Clinton&quot;         
+##  [9] &quot;Merchandise_Mart&quot; &quot;Irving_Park&quot;      &quot;Washington_Wells&quot; &quot;Harlem&quot;          
+## [13] &quot;Monroe&quot;           &quot;Polk&quot;             &quot;Ashland&quot;          &quot;Kedzie&quot;          
+## [17] &quot;Addison&quot;          &quot;Jefferson_Park&quot;   &quot;Montrose&quot;         &quot;California&quot;</code></pre>
+<blockquote>
+<p>Ridership is measured by the number of entries into a station across
+all turnstiles, and the number of daily riders across stations during
+this time period varied considerably, ranging between 0 and 36,323 per
+day.</p>
+</blockquote>
+<blockquote>
+<p>For ease of presentation, ridership will be shown and analyzed in
+units of thousands of riders.</p>
+</blockquote>
+<pre class="r"><code>y_hist &lt;- 
+  ggplot(Chicago, aes(ridership)) +   
+  geom_histogram(binwidth = .7, fill = &quot;blue&quot;, col = &quot;blue&quot;, alpha = .5) +
+  xlab(&quot;Ridership (x1000 riders)&quot;)
+
+y_hist</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<ol start="2" style="list-style-type: decimal">
+<li>What might be causing the two peaks. Is there a predictor variable
+that can account for this (or that can be used to make a new variable to
+account for it)?</li>
+</ol>
 <p>I am not suggesting that you do regressions or plots on all variables
 at this time, rather that you think about what might have this kind of
 impact.</p>
 <p>If you need to make a new predictor variable, go ahead.</p>
+<pre class="r"><code>Chicago_week &lt;- Chicago %&gt;%
+  mutate(dow = as.character(wday(ymd(date), label = T))) %&gt;% 
+  mutate(weekday = as.factor(ifelse(dow %in% c(&quot;Sat&quot;,&quot;Sun&quot;), &quot;Weekend&quot;, &quot;Weekday&quot;)))
+Chicago_week</code></pre>
+<pre><code>## # A tibble: 5,698 × 52
+##    ridership Austin Quincy_Wells Belmont Archer_35th Oak_Park Western Clark_Lake
+##        &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
+##  1     15.7   1.46         8.37     4.60       2.01     1.42    3.32       15.6 
+##  2     15.8   1.50         8.35     4.72       2.09     1.43    3.34       15.7 
+##  3     15.9   1.52         8.36     4.68       2.11     1.49    3.36       15.6 
+##  4     15.9   1.49         7.85     4.77       2.17     1.44    3.36       15.7 
+##  5     15.4   1.50         7.62     4.72       2.06     1.42    3.27       15.6 
+##  6      2.42  0.693        0.911    2.27       0.624    0.426   1.11        2.41
+##  7      1.47  0.408        0.414    1.63       0.378    0.225   0.567       1.37
+##  8     15.5   0.987        4.81     3.52       1.34     0.879   1.94        9.02
+##  9     15.9   1.55         8.23     4.71       2.22     1.46    3.46       16.0 
+## 10     15.9   1.59         8.25     4.77       2.23     1.48    3.51       15.8 
+## # ℹ 5,688 more rows
+## # ℹ 44 more variables: Clinton &lt;dbl&gt;, Merchandise_Mart &lt;dbl&gt;,
+## #   Irving_Park &lt;dbl&gt;, Washington_Wells &lt;dbl&gt;, Harlem &lt;dbl&gt;, Monroe &lt;dbl&gt;,
+## #   Polk &lt;dbl&gt;, Ashland &lt;dbl&gt;, Kedzie &lt;dbl&gt;, Addison &lt;dbl&gt;,
+## #   Jefferson_Park &lt;dbl&gt;, Montrose &lt;dbl&gt;, California &lt;dbl&gt;, temp_min &lt;dbl&gt;,
+## #   temp &lt;dbl&gt;, temp_max &lt;dbl&gt;, temp_change &lt;dbl&gt;, dew &lt;dbl&gt;, humidity &lt;dbl&gt;,
+## #   pressure &lt;dbl&gt;, pressure_change &lt;dbl&gt;, wind &lt;dbl&gt;, wind_max &lt;dbl&gt;, …</code></pre>
+<pre class="r"><code>fig_Chicago_week &lt;- 
+  ggplot(Chicago_week, aes(ridership, fill = weekday, col = weekday)) + 
+  facet_wrap( ~ weekday, nrow = 2, scales = &quot;free_y&quot;) +
+  geom_histogram(binwidth = .7, alpha = .5) +
+  xlab(&quot;Ridership (x1000 riders)&quot;)
+fig_Chicago_week</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<blockquote>
+<p>A reasonable explanation for this would be that ridership is
+different for weekdays than for weekends.</p>
+</blockquote>
+<blockquote>
+<p>This is important and necessary for explaining ridership and should
+be included in a model.</p>
+</blockquote>
 </div>
 <div id="training-and-test" class="section level2">
 <h2>2. Training and Test</h2>
@@ -380,6 +536,17 @@ impact.</p>
 anything?</p>
 <p>So that we are working on the same split, use
 <code>set.seed(010324)</code> in you code chunk</p>
+<pre class="r"><code>set.seed(010324)
+
+Chicago_split &lt;- initial_split(Chicago_week, prop = 0.80, strata = ridership)
+Chicago_train &lt;- training(Chicago_split)
+Chicago_test  &lt;-  testing(Chicago_split)</code></pre>
+<pre class="r"><code>dim(Chicago_week)</code></pre>
+<pre><code>## [1] 5698   52</code></pre>
+<pre class="r"><code>dim(Chicago_train)</code></pre>
+<pre><code>## [1] 4557   52</code></pre>
+<pre class="r"><code>dim(Chicago_test)</code></pre>
+<pre><code>## [1] 1141   52</code></pre>
 </div>
 <div id="workflow-set" class="section level2">
 <h2>3. Workflow set</h2>
@@ -395,12 +562,78 @@ variables:</p>
 <code>percip_max</code></p>
 <p>The formula for one of these would be something like
 <code>ridership ~ temp_min + Q1_predictor</code>.</p>
+<pre class="r"><code>lm_model &lt;- linear_reg() %&gt;% set_engine(&quot;lm&quot;)</code></pre>
+<pre class="r"><code>weather &lt;- list(
+  temp_min = ridership ~ temp_min + weekday,
+  temp = ridership ~ temp + weekday,
+  temp_max = ridership ~ temp_max + weekday,
+  temp_change = ridership ~ temp_change + weekday,
+  percip = ridership ~ percip + weekday,
+  percip_max = ridership ~ percip_max + weekday
+)</code></pre>
+<pre class="r"><code>weather_models &lt;- workflow_set(preproc = weather, 
+                               models = list(lm = lm_model))
+weather_models</code></pre>
+<pre><code>## # A workflow set/tibble: 6 × 4
+##   wflow_id       info             option    result    
+##   &lt;chr&gt;          &lt;list&gt;           &lt;list&gt;    &lt;list&gt;    
+## 1 temp_min_lm    &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;
+## 2 temp_lm        &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;
+## 3 temp_max_lm    &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;
+## 4 temp_change_lm &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;
+## 5 percip_lm      &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;
+## 6 percip_max_lm  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;</code></pre>
+<pre class="r"><code>weather_models$info[[1]]</code></pre>
+<pre><code>## # A tibble: 1 × 4
+##   workflow   preproc model      comment
+##   &lt;list&gt;     &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;  
+## 1 &lt;workflow&gt; formula linear_reg &quot;&quot;</code></pre>
+<pre class="r"><code>extract_workflow(weather_models, id = &quot;temp_lm&quot;)</code></pre>
+<pre><code>## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Formula
+## Model: linear_reg()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## ridership ~ temp + weekday
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm</code></pre>
+<pre class="r"><code>weather_models &lt;-
+   weather_models %&gt;%
+   mutate(fit = map(info, ~ fit(.x$workflow[[1]], Chicago_train)))
+weather_models</code></pre>
+<pre><code>## # A workflow set/tibble: 6 × 5
+##   wflow_id       info             option    result     fit       
+##   &lt;chr&gt;          &lt;list&gt;           &lt;list&gt;    &lt;list&gt;     &lt;list&gt;    
+## 1 temp_min_lm    &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt; &lt;workflow&gt;
+## 2 temp_lm        &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt; &lt;workflow&gt;
+## 3 temp_max_lm    &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt; &lt;workflow&gt;
+## 4 temp_change_lm &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt; &lt;workflow&gt;
+## 5 percip_lm      &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt; &lt;workflow&gt;
+## 6 percip_max_lm  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt; &lt;workflow&gt;</code></pre>
 </div>
 <div id="b" class="section level3">
 <h3>3B</h3>
 <p>Compare the model fits / predictors (this can be using any of the
 p-value of the predictor, R2, AIC, log-lik). Don’t worry about the test
 set, just compare goodness of fit when fit with the training set.</p>
+<pre class="r"><code>weather_models %&gt;%
+  mutate(tidy=map(fit, tidy)) %&gt;%
+  unnest(tidy) %&gt;%
+  filter(str_detect(term, &quot;temp|percip&quot;)) %&gt;%
+  arrange(p.value)</code></pre>
+<pre><code>## # A tibble: 6 × 10
+##   wflow_id       info     option    result fit        term    estimate std.error
+##   &lt;chr&gt;          &lt;list&gt;   &lt;list&gt;    &lt;list&gt; &lt;list&gt;     &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+## 1 temp_lm        &lt;tibble&gt; &lt;opts[0]&gt; &lt;list&gt; &lt;workflow&gt; temp      0.0383   0.00217
+## 2 temp_min_lm    &lt;tibble&gt; &lt;opts[0]&gt; &lt;list&gt; &lt;workflow&gt; temp_m…   0.0392   0.00223
+## 3 temp_max_lm    &lt;tibble&gt; &lt;opts[0]&gt; &lt;list&gt; &lt;workflow&gt; temp_m…   0.0360   0.00205
+## 4 temp_change_lm &lt;tibble&gt; &lt;opts[0]&gt; &lt;list&gt; &lt;workflow&gt; temp_c…   0.0313   0.00710
+## 5 percip_max_lm  &lt;tibble&gt; &lt;opts[0]&gt; &lt;list&gt; &lt;workflow&gt; percip…   1.11     0.346  
+## 6 percip_lm      &lt;tibble&gt; &lt;opts[0]&gt; &lt;list&gt; &lt;workflow&gt; percip   -7.58    12.6    
+## # ℹ 2 more variables: statistic &lt;dbl&gt;, p.value &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <div id="recipes" class="section level2">
@@ -424,17 +657,294 @@ expressions to avoid having to type out the variable names. But as a
 fair-warning, it took me a lot longer to figure that out than it would
 have to just type then out. (But next time it might be faster). I can
 demo.</p>
+<pre class="r"><code>recipe(ridership ~ ., data = Chicago_train) %&gt;%
+  add_role(Austin:California, new_role = &quot;station&quot;) %&gt;%
+  add_role(temp_min:weather_storm, new_role = &quot;weather&quot;)</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Inputs</code></pre>
+<pre><code>## Number of variables by role</code></pre>
+<pre><code>## outcome:    1
+## predictor: 51
+## station:   20
+## weather:   18</code></pre>
+<pre class="r"><code>recipe(ridership ~ ., data = Chicago_train) %&gt;%
+  add_role(Austin:California, new_role = &quot;station&quot;) %&gt;%
+  add_role(temp_min:weather_storm, new_role = &quot;weather&quot;) %&gt;%
+  step_normalize(has_role(&quot;station&quot;)) %&gt;%
+  step_normalize(has_role(&quot;weather&quot;)) </code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Inputs</code></pre>
+<pre><code>## Number of variables by role</code></pre>
+<pre><code>## outcome:    1
+## predictor: 51
+## station:   20
+## weather:   18</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Operations</code></pre>
+<pre><code>## • Centering and scaling for: has_role(&quot;station&quot;)</code></pre>
+<pre><code>## • Centering and scaling for: has_role(&quot;weather&quot;)</code></pre>
+<pre class="r"><code>recipe(ridership ~ ., data = Chicago_train) %&gt;%
+  add_role(Austin:California, new_role = &quot;station&quot;) %&gt;%
+  add_role(temp_min:weather_storm, new_role = &quot;weather&quot;) %&gt;%
+  step_normalize(has_role(&quot;station&quot;)) %&gt;%
+  step_normalize(has_role(&quot;weather&quot;)) %&gt;%
+  step_pca(has_role(&quot;station&quot;), threshold = .75, prefix = &quot;station_PC&quot;, id = &quot;station_pca&quot;) %&gt;%
+  step_pca(has_role(&quot;weather&quot;), threshold = .75, prefix = &quot;weather_PC&quot;, id = &quot;weather_pca&quot;)</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Inputs</code></pre>
+<pre><code>## Number of variables by role</code></pre>
+<pre><code>## outcome:    1
+## predictor: 51
+## station:   20
+## weather:   18</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Operations</code></pre>
+<pre><code>## • Centering and scaling for: has_role(&quot;station&quot;)</code></pre>
+<pre><code>## • Centering and scaling for: has_role(&quot;weather&quot;)</code></pre>
+<pre><code>## • PCA extraction with: has_role(&quot;station&quot;)</code></pre>
+<pre><code>## • PCA extraction with: has_role(&quot;weather&quot;)</code></pre>
+<pre class="r"><code>Chicago_rec &lt;- 
+  recipe(ridership ~ ., data = Chicago_train) %&gt;%
+  add_role(Austin:California, new_role = &quot;station&quot;) %&gt;%
+  add_role(temp_min:weather_storm, new_role = &quot;weather&quot;) %&gt;%
+  step_normalize(has_role(&quot;station&quot;)) %&gt;%
+  step_normalize(has_role(&quot;weather&quot;)) %&gt;%
+  step_pca(has_role(&quot;station&quot;), threshold = .75, prefix = &quot;station_PC&quot;, id = &quot;station_pca&quot;) %&gt;%
+  step_pca(has_role(&quot;weather&quot;), threshold = .75, prefix = &quot;weather_PC&quot;, id = &quot;weather_pca&quot;)
+
+Chicago_rec</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Inputs</code></pre>
+<pre><code>## Number of variables by role</code></pre>
+<pre><code>## outcome:    1
+## predictor: 51
+## station:   20
+## weather:   18</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## ── Operations</code></pre>
+<pre><code>## • Centering and scaling for: has_role(&quot;station&quot;)</code></pre>
+<pre><code>## • Centering and scaling for: has_role(&quot;weather&quot;)</code></pre>
+<pre><code>## • PCA extraction with: has_role(&quot;station&quot;)</code></pre>
+<pre><code>## • PCA extraction with: has_role(&quot;weather&quot;)</code></pre>
+<pre class="r"><code>tidy(Chicago_rec)</code></pre>
+<pre><code>## # A tibble: 4 × 6
+##   number operation type      trained skip  id             
+##    &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;lgl&gt;   &lt;lgl&gt; &lt;chr&gt;          
+## 1      1 step      normalize FALSE   FALSE normalize_viLm0
+## 2      2 step      normalize FALSE   FALSE normalize_LApdr
+## 3      3 step      pca       FALSE   FALSE station_pca    
+## 4      4 step      pca       FALSE   FALSE weather_pca</code></pre>
 </div>
 <div id="b-1" class="section level3">
 <h3>4B</h3>
 <p>Use the recipe from 4A to fit a linear regression of ridership on the
 new PCs and all remaining predictors (i.e. those not used in making the
 PCs). Use the training data.</p>
+<pre class="r"><code>lm_wflow &lt;- 
+  workflow() %&gt;% 
+  add_model(lm_model) %&gt;% 
+  add_recipe(Chicago_rec)
+
+lm_fit &lt;- fit(lm_wflow, Chicago_train)
+
+tidy(lm_fit)</code></pre>
+<pre><code>## # A tibble: 26 × 5
+##    term            estimate std.error statistic   p.value
+##    &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1 (Intercept)       2.83      0.338      8.36   8.20e-17
+##  2 Blackhawks_Away  -0.0493    0.114     -0.432  6.66e- 1
+##  3 Blackhawks_Home   0.0191    0.118      0.162  8.71e- 1
+##  4 Bulls_Away       -0.0524    0.114     -0.458  6.47e- 1
+##  5 Bulls_Home        0.204     0.115      1.78   7.54e- 2
+##  6 Bears_Away        0.0424    0.227      0.187  8.52e- 1
+##  7 Bears_Home        0.207     0.212      0.975  3.29e- 1
+##  8 WhiteSox_Away    -0.308     0.0980    -3.14   1.69e- 3
+##  9 WhiteSox_Home    NA        NA         NA     NA       
+## 10 Cubs_Away        NA        NA         NA     NA       
+## # ℹ 16 more rows</code></pre>
+<pre class="r"><code>tidy(lm_fit) %&gt;% select(term, p.value)</code></pre>
+<pre><code>## # A tibble: 26 × 2
+##    term              p.value
+##    &lt;chr&gt;               &lt;dbl&gt;
+##  1 (Intercept)      8.20e-17
+##  2 Blackhawks_Away  6.66e- 1
+##  3 Blackhawks_Home  8.71e- 1
+##  4 Bulls_Away       6.47e- 1
+##  5 Bulls_Home       7.54e- 2
+##  6 Bears_Away       8.52e- 1
+##  7 Bears_Home       3.29e- 1
+##  8 WhiteSox_Away    1.69e- 3
+##  9 WhiteSox_Home   NA       
+## 10 Cubs_Away       NA       
+## # ℹ 16 more rows</code></pre>
 </div>
 <div id="c" class="section level3">
 <h3>4C</h3>
 <p>Use the fit from 4B to predict ridership in the test data. Evaluate
 the predictions.</p>
+<pre class="r"><code>str(Chicago_test)</code></pre>
+<pre><code>## tibble [1,141 × 52] (S3: tbl_df/tbl/data.frame)
+##  $ ridership       : num [1:1141] 2.48 1.56 15.58 15.79 16.16 ...
+##  $ Austin          : num [1:1141] 0.663 0.411 1.592 1.583 1.603 ...
+##  $ Quincy_Wells    : num [1:1141] 0.914 0.454 8.165 7.876 8.13 ...
+##  $ Belmont         : num [1:1141] 2.28 1.64 4.69 4.69 4.77 ...
+##  $ Archer_35th     : num [1:1141] 0.643 0.337 2.211 2.219 2.206 ...
+##  $ Oak_Park        : num [1:1141] 0.402 0.212 1.479 1.435 1.45 ...
+##  $ Western         : num [1:1141] 1.037 0.562 3.425 3.517 3.447 ...
+##  $ Clark_Lake      : num [1:1141] 2.32 1.49 15.92 16.16 15.69 ...
+##  $ Clinton         : num [1:1141] 0.78 0.579 2.426 2.203 2.367 ...
+##  $ Merchandise_Mart: num [1:1141] 0.858 0.267 6.407 6.254 6.032 ...
+##  $ Irving_Park     : num [1:1141] 1.75 1.18 3.88 3.77 3.75 ...
+##  $ Washington_Wells: num [1:1141] 0.738 0.34 7.521 7.354 7.267 ...
+##  $ Harlem          : num [1:1141] 1.015 0.626 2.79 2.771 2.809 ...
+##  $ Monroe          : num [1:1141] 1.066 0.671 6.18 6.079 6.269 ...
+##  $ Polk            : num [1:1141] 0.01 0 2.44 2.41 2.51 ...
+##  $ Ashland         : num [1:1141] 0.563 0.323 1.379 1.386 1.367 ...
+##  $ Kedzie          : num [1:1141] 1.158 0.675 3.069 3.129 3.157 ...
+##  $ Addison         : num [1:1141] 0.782 0.506 2.481 2.579 2.645 ...
+##  $ Jefferson_Park  : num [1:1141] 2.69 1.95 6.9 6.82 6.92 ...
+##  $ Montrose        : num [1:1141] 0.739 0.49 1.977 2.042 2.038 ...
+##  $ California      : num [1:1141] 0.361 0.263 0.815 0.804 0.803 0.388 0.841 0.362 0.487 0.315 ...
+##  $ temp_min        : num [1:1141] 10 30 32 19 21 26.6 21.2 25 28 19.4 ...
+##  $ temp            : num [1:1141] 17.1 34 37 22.4 25 ...
+##  $ temp_max        : num [1:1141] 30 36 37.9 28.9 42.1 48 34 50 42.1 28 ...
+##  $ temp_change     : num [1:1141] 20 6 5.9 9.9 21.1 21.4 12.8 25 14.1 8.6 ...
+##  $ dew             : num [1:1141] 12 30 35.1 18 12 28 15.1 21 12.9 12 ...
+##  $ humidity        : num [1:1141] 75 82 93 78 55 82 61 65 47 68 ...
+##  $ pressure        : num [1:1141] 30.2 30 30 30.2 30 ...
+##  $ pressure_change : num [1:1141] 0.29 0.15 0.26 0.44 0.31 ...
+##  $ wind            : num [1:1141] 11.5 6.9 6.9 7.5 12.7 0 15 6.9 16.1 13.8 ...
+##  $ wind_max        : num [1:1141] 15 12.7 18.4 21.9 19.6 8.1 18.4 24.2 23 18.4 ...
+##  $ gust            : num [1:1141] 0 0 0 0 0 ...
+##  $ gust_max        : num [1:1141] 26.5 0 0 26.5 25.3 0 27.6 31.1 28.8 25.3 ...
+##  $ percip          : num [1:1141] 0 0 0.01 0 0 0 0 0 0 0 ...
+##  $ percip_max      : num [1:1141] 0 0.01 0.07 0 0 0 0 0 0 0 ...
+##  $ weather_rain    : num [1:1141] 0 0 0.6 0 0 0 0 0 0 0 ...
+##  $ weather_snow    : num [1:1141] 0.1852 0.2069 0.0286 0.2692 0.04 ...
+##  $ weather_cloud   : num [1:1141] 0.815 0.793 0.343 0.731 0.48 ...
+##  $ weather_storm   : num [1:1141] 0.593 0.724 0.257 0.731 0.16 ...
+##  $ Blackhawks_Away : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Blackhawks_Home : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Bulls_Away      : num [1:1141] 1 0 0 0 0 1 0 1 0 1 ...
+##  $ Bulls_Home      : num [1:1141] 0 0 0 1 0 0 1 0 0 0 ...
+##  $ Bears_Away      : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Bears_Home      : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ WhiteSox_Away   : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ WhiteSox_Home   : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Cubs_Away       : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Cubs_Home       : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ date            : Date[1:1141], format: &quot;2001-02-03&quot; &quot;2001-02-04&quot; ...
+##  $ dow             : chr [1:1141] &quot;Sat&quot; &quot;Sun&quot; &quot;Wed&quot; &quot;Thu&quot; ...
+##  $ weekday         : Factor w/ 2 levels &quot;Weekday&quot;,&quot;Weekend&quot;: 2 2 1 1 1 2 1 2 2 2 ...</code></pre>
+<pre class="r"><code>Chicago_test_nor &lt;- Chicago_test %&gt;% select(-ridership)
+str(Chicago_test_nor)</code></pre>
+<pre><code>## tibble [1,141 × 51] (S3: tbl_df/tbl/data.frame)
+##  $ Austin          : num [1:1141] 0.663 0.411 1.592 1.583 1.603 ...
+##  $ Quincy_Wells    : num [1:1141] 0.914 0.454 8.165 7.876 8.13 ...
+##  $ Belmont         : num [1:1141] 2.28 1.64 4.69 4.69 4.77 ...
+##  $ Archer_35th     : num [1:1141] 0.643 0.337 2.211 2.219 2.206 ...
+##  $ Oak_Park        : num [1:1141] 0.402 0.212 1.479 1.435 1.45 ...
+##  $ Western         : num [1:1141] 1.037 0.562 3.425 3.517 3.447 ...
+##  $ Clark_Lake      : num [1:1141] 2.32 1.49 15.92 16.16 15.69 ...
+##  $ Clinton         : num [1:1141] 0.78 0.579 2.426 2.203 2.367 ...
+##  $ Merchandise_Mart: num [1:1141] 0.858 0.267 6.407 6.254 6.032 ...
+##  $ Irving_Park     : num [1:1141] 1.75 1.18 3.88 3.77 3.75 ...
+##  $ Washington_Wells: num [1:1141] 0.738 0.34 7.521 7.354 7.267 ...
+##  $ Harlem          : num [1:1141] 1.015 0.626 2.79 2.771 2.809 ...
+##  $ Monroe          : num [1:1141] 1.066 0.671 6.18 6.079 6.269 ...
+##  $ Polk            : num [1:1141] 0.01 0 2.44 2.41 2.51 ...
+##  $ Ashland         : num [1:1141] 0.563 0.323 1.379 1.386 1.367 ...
+##  $ Kedzie          : num [1:1141] 1.158 0.675 3.069 3.129 3.157 ...
+##  $ Addison         : num [1:1141] 0.782 0.506 2.481 2.579 2.645 ...
+##  $ Jefferson_Park  : num [1:1141] 2.69 1.95 6.9 6.82 6.92 ...
+##  $ Montrose        : num [1:1141] 0.739 0.49 1.977 2.042 2.038 ...
+##  $ California      : num [1:1141] 0.361 0.263 0.815 0.804 0.803 0.388 0.841 0.362 0.487 0.315 ...
+##  $ temp_min        : num [1:1141] 10 30 32 19 21 26.6 21.2 25 28 19.4 ...
+##  $ temp            : num [1:1141] 17.1 34 37 22.4 25 ...
+##  $ temp_max        : num [1:1141] 30 36 37.9 28.9 42.1 48 34 50 42.1 28 ...
+##  $ temp_change     : num [1:1141] 20 6 5.9 9.9 21.1 21.4 12.8 25 14.1 8.6 ...
+##  $ dew             : num [1:1141] 12 30 35.1 18 12 28 15.1 21 12.9 12 ...
+##  $ humidity        : num [1:1141] 75 82 93 78 55 82 61 65 47 68 ...
+##  $ pressure        : num [1:1141] 30.2 30 30 30.2 30 ...
+##  $ pressure_change : num [1:1141] 0.29 0.15 0.26 0.44 0.31 ...
+##  $ wind            : num [1:1141] 11.5 6.9 6.9 7.5 12.7 0 15 6.9 16.1 13.8 ...
+##  $ wind_max        : num [1:1141] 15 12.7 18.4 21.9 19.6 8.1 18.4 24.2 23 18.4 ...
+##  $ gust            : num [1:1141] 0 0 0 0 0 ...
+##  $ gust_max        : num [1:1141] 26.5 0 0 26.5 25.3 0 27.6 31.1 28.8 25.3 ...
+##  $ percip          : num [1:1141] 0 0 0.01 0 0 0 0 0 0 0 ...
+##  $ percip_max      : num [1:1141] 0 0.01 0.07 0 0 0 0 0 0 0 ...
+##  $ weather_rain    : num [1:1141] 0 0 0.6 0 0 0 0 0 0 0 ...
+##  $ weather_snow    : num [1:1141] 0.1852 0.2069 0.0286 0.2692 0.04 ...
+##  $ weather_cloud   : num [1:1141] 0.815 0.793 0.343 0.731 0.48 ...
+##  $ weather_storm   : num [1:1141] 0.593 0.724 0.257 0.731 0.16 ...
+##  $ Blackhawks_Away : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Blackhawks_Home : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Bulls_Away      : num [1:1141] 1 0 0 0 0 1 0 1 0 1 ...
+##  $ Bulls_Home      : num [1:1141] 0 0 0 1 0 0 1 0 0 0 ...
+##  $ Bears_Away      : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Bears_Home      : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ WhiteSox_Away   : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ WhiteSox_Home   : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Cubs_Away       : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Cubs_Home       : num [1:1141] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ date            : Date[1:1141], format: &quot;2001-02-03&quot; &quot;2001-02-04&quot; ...
+##  $ dow             : chr [1:1141] &quot;Sat&quot; &quot;Sun&quot; &quot;Wed&quot; &quot;Thu&quot; ...
+##  $ weekday         : Factor w/ 2 levels &quot;Weekday&quot;,&quot;Weekend&quot;: 2 2 1 1 1 2 1 2 2 2 ...</code></pre>
+<pre class="r"><code>Chicago_test_onlyr &lt;- Chicago_test %&gt;% select(ridership,weekday)
+str(Chicago_test_onlyr)</code></pre>
+<pre><code>## tibble [1,141 × 2] (S3: tbl_df/tbl/data.frame)
+##  $ ridership: num [1:1141] 2.48 1.56 15.58 15.79 16.16 ...
+##  $ weekday  : Factor w/ 2 levels &quot;Weekday&quot;,&quot;Weekend&quot;: 2 2 1 1 1 2 1 2 2 2 ...</code></pre>
+<pre class="r"><code>predicted_r &lt;- predict(lm_fit, Chicago_test_nor)</code></pre>
+<pre><code>## Warning in predict.lm(object = object$fit, newdata = new_data, type =
+## &quot;response&quot;, : prediction from rank-deficient fit; consider predict(.,
+## rankdeficient=&quot;NA&quot;)</code></pre>
+<pre class="r"><code>predicted_r</code></pre>
+<pre><code>## # A tibble: 1,141 × 1
+##     .pred
+##     &lt;dbl&gt;
+##  1  0.820
+##  2  0.242
+##  3 14.3  
+##  4 13.9  
+##  5 14.1  
+##  6  2.05 
+##  7 14.2  
+##  8  1.67 
+##  9  1.37 
+## 10 -0.416
+## # ℹ 1,131 more rows</code></pre>
+<pre class="r"><code>chicago_test_predictions &lt;- bind_cols(predicted_r, Chicago_test_onlyr)
+chicago_test_predictions</code></pre>
+<pre><code>## # A tibble: 1,141 × 3
+##     .pred ridership weekday
+##     &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  
+##  1  0.820      2.48 Weekend
+##  2  0.242      1.56 Weekend
+##  3 14.3       15.6  Weekday
+##  4 13.9       15.8  Weekday
+##  5 14.1       16.2  Weekday
+##  6  2.05       2.76 Weekend
+##  7 14.2       16.2  Weekday
+##  8  1.67       3    Weekend
+##  9  1.37       2.70 Weekend
+## 10 -0.416      1.71 Weekend
+## # ℹ 1,131 more rows</code></pre>
+<pre class="r"><code>chicago_test_predictions |&gt; 
+  ggplot(aes(x = ridership, y = .pred, col = weekday)) + 
+  geom_point(alpha = 0.5) +
+  labs(y = &quot;Predicted Ridership (x1000)&quot;, x = &quot;Recorded Ridership (x1000)&quot;) +
+  geom_smooth(method = lm, formula = y ~ x, se = FALSE, color = &quot;lightblue&quot;) +
+  coord_equal()</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 </div>
 

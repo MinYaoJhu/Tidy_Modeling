@@ -3,7 +3,7 @@
     "path": "D:/Oldroyd_lab/GitHub/Tidy_Modeling/Practice-chapter-7-8-questions.Rmd",
     "project_path": "Practice-chapter-7-8-questions.Rmd",
     "type": "r_markdown",
-    "hash": "795765056",
+    "hash": "3422591355",
     "contents": "",
     "dirty": false,
     "created": 1704640240801.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "3,17",
-        "scrollLine": "0"
+        "cursorPosition": "259,37",
+        "scrollLine": "262"
     },
     "folds": "",
-    "lastKnownWriteTime": 1704640259,
+    "lastKnownWriteTime": 1704716162,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1704640260002,
+    "last_content_update": 1704716162116,
     "read_only": false,
     "read_only_alternatives": []
 }

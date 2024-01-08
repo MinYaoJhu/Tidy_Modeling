@@ -1,0 +1,8 @@
+"0","weather <- list("
+"0","  temp_min = ridership ~ temp_min + weekday,"
+"0","  temp = ridership ~ temp + weekday,"
+"0","  temp_max = ridership ~ temp_max + weekday,"
+"0","  temp_change = ridership ~ temp_change + weekday,"
+"0","  percip = ridership ~ percip + weekday,"
+"0","  percip_max = ridership ~ percip_max + weekday"
+"0",")"

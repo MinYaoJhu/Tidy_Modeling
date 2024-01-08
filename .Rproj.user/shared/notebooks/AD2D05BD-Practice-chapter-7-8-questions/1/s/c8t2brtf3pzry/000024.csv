@@ -1,0 +1,6 @@
+"0","chicago_test_predictions |> "
+"0","  ggplot(aes(x = ridership, y = .pred, col = weekday)) + "
+"0","  geom_point(alpha = 0.5) +"
+"0","  labs(y = ""Predicted Ridership (x1000)"", x = ""Recorded Ridership (x1000)"") +"
+"0","  geom_smooth(method = lm, formula = y ~ x, color = ""blue"") +"
+"0","  coord_equal()"

@@ -1,0 +1,4 @@
+"0","weather_models <-"
+"0","   weather_models %>%"
+"0","   mutate(fit = map(info, ~ fit(.x$workflow[[1]], Chicago_train)))"
+"0","weather_models"

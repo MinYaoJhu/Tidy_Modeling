@@ -1,0 +1,6 @@
+"0","lm_wflow <- "
+"0","  workflow() %>% "
+"0","  add_model(lm_model) %>% "
+"0","  add_recipe(ames_rec)"
+"0",""
+"0","lm_fit <- fit(lm_wflow, ames_train)"

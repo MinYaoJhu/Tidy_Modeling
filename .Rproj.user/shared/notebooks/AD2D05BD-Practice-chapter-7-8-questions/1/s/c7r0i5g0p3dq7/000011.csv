@@ -1,0 +1,6 @@
+"0","y_hist <- "
+"0","  ggplot(Chicago, aes(ridership)) +   "
+"0","  geom_histogram(binwidth = .7, fill = ""blue"", col = ""blue"", alpha = .5) +"
+"0","  xlab(""Ridership (x1000 riders)"")"
+"0",""
+"0","y_hist"
