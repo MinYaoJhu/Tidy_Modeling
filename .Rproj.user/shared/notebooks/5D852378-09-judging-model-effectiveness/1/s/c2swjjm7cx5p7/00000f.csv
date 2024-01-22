@@ -1,0 +1,2 @@
+"0","ames_metrics <- metric_set(rmse, rsq, mae)"
+"0","ames_metrics(ames_test_res, truth = Sale_Price, estimate = .pred)"

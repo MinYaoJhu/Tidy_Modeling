@@ -1,0 +1,2 @@
+"0","ames_test_res <- bind_cols(ames_test_res, ames_test %>% select(Sale_Price))"
+"0","ames_test_res"

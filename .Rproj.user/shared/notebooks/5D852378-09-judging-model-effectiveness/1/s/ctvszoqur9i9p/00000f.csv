@@ -1,0 +1,7 @@
+"0","ggplot(ames_test_res, aes(x = Sale_Price, y = .pred)) + "
+"0","  # Create a diagonal line:"
+"0","  geom_abline(lty = 2) + "
+"0","  geom_point(alpha = 0.5) + "
+"0","  labs(y = ""Predicted Sale Price (log10)"", x = ""Sale Price (log10)"") +"
+"0","  # Scale and size the x- and y-axis uniformly:"
+"0","  coord_obs_pred()"

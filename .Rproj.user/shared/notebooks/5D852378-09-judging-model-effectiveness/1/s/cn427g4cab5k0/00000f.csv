@@ -1,0 +1,2 @@
+"0","two_class_curve <- roc_curve(two_class_example, truth, Class1)"
+"0","two_class_curve"

@@ -1,0 +1,4 @@
+"0",""
+"0","# Combining these three classification metrics together"
+"0","classification_metrics <- metric_set(accuracy, mcc, f_meas)"
+"0","classification_metrics(two_class_example, truth = truth, estimate = predicted)"

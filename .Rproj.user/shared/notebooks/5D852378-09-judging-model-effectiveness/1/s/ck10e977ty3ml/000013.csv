@@ -1,0 +1,2 @@
+"0","ames_test_res <- predict(lm_fit, new_data = ames_test %>% select(-Sale_Price))"
+"0","ames_test_res"

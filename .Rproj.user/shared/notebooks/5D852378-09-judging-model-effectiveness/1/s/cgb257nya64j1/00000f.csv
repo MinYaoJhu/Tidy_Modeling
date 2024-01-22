@@ -1,0 +1,3 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Observed versus predicted values for an Ames regression model, with log-10 units on both axes"","
+"0","#| fig.alt = ""Scatter plots of numeric observed versus predicted values for an Ames regression model. Both axes use log-10 units. The model shows good concordance with some poorly fitting points at high and low prices."""
