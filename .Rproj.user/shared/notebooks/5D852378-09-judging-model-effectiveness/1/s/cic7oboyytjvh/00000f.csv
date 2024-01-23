@@ -149,36 +149,54 @@ Residual Deviance:"
 "2","→ [33m[1mA[22m[39m | [33mwarning[39m: glm.fit: fitted probabilities numerically 0 or 1 occurred
 "
 "2","There were issues with some computations   [1m[33mA[39m[22m: x1"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x2"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x3"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x4"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x6"
 "2","                                                 "
 "2","→ [33m[1mB[22m[39m | [33mwarning[39m: prediction from rank-deficient fit; attr(*, ""non-estim"") has doubtful cases
 "
-"2","There were issues with some computations   [1m[33mA[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x6"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x7   [1m[33mB[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x8   [1m[33mB[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x10   [1m[33mB[39m[22m: x1"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x12   [1m[33mB[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x11   [1m[33mB[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x13   [1m[33mB[39m[22m: x1"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x15   [1m[33mB[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x14   [1m[33mB[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x16   [1m[33mB[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x17   [1m[33mB[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x18   [1m[33mB[39m[22m: x1"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x19   [1m[33mB[39m[22m: x3"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x21   [1m[33mB[39m[22m: x4"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x23   [1m[33mB[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x19   [1m[33mB[39m[22m: x2"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x20   [1m[33mB[39m[22m: x3"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x20   [1m[33mB[39m[22m: x4"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x21   [1m[33mB[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x22   [1m[33mB[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x24   [1m[33mB[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x25   [1m[33mB[39m[22m: x5"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x26   [1m[33mB[39m[22m: x5"
-"2","There were issues with some computations   [1m[33mA[39m[22m: x28   [1m[33mB[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x27   [1m[33mB[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x29   [1m[33mB[39m[22m: x5"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x30   [1m[33mB[39m[22m: x5"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x31   [1m[33mB[39m[22m: x5"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x32   [1m[33mB[39m[22m: x6"
 "2","                                                          "
 "2","→ [33m[1mC[22m[39m | [33mwarning[39m: glm.fit: algorithm did not converge, glm.fit: fitted probabilities numerically 0 or 1 occurred
 "
 "2","There were issues with some computations   [1m[33mA[39m[22m: x32   [1m[33mB[39m[22m: x6"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x32   [1m[33mB[39m[22m: x6   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x32   [1m[33mB[39m[22m: x7   [1m[33mC[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x33   [1m[33mB[39m[22m: x7   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x34   [1m[33mB[39m[22m: x7   [1m[33mC[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x35   [1m[33mB[39m[22m: x7   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x36   [1m[33mB[39m[22m: x8   [1m[33mC[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x37   [1m[33mB[39m[22m: x8   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x37   [1m[33mB[39m[22m: x9   [1m[33mC[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x38   [1m[33mB[39m[22m: x9   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x39   [1m[33mB[39m[22m: x10   [1m[33mC[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x40   [1m[33mB[39m[22m: x10   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x41   [1m[33mB[39m[22m: x10   [1m[33mC[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x42   [1m[33mB[39m[22m: x10   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x43   [1m[33mB[39m[22m: x10   [1m[33mC[39m[22m: x1"
+"2","There were issues with some computations   [1m[33mA[39m[22m: x44   [1m[33mB[39m[22m: x10   [1m[33mC[39m[22m: x1"
 "2","There were issues with some computations   [1m[33mA[39m[22m: x44   [1m[33mB[39m[22m: x10   [1m[33mC[39m[22m: x1"
 "2","
 "

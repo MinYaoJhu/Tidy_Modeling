@@ -1,0 +1,5 @@
+"0","# Four 1-vs-all ROC curves for each fold"
+"0","hpc_cv %>% "
+"0","  group_by(Resample) %>% "
+"0","  roc_curve(obs, VF, F, M, L) %>% "
+"0","  autoplot()"

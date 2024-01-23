@@ -1,0 +1,3 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Resampled ROC curves for each of the four outcome classes"","
+"0","#| fig.alt = ""Resampled ROC curves for each of the four outcome classes. There are four panels for classes VF, F, M, and L. Each panel contains ten ROC curves for each of the resampled data sets."""

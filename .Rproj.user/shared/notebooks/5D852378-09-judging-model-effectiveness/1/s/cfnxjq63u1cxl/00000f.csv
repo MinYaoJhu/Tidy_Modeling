@@ -1,0 +1,3 @@
+"0","hpc_cv %>% "
+"0","  group_by(Resample) %>% "
+"0","  accuracy(obs, pred)"

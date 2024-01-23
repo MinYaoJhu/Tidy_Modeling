@@ -1,0 +1,8 @@
+"0",""
+"0","# Three different estimates:"
+"0","one_versus_all %>% "
+"0","  summarize("
+"0","    macro = mean(sens), "
+"0","    macro_wts = weighted.mean(sens, class_wts),"
+"0","    micro = sum(n) / sum(totals)"
+"0","  )"

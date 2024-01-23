@@ -1,0 +1,4 @@
+"0","class_totals <- "
+"0","  count(hpc_cv, obs, name = ""totals"") %>% "
+"0","  mutate(class_wts = totals / sum(totals))"
+"0","class_totals"
