@@ -1,0 +1,6 @@
+"0","get_model <- function(x) {"
+"0","  extract_fit_parsnip(x) %>% tidy()"
+"0","}"
+"0",""
+"0","# Test it using: "
+"0","# get_model(lm_fit)"

@@ -1,0 +1,6 @@
+"0","#| echo = FALSE, "
+"0","#| out.width = '70%', "
+"0","#| warning = FALSE,"
+"0","#| fig.cap = ""V-fold cross-validation data usage"","
+"0","#| fig.alt = ""A diagram of V-fold cross-validation data usage (where V equals three). For each of the three groups, the data for the fold are held out for performance while the other two are used for modeling."""
+"0","knitr::include_graphics(""premade/three-CV-iter.svg"")"

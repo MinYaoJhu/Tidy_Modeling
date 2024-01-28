@@ -1,0 +1,7 @@
+"0","# For the first fold:"
+"0","ames_folds$splits[[1]] %>% analysis() %>% dim()"
+"1","[1]"
+"1"," 2107"
+"1","   74"
+"1","
+"

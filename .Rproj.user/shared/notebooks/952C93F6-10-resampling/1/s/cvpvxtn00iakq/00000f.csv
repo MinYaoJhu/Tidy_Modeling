@@ -1,0 +1,49 @@
+"0","ames_rec <- "
+"0","  recipe(Sale_Price ~ Neighborhood + Gr_Liv_Area + Year_Built + Bldg_Type + "
+"0","           Latitude + Longitude, data = ames_train) %>%"
+"0","  step_other(Neighborhood, threshold = 0.01) %>% "
+"0","  step_dummy(all_nominal_predictors()) %>% "
+"0","  step_interact( ~ Gr_Liv_Area:starts_with(""Bldg_Type_"") ) %>% "
+"0","  step_ns(Latitude, Longitude, deg_free = 20)"
+"0",""
+"0","lm_wflow <-  "
+"0","  workflow() %>% "
+"0","  add_recipe(ames_rec) %>% "
+"0","  add_model(linear_reg() %>% set_engine(""lm"")) "
+"0",""
+"0","lm_fit <- lm_wflow %>% fit(data = ames_train)"
+"0",""
+"0","# Select the recipe: "
+"0","extract_recipe(lm_fit, estimated = TRUE)"
+"2","
+"
+"2","[36m──[39m [1mRecipe[22m [36m────────────────────────────────────────────────────────────[39m
+"
+"2","
+"
+"2","── Inputs 
+"
+"2","Number of variables by role
+"
+"2","outcome:   1
+predictor: 6
+"
+"2","
+"
+"2","── Training information 
+"
+"2","Training data contained 2342 data points and no incomplete rows.
+"
+"2","
+"
+"2","── Operations 
+"
+"2","[36m•[39m Collapsing factor levels for: [34mNeighborhood[39m | [3mTrained[23m
+"
+"2","[36m•[39m Dummy variables from: [34mNeighborhood[39m, [34mBldg_Type[39m | [3mTrained[23m
+"
+"2","[36m•[39m Interactions with: [34mGr_Liv_Area:(Bldg_Type_TwoFmCon +[39m
+  [34mBldg_Type_Duplex + Bldg_Type_Twnhs + Bldg_Type_TwnhsE)[39m | [3mTrained[23m
+"
+"2","[36m•[39m Natural splines on: [34mLatitude[39m, [34mLongitude[39m | [3mTrained[23m
+"

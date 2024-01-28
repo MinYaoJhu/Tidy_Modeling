@@ -1,0 +1,5 @@
+"0","#| fig.height = 5, "
+"0","#| fig.width = 5,"
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Out-of-sample observed versus predicted values for an Ames regression model, using log-10 units on both axes"","
+"0","#| fig.alt = ""Scatter plots of out-of-sample observed versus predicted values for an Ames regression model. Both axes using log-10 units. The model shows good concordance with two outlying data points that are significantly over-predicted."""

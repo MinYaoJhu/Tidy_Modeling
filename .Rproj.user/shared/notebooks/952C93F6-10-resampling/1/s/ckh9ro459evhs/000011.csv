@@ -1,0 +1,21 @@
+"0","estimate_perf(lm_fit, ames_train)"
+"2","Warning: [38;5;250m`keep_original_cols` was added to `step_interact()` after this recipe
+was created.
+[36mℹ[38;5;250m Regenerate your recipe to avoid this warning.[39m"
+"2","Warning: [38;5;250m`keep_original_cols` was added to `step_ns()` after this recipe was
+created.
+[36mℹ[38;5;250m Regenerate your recipe to avoid this warning.[39m"
+"1","[1m[33mError[39m in `metric_set()`:[22m
+[33m![39m Failed to compute `rmse()`.
+[1mCaused by error in `baked_data[processed_predictor_names]`:[22m
+[33m![39m Can't subset columns that don't exist.
+[31m✖[39m Columns `Gr_Liv_Area`, `Bldg_Type_TwoFmCon`, `Bldg_Type_Duplex`, `Bldg_Type_Twnhs`, and `Bldg_Type_TwnhsE` don't exist.
+Backtrace:
+[90m  1. [39m[1mglobal[22m estimate_perf(lm_fit, ames_train)
+[90m 18. [39m[1mworkflows[22m:::predict.workflow(., dat)
+[90m 19. [39mworkflows:::forge_predictors(new_data, workflow)
+[90m 21. [39m[1mhardhat[22m:::forge.data.frame(new_data, blueprint = mold$blueprint)
+[90m 23. [39mhardhat:::run_forge.default_recipe_blueprint(...)
+[90m 24. [39mhardhat:::forge_recipe_default_process(...)
+[90m 26. [39m[1m[94mtibble:::`[.tbl_df`([39m[22mbaked_data, processed_predictor_names[1m[94m)[39m[22m
+"
