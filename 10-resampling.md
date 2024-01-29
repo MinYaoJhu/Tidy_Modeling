@@ -614,6 +614,38 @@ collect_metrics(rf_res)
 ## 2 rsq     standard   0.831     10 0.0108  Preprocessor1_Model1
 ```
 
+
+```r
+collect_metrics(rf_res, summarize = FALSE)
+```
+
+```
+## # A tibble: 20 × 5
+##    id     .metric .estimator .estimate .config             
+##    <chr>  <chr>   <chr>          <dbl> <chr>               
+##  1 Fold01 rmse    standard      0.0605 Preprocessor1_Model1
+##  2 Fold01 rsq     standard      0.862  Preprocessor1_Model1
+##  3 Fold02 rmse    standard      0.0653 Preprocessor1_Model1
+##  4 Fold02 rsq     standard      0.861  Preprocessor1_Model1
+##  5 Fold03 rmse    standard      0.0609 Preprocessor1_Model1
+##  6 Fold03 rsq     standard      0.880  Preprocessor1_Model1
+##  7 Fold04 rmse    standard      0.0699 Preprocessor1_Model1
+##  8 Fold04 rsq     standard      0.818  Preprocessor1_Model1
+##  9 Fold05 rmse    standard      0.0738 Preprocessor1_Model1
+## 10 Fold05 rsq     standard      0.851  Preprocessor1_Model1
+## 11 Fold06 rmse    standard      0.0682 Preprocessor1_Model1
+## 12 Fold06 rsq     standard      0.822  Preprocessor1_Model1
+## 13 Fold07 rmse    standard      0.0712 Preprocessor1_Model1
+## 14 Fold07 rsq     standard      0.850  Preprocessor1_Model1
+## 15 Fold08 rmse    standard      0.0871 Preprocessor1_Model1
+## 16 Fold08 rsq     standard      0.784  Preprocessor1_Model1
+## 17 Fold09 rmse    standard      0.0887 Preprocessor1_Model1
+## 18 Fold09 rsq     standard      0.789  Preprocessor1_Model1
+## 19 Fold10 rmse    standard      0.0752 Preprocessor1_Model1
+## 20 Fold10 rsq     standard      0.795  Preprocessor1_Model1
+```
+
+
 These are the resampling estimates averaged over the individual replicates. To get the metrics for each resample, use the option `summarize = FALSE`. 
 
 Notice how much more realistic the performance estimates are than the resubstitution estimates from Section \@ref(resampling-resubstition)!
@@ -642,6 +674,29 @@ assess_res
 ## 10 Fold01  4.91    68       5.01 Preprocessor1_Model1
 ## # ℹ 2,332 more rows
 ```
+
+
+```r
+collect_predictions(rf_res, summarize = TRUE)
+```
+
+```
+## # A tibble: 2,342 × 4
+##     .row Sale_Price .config              .pred
+##    <int>      <dbl> <chr>                <dbl>
+##  1     1       5.10 Preprocessor1_Model1  5.00
+##  2     2       5.06 Preprocessor1_Model1  5.07
+##  3     3       5.02 Preprocessor1_Model1  4.98
+##  4     4       4.94 Preprocessor1_Model1  5.02
+##  5     5       5.11 Preprocessor1_Model1  5.15
+##  6     6       5.08 Preprocessor1_Model1  5.11
+##  7     7       5.00 Preprocessor1_Model1  5.14
+##  8     8       4.83 Preprocessor1_Model1  5.00
+##  9     9       5.05 Preprocessor1_Model1  5.15
+## 10    10       5.09 Preprocessor1_Model1  5.10
+## # ℹ 2,332 more rows
+```
+
 
 The prediction column names follow the conventions discussed for `pkg(parsnip)` models in Chapter \@ref(models), for consistency and ease of use. The observed outcome column always uses the original column name from the source data. The `.row` column is an integer that matches the row of the original training set so that these results can be properly arranged and joined with the original data. 
 

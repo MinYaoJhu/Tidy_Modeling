@@ -1,6 +1,0 @@
-"0","#| echo = FALSE,"
-"0","#| out.width = '65%',"
-"0","#| warning = FALSE,"
-"0","#| fig.cap = ""Data usage for rolling forecasting origin resampling"","
-"0","#| fig.alt = ""The data usage for rolling forecasting origin resampling. For each split, earlier data are used for modeling and a few subsequent instances are used to measure performance."""
-"0","knitr::include_graphics(""premade/rolling.svg"")"

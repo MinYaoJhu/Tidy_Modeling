@@ -1,7 +1,34 @@
 "0","knitr::opts_chunk$set(fig.path = ""figures/"")"
 "0","library(tidymodels)"
+"2","[37m── [1mAttaching packages[22m ──────────────────────────── tidymodels 1.1.1 ──[39m
+"
+"2","[37m[32m✔[37m [34mbroom       [37m 1.0.5     [32m✔[37m [34mrecipes     [37m 1.0.9
+[32m✔[37m [34mdials       [37m 1.2.0     [32m✔[37m [34mrsample     [37m 1.2.0
+[32m✔[37m [34mdplyr       [37m 1.1.4     [32m✔[37m [34mtibble      [37m 3.2.1
+[32m✔[37m [34mggplot2     [37m 3.4.4     [32m✔[37m [34mtidyr       [37m 1.3.0
+[32m✔[37m [34minfer       [37m 1.0.5     [32m✔[37m [34mtune        [37m 1.1.2
+[32m✔[37m [34mmodeldata   [37m 1.2.0     [32m✔[37m [34mworkflows   [37m 1.1.3
+[32m✔[37m [34mparsnip     [37m 1.1.1     [32m✔[37m [34mworkflowsets[37m 1.0.1
+[32m✔[37m [34mpurrr       [37m 1.0.2     [32m✔[37m [34myardstick   [37m 1.2.0[39m
+"
+"2","[37m── [1mConflicts[22m ─────────────────────────────── tidymodels_conflicts() ──
+[31m✖[37m [34mpurrr[37m::[32mdiscard()[37m masks [34mscales[37m::discard()
+[31m✖[37m [34mdplyr[37m::[32mfilter()[37m  masks [34mstats[37m::filter()
+[31m✖[37m [34mdplyr[37m::[32mlag()[37m     masks [34mstats[37m::lag()
+[31m✖[37m [34mrecipes[37m::[32mstep()[37m  masks [34mstats[37m::step()
+[34m•[37m Search for functions across packages at [32mhttps://www.tidymodels.org/find/[37m[39m
+"
 "0","# library(doMC)"
 "0","library(kableExtra)"
+"2","
+Attaching package: ‘kableExtra’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    group_rows
+
+"
 "0","library(tidyr)"
 "0","tidymodels_prefer()"
 "0","# registerDoMC(cores = parallel::detectCores())"

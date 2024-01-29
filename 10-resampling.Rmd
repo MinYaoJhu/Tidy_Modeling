@@ -496,6 +496,11 @@ While these list columns may look daunting, they can be easily reconfigured usin
 collect_metrics(rf_res)
 ```
 
+```{r}
+collect_metrics(rf_res, summarize = FALSE)
+```
+
+
 These are the resampling estimates averaged over the individual replicates. To get the metrics for each resample, use the option `summarize = FALSE`. 
 
 Notice how much more realistic the performance estimates are than the resubstitution estimates from Section \@ref(resampling-resubstition)!
@@ -506,6 +511,11 @@ To obtain the assessment set predictions:
 assess_res <- collect_predictions(rf_res)
 assess_res
 ```
+
+```{r}
+collect_predictions(rf_res, summarize = TRUE)
+```
+
 
 The prediction column names follow the conventions discussed for `pkg(parsnip)` models in Chapter \@ref(models), for consistency and ease of use. The observed outcome column always uses the original column name from the source data. The `.row` column is an integer that matches the row of the original training set so that these results can be properly arranged and joined with the original data. 
 

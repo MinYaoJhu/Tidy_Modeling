@@ -1,0 +1,6 @@
+"0","over_predicted <- "
+"0","  assess_res %>% "
+"0","  mutate(residual = Sale_Price - .pred) %>% "
+"0","  arrange(desc(abs(residual))) %>% "
+"0","  slice(1:2)"
+"0","over_predicted"

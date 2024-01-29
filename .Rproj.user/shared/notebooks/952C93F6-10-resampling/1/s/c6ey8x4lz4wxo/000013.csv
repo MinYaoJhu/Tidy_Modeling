@@ -1,0 +1,7 @@
+"0","mc_cv(ames_train, prop = 9/10, times = 20)"
+"1","#"
+"1"," "
+"1","Monte Carlo cross-validation (0.9/0.1) with 20 resamples "
+"1"," "
+"1","
+"

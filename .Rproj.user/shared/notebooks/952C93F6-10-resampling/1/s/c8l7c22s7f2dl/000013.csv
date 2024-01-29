@@ -1,0 +1,6 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = '50%',"
+"0","#| warning = FALSE,"
+"0","#| fig.cap = ""A three-way initial split into training, testing, and validation sets"","
+"0","#| fig.alt = ""A three-way initial split into training, testing, and validation sets."""
+"0","knitr::include_graphics(""premade/validation.svg"")"

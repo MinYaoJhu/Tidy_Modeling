@@ -1,4 +1,0 @@
-"0",""
-"0","ames_train %>% "
-"0","  slice(over_predicted$.row) %>% "
-"0","  select(Gr_Liv_Area, Neighborhood, Year_Built, Bedroom_AbvGr, Full_Bath)"

@@ -1,0 +1,10 @@
+"0","val_res <- rf_wflow %>% fit_resamples(resamples = val_set)"
+"2","Warning: NAs introduced by coercion"
+"0","val_res"
+"1","# Resampling results
+"
+"1","#"
+"1"," "
+"1"," "
+"1","
+"

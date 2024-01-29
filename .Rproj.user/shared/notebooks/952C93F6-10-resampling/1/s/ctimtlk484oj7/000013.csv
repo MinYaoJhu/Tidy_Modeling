@@ -1,0 +1,6 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = '80%',"
+"0","#| warning = FALSE,"
+"0","#| fig.cap = ""Bootstrapping data usage"","
+"0","#| fig.alt = ""A diagram of bootstrapping data usage. For each bootstrap resample, the analysis set is the same size as the training set (due to sampling with replacement) and the assessment set consists of samples not in the analysis set."""
+"0","knitr::include_graphics(""premade/bootstraps.svg"")"

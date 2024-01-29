@@ -1,0 +1,6 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = '85%',"
+"0","#| warning = FALSE,"
+"0","#| fig.cap = ""Data splitting scheme from the initial data split to resampling"","
+"0","#| fig.alt = ""A diagram of the data splitting scheme from the initial data split to resampling. The first level is the training/testing set partition. The second level of splitting takes the training set and splits it into multiple 'analysis' and 'assessment' sets (which are analogous to training and test)."""
+"0","knitr::include_graphics(""premade/resampling.svg"")"

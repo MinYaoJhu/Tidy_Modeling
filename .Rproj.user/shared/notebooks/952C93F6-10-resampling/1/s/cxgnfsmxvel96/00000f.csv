@@ -1,6 +1,0 @@
-"0","#| echo = FALSE, "
-"0","#| out.width = '50%', "
-"0","#| warning = FALSE,"
-"0","#| fig.cap = ""V-fold cross-validation randomly assigns data to folds"","
-"0","#| fig.alt = ""A diagram of how V-fold cross-validation randomly assigns data to folds (where V equals three). A set of thirty data points are assigned to three groups of roughly the same size."""
-"0","knitr::include_graphics(""premade/three-CV.svg"")"
