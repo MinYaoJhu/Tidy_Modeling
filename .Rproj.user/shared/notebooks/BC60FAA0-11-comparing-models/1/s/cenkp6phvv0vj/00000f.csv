@@ -1,0 +1,5 @@
+"0","model_post %>% "
+"0","  mutate(model = forcats::fct_inorder(model)) %>%"
+"0","  ggplot(aes(x = posterior)) + "
+"0","  geom_histogram(bins = 50, color = ""white"", fill = ""blue"", alpha = 0.4) + "
+"0","  facet_wrap(~ model, ncol = 1)"

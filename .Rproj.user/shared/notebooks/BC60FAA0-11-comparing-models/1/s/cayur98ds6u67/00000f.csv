@@ -1,0 +1,4 @@
+"0","four_models <- "
+"0","  as_workflow_set(random_forest = rf_res) %>% "
+"0","  bind_rows(lm_models)"
+"0","four_models"

@@ -1,0 +1,6 @@
+"0",""
+"0","# Alternatively, a paired t-test could also be used: "
+"0","rsq_wider %>% "
+"0","  with( t.test(splines_lm, basic_lm, paired = TRUE) ) %>%"
+"0","  tidy() %>% "
+"0","  select(estimate, p.value, starts_with(""conf""))"

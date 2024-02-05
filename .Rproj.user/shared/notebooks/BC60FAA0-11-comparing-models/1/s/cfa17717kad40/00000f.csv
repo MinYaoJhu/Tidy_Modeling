@@ -1,0 +1,5 @@
+"0","ggplot(intervals,"
+"0","       aes(x = resamples, y = mean)) +"
+"0","  geom_path() +"
+"0","  geom_ribbon(aes(ymin = lower, ymax = upper), fill = ""red"", alpha = .1) +"
+"0","  labs(x = ""Number of Resamples (repeated 10-fold cross-validation)"")"

@@ -1,0 +1,3 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Confidence intervals for the coefficient of determination using four different models"","
+"0","#| fig.alt = ""Confidence intervals for the coefficient of determination using four different models. The random forest model has the best results and its intervals do not overlap with the intervals of the other models. """

@@ -1,0 +1,4 @@
+"0","library(ggrepel)"
+"0","autoplot(four_models, metric = ""rsq"") +"
+"0","  geom_text_repel(aes(label = wflow_id), nudge_x = 1/8, nudge_y = 1/100) +"
+"0","  theme(legend.position = ""none"")"

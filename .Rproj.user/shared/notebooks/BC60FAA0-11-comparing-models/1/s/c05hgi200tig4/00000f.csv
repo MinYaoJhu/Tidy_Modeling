@@ -1,0 +1,5 @@
+"0","rsq_indiv_estimates %>% "
+"0","  mutate(wflow_id = reorder(wflow_id, .estimate)) %>% "
+"0","  ggplot(aes(x = wflow_id, y = .estimate, group = id, color = id)) + "
+"0","  geom_line(alpha = .5, linewidth = 1.25) + "
+"0","  theme(legend.position = ""none"")"

@@ -1,0 +1,4 @@
+"0","rsq_wider %>% "
+"0","  with( cor.test(basic_lm, splines_lm) ) %>% "
+"0","  tidy() %>% "
+"0","  select(estimate, starts_with(""conf""))"

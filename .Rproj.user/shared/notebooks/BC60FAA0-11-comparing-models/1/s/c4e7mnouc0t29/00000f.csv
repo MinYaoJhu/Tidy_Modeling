@@ -1,0 +1,3 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Credible intervals derived from the model posterior distributions"","
+"0","#| fig.alt = ""Credible intervals derived from the model posterior distributions. Random forest shows the best results with no overlap with the other credible intervals. """

@@ -1,0 +1,20 @@
+"0","lm_models <- "
+"0","  lm_models %>% "
+"0","  workflow_map(""fit_resamples"", "
+"0","               # Options to `workflow_map()`: "
+"0","               seed = 1101, verbose = TRUE,"
+"0","               # Options to `fit_resamples()`: "
+"0","               resamples = ames_folds, control = keep_pred)"
+"2","[34mi[39m [30m1 of 3 resampling: basic_lm[39m
+"
+"2","[32m✔[39m [30m1 of 3 resampling: basic_lm[39m[30m (1.7s)[39m
+"
+"2","[34mi[39m [30m2 of 3 resampling: interact_lm[39m
+"
+"2","[32m✔[39m [30m2 of 3 resampling: interact_lm[39m[30m (1.9s)[39m
+"
+"2","[34mi[39m [30m3 of 3 resampling: splines_lm[39m
+"
+"2","[32m✔[39m [30m3 of 3 resampling: splines_lm[39m[30m (2.8s)[39m
+"
+"0","lm_models"
