@@ -49,7 +49,7 @@ library(tidymodels)
 ## ✖ dplyr::filter()  masks stats::filter()
 ## ✖ dplyr::lag()     masks stats::lag()
 ## ✖ recipes::step()  masks stats::step()
-## • Search for functions across packages at https://www.tidymodels.org/find/
+## • Dig deeper into tidy modeling with R at https://www.tmwr.org
 ```
 
 ```r
@@ -1000,7 +1000,7 @@ lm_res <-
 There were issues with some computations   A: x1
 
 There were issues with some computations   A: x1
-## → B | error:   Cannot find current progress bar for `<environment: 0x0000013a0d7bb250>`
+## → B | error:   Cannot find current progress bar for `<environment: 0x000001c1ecddb430>`
 ```
 
 ```
@@ -1521,7 +1521,7 @@ lm_models <-
 There were issues with some computations   A: x1
 
 There were issues with some computations   A: x1
-## → B | error:   Cannot find current progress bar for `<environment: 0x0000013a16757e48>`
+## → B | error:   Cannot find current progress bar for `<environment: 0x000001c1f5d7ddf8>`
 ```
 
 ```
@@ -1530,17 +1530,17 @@ There were issues with some computations   A: x1
 ```
 
 ```
-## ✔ 1 of 6 resampling: model1_lm (1.2s)
+## ✔ 1 of 6 resampling: model1_lm (1.5s)
 ## i 2 of 6 resampling: model2_lm
-## ✔ 2 of 6 resampling: model2_lm (811ms)
+## ✔ 2 of 6 resampling: model2_lm (1s)
 ## i 3 of 6 resampling: model3_lm
-## ✔ 3 of 6 resampling: model3_lm (821ms)
+## ✔ 3 of 6 resampling: model3_lm (950ms)
 ## i 4 of 6 resampling: model4_lm
-## ✔ 4 of 6 resampling: model4_lm (601ms)
+## ✔ 4 of 6 resampling: model4_lm (791ms)
 ## i 5 of 6 resampling: model5_lm
-## ✔ 5 of 6 resampling: model5_lm (720ms)
+## ✔ 5 of 6 resampling: model5_lm (730ms)
 ## i 6 of 6 resampling: model6_lm
-## ✔ 6 of 6 resampling: model6_lm (421ms)
+## ✔ 6 of 6 resampling: model6_lm (460ms)
 ```
 
 ```r
@@ -1620,7 +1620,19 @@ rsq_wider
 ```
 
 ```r
-#corrr::correlate(rsq_wider %>% select(-id), quiet = TRUE)
+corrr::correlate(rsq_wider %>% select(-id), quiet = TRUE)
+```
+
+```
+## # A tibble: 6 × 7
+##   term      model1_lm model2_lm model3_lm model4_lm model5_lm model6_lm
+##   <chr>         <dbl>     <dbl>     <dbl>     <dbl>     <dbl>     <dbl>
+## 1 model1_lm        NA    NA        NA        NA        NA        NA    
+## 2 model2_lm        NA    NA         0.998     0.959     0.988     0.971
+## 3 model3_lm        NA     0.998    NA         0.967     0.986     0.974
+## 4 model4_lm        NA     0.959     0.967    NA         0.941     0.979
+## 5 model5_lm        NA     0.988     0.986     0.941    NA         0.977
+## 6 model6_lm        NA     0.971     0.974     0.979     0.977    NA
 ```
 
 

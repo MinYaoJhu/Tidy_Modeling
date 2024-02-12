@@ -380,7 +380,7 @@ Johnson</a></p>
 ## ✖ dplyr::filter()  masks stats::filter()
 ## ✖ dplyr::lag()     masks stats::lag()
 ## ✖ recipes::step()  masks stats::step()
-## • Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+## • Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 <pre class="r"><code>library(lubridate)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;lubridate&#39;</code></pre>
@@ -1020,7 +1020,7 @@ lm_res &lt;-
 There were issues with some computations   A: x1
 
 There were issues with some computations   A: x1
-## → B | error:   Cannot find current progress bar for `&lt;environment: 0x0000013a0d7bb250&gt;`</code></pre>
+## → B | error:   Cannot find current progress bar for `&lt;environment: 0x000001c1ecddb430&gt;`</code></pre>
 <pre><code>## Warning: More than one set of outcomes were used when tuning. This should never
 ## happen. Review how the outcome is specified in your model.</code></pre>
 <pre class="r"><code>rf_res &lt;- 
@@ -1292,20 +1292,20 @@ lm_models</code></pre>
 There were issues with some computations   A: x1
 
 There were issues with some computations   A: x1
-## → B | error:   Cannot find current progress bar for `&lt;environment: 0x0000013a16757e48&gt;`</code></pre>
+## → B | error:   Cannot find current progress bar for `&lt;environment: 0x000001c1f5d7ddf8&gt;`</code></pre>
 <pre><code>## Warning: More than one set of outcomes were used when tuning. This should never
 ## happen. Review how the outcome is specified in your model.</code></pre>
-<pre><code>## ✔ 1 of 6 resampling: model1_lm (1.2s)
+<pre><code>## ✔ 1 of 6 resampling: model1_lm (1.5s)
 ## i 2 of 6 resampling: model2_lm
-## ✔ 2 of 6 resampling: model2_lm (811ms)
+## ✔ 2 of 6 resampling: model2_lm (1s)
 ## i 3 of 6 resampling: model3_lm
-## ✔ 3 of 6 resampling: model3_lm (821ms)
+## ✔ 3 of 6 resampling: model3_lm (950ms)
 ## i 4 of 6 resampling: model4_lm
-## ✔ 4 of 6 resampling: model4_lm (601ms)
+## ✔ 4 of 6 resampling: model4_lm (791ms)
 ## i 5 of 6 resampling: model5_lm
-## ✔ 5 of 6 resampling: model5_lm (720ms)
+## ✔ 5 of 6 resampling: model5_lm (730ms)
 ## i 6 of 6 resampling: model6_lm
-## ✔ 6 of 6 resampling: model6_lm (421ms)</code></pre>
+## ✔ 6 of 6 resampling: model6_lm (460ms)</code></pre>
 <pre class="r"><code>lm_models</code></pre>
 <pre><code>## # A workflow set/tibble: 6 × 4
 ##   wflow_id  info             option    result   
@@ -1355,7 +1355,16 @@ rsq_wider</code></pre>
 ##  8 Fold08    NA         0.795     0.796     0.756     0.787     0.737
 ##  9 Fold09    NA         0.823     0.824     0.797     0.820     0.788
 ## 10 Fold10    NA         0.817     0.817     0.781     0.816     0.770</code></pre>
-<pre class="r"><code>#corrr::correlate(rsq_wider %&gt;% select(-id), quiet = TRUE)</code></pre>
+<pre class="r"><code>corrr::correlate(rsq_wider %&gt;% select(-id), quiet = TRUE)</code></pre>
+<pre><code>## # A tibble: 6 × 7
+##   term      model1_lm model2_lm model3_lm model4_lm model5_lm model6_lm
+##   &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 model1_lm        NA    NA        NA        NA        NA        NA    
+## 2 model2_lm        NA    NA         0.998     0.959     0.988     0.971
+## 3 model3_lm        NA     0.998    NA         0.967     0.986     0.974
+## 4 model4_lm        NA     0.959     0.967    NA         0.941     0.979
+## 5 model5_lm        NA     0.988     0.986     0.941    NA         0.977
+## 6 model6_lm        NA     0.971     0.974     0.979     0.977    NA</code></pre>
 <pre class="r"><code>rsq_indiv_estimates %&gt;% 
   mutate(wflow_id = reorder(wflow_id, .estimate)) %&gt;% 
   ggplot(aes(x = wflow_id, y = .estimate, group = id, color = id)) + 

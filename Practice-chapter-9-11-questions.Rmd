@@ -486,7 +486,7 @@ rsq_wider <-
 
 rsq_wider
 
-#corrr::correlate(rsq_wider %>% select(-id), quiet = TRUE)
+corrr::correlate(rsq_wider %>% select(-id), quiet = TRUE)
 ```
 
 ```{r compare-rsq-plot}
