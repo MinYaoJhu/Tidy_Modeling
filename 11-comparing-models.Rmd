@@ -463,6 +463,12 @@ autoplot(rsq_anova, type = "ROPE", size = 0.02) +
   theme(legend.position = "none")
 ```
 
+```{r compare-rope-plot, eval=FALSE}
+autoplot(rsq_anova, type = "ROPE", size = 0.03) +
+  geom_text_repel(aes(label = workflow)) +
+  theme(legend.position = "none")
+```
+
 ```{r practical-equivalence, ref.label = "compare-rope-plot"}
 #| echo = FALSE,
 #| fig.cap = "Probability of practical equivalence for an effect size of 2%",
