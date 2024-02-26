@@ -1,0 +1,8 @@
+"0","# Linear Model Specification"
+"0","lm_spec <- linear_reg() %>%"
+"0","  set_engine(""lm"")"
+"0",""
+"0","# Random Forest Specification"
+"0","rf_spec <- rand_forest(trees = 1000) %>% "
+"0","  set_engine(""ranger"") %>% "
+"0","  set_mode(""regression"")"

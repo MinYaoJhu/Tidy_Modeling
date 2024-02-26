@@ -202,8 +202,8 @@ recipe(ridership ~ ., data = Chicago_train) %>%
 ```{r}
 Chicago_rec <- 
   recipe(ridership ~ ., data = Chicago_train) %>%
-  add_role(Austin:California, new_role = "station") %>%
-  add_role(temp_min:weather_storm, new_role = "weather") %>%
+  update_role(Austin:California, new_role = "station") %>%
+  update_role(temp_min:weather_storm, new_role = "weather") %>%
   step_normalize(has_role("station")) %>%
   step_normalize(has_role("weather")) %>%
   step_pca(has_role("station"), threshold = .75, prefix = "station_PC", id = "station_pca") %>%
@@ -336,6 +336,7 @@ collect_metrics(rf_res)
 ```{r}
 Chicago_rec1 <- 
   recipe(ridership ~ ., data = Chicago_train) %>%
+  add_role(Blackhawks_Away:Cubs_Home, new_role = "sports_team") %>%
   add_role(Austin:California, new_role = "station") %>%
   add_role(temp_min:weather_storm, new_role = "weather") %>%
   step_normalize(has_role("station")) %>%

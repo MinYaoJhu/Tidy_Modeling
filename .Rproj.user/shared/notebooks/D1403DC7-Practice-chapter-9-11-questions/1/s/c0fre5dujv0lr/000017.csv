@@ -1,0 +1,3 @@
+"0","predicted_r <- predict(lm_fit, Chicago_test_nor)"
+"2","Warning: prediction from rank-deficient fit; consider predict(., rankdeficient=""NA"")"
+"0","predicted_r"

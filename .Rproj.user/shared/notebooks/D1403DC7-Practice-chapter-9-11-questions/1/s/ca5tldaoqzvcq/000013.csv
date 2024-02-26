@@ -1,0 +1,2 @@
+"0","collect_metrics(lm_models) %>% "
+"0","  filter(.metric == ""rmse"")"

@@ -1,0 +1,7 @@
+"0",""
+"0","fig_Chicago_week <- "
+"0","  ggplot(Chicago_week, aes(ridership, fill = weekday, col = weekday)) + "
+"0","  facet_wrap( ~ weekday, nrow = 2, scales = ""free_y"") +"
+"0","  geom_histogram(binwidth = .7, alpha = .5) +"
+"0","  xlab(""Ridership (x1000 riders)"")"
+"0","fig_Chicago_week"

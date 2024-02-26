@@ -1,0 +1,5 @@
+"0","Chicago_week <- Chicago %>%"
+"0","  mutate(dow = as.character(wday(ymd(date), label = T))) %>% "
+"0","  mutate(weekday = as.factor(ifelse(dow %in% c(""Sat"",""Sun""), ""Weekend"", ""Weekday""))) %>% "
+"0","  select(-c(date, dow))"
+"0","Chicago_week"

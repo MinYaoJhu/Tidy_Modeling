@@ -1,0 +1,5 @@
+"0","weather_models %>%"
+"0","  mutate(tidy=map(fit, tidy)) %>%"
+"0","  unnest(tidy) %>%"
+"0","  filter(str_detect(term, ""temp|percip"")) %>%"
+"0","  arrange(p.value)"

@@ -1,0 +1,39 @@
+"0","Chicago_rec1 <- "
+"0","  recipe(ridership ~ ., data = Chicago_train) %>%"
+"0","  add_role(Blackhawks_Away:Cubs_Home, new_role = ""sports_team"") %>%"
+"0","  add_role(Austin:California, new_role = ""station"") %>%"
+"0","  add_role(temp_min:weather_storm, new_role = ""weather"") %>%"
+"0","  step_normalize(has_role(""station"")) %>%"
+"0","  step_normalize(has_role(""weather"")) %>%"
+"0","  step_pca(has_role(""station""), threshold = .75, prefix = ""station_PC"", id = ""station_pca"") %>%"
+"0","  step_pca(has_role(""weather""), threshold = .75, prefix = ""weather_PC"", id = ""weather_pca"")"
+"0",""
+"0","Chicago_rec1"
+"2","
+"
+"2","[36m──[39m [1mRecipe[22m [36m─────────────────────────────────────────────────────────────────[39m
+"
+"2","
+"
+"2","── Inputs 
+"
+"2","Number of variables by role
+"
+"2","outcome:      1
+predictor:   49
+station:     20
+weather:     18
+sports_team: 10
+"
+"2","
+"
+"2","── Operations 
+"
+"2","[36m•[39m Centering and scaling for: [34mhas_role(""station"")[39m
+"
+"2","[36m•[39m Centering and scaling for: [34mhas_role(""weather"")[39m
+"
+"2","[36m•[39m PCA extraction with: [34mhas_role(""station"")[39m
+"
+"2","[36m•[39m PCA extraction with: [34mhas_role(""weather"")[39m
+"

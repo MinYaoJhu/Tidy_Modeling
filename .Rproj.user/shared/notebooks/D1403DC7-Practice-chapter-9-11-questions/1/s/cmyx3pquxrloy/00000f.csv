@@ -1,0 +1,5 @@
+"0","set.seed(010324)"
+"0",""
+"0","Chicago_split <- initial_split(Chicago_week, prop = 0.80, strata = ridership)"
+"0","Chicago_train <- training(Chicago_split)"
+"0","Chicago_test  <-  testing(Chicago_split)"

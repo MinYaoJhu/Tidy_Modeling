@@ -1,0 +1,3 @@
+"0","autoplot(rsq_anova, type = ""ROPE"", size = 0.03) +"
+"0","  geom_text_repel(aes(label = workflow)) +"
+"0","  theme(legend.position = ""none"")"

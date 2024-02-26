@@ -1,0 +1,23 @@
+"0","Chicago_rec6 <- "
+"0","  recipe(ridership ~ ., data = Chicago_train) %>%"
+"0","  update_role(Blackhawks_Away:Cubs_Home, new_role = ""sports_team"") %>%"
+"0","  update_role(Austin:California, new_role = ""station"") %>%"
+"0","  update_role(temp_min:weather_storm, new_role = ""weather"")"
+"0",""
+"0","Chicago_rec6"
+"2","
+"
+"2","[36m──[39m [1mRecipe[22m [36m─────────────────────────────────────────────────────────────────[39m
+"
+"2","
+"
+"2","── Inputs 
+"
+"2","Number of variables by role
+"
+"2","outcome:      1
+predictor:    1
+station:     20
+weather:     18
+sports_team: 10
+"

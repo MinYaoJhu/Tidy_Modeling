@@ -1,0 +1,3 @@
+"0","weather_models <- workflow_set(preproc = weather, "
+"0","                               models = list(lm = lm_model))"
+"0","weather_models"
