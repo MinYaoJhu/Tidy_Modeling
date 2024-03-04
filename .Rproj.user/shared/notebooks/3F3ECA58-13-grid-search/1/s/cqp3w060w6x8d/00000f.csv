@@ -1,0 +1,26 @@
+"0","coef_penalty <- 0.1"
+"0","spec <- linear_reg(penalty = coef_penalty) %>% set_engine(""glmnet"")"
+"0","spec"
+"1","Linear Regression"
+"1",""
+"1"," Model Specification ("
+"1",""
+"1","regression"
+"1",""
+"1",")
+
+"
+"1","Main Arguments:
+"
+"1","  penalty = coef_penalty
+"
+"1",""
+"1","
+"
+"1","Computational engine:"
+"1"," "
+"1","glmnet"
+"1"," "
+"1","
+
+"

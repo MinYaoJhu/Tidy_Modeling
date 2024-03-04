@@ -1,0 +1,10 @@
+"0","hidden_units()"
+"1","# Hidden Units (quantitative)
+"
+"1","Range: [1, 10]
+"
+"0","threshold()"
+"1","Threshold (quantitative)
+"
+"1","Range: [0, 1]
+"

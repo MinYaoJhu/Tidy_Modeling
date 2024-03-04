@@ -1,0 +1,9 @@
+"0","library(usemodels)"
+"2","Warning: package ‘usemodels’ was built under R version 4.3.3"
+"0","use_xgboost(Sale_Price ~ Neighborhood + Gr_Liv_Area + Year_Built + Bldg_Type + "
+"0","              Latitude + Longitude, "
+"0","            data = ames_train,"
+"0","            # Add comments explaining some of the code:"
+"0","            verbose = TRUE)"
+"2","Error: object 'ames_train' not found
+"

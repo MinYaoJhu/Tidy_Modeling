@@ -1,0 +1,9 @@
+"0","spec <- linear_reg(penalty = !!coef_penalty) %>% set_engine(""glmnet"")"
+"0","spec$args$penalty"
+"1","[1m<quosure>[22m
+expr: "
+"1","[39m^0.1[39m
+"
+"1","env:  "
+"1","empty
+"

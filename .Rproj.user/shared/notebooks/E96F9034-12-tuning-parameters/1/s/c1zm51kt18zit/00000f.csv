@@ -1,0 +1,8 @@
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""An example two-class classification data set with two predictors"","
+"0","#| fig.alt = ""An example two-class classification data set with two predictors. The two predictors have a moderate correlation and there is some locations of separation between the classes."""
+"0","ggplot(training_set, aes(x = A, y = B, color = Class, pch = Class)) + "
+"0","  geom_point(alpha = 0.7) + "
+"0","  coord_equal()  + "
+"0","  labs(x = ""Predictor A"", y = ""Predictor B"", color = NULL, pch = NULL) +"
+"0","  scale_color_manual(values = c(""#CC6677"", ""#88CCEE""))"

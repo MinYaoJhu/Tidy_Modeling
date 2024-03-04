@@ -1,0 +1,4 @@
+"0","#| fig.height = 7,"
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""The regular grid results"","
+"0","#| fig.alt = ""A line plot of the regular grid results. The x axis shows the number of hidden units and the y axis is the resampled ROC AUC. There are separate lines for the amount of regularization. There are nine panels for three values for the number of PCA components and the number of epochs. On average, the amount of regularization is important where more is better. Also, on average, the increasing the number of hidden units decreases model effectiveness."""

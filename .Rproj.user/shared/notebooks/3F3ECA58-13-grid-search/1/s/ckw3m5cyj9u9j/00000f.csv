@@ -1,0 +1,24 @@
+"0","c5_spec <- "
+"0","  boost_tree(trees = tune()) %>% "
+"0","  set_engine(""C5.0"") %>% "
+"0","  set_mode(""classification"")"
+"0",""
+"0","set.seed(1307)"
+"0","c5_spec %>%"
+"0","  tune_grid("
+"0","    class ~ .,"
+"0","    resamples = cell_folds,"
+"0","    grid = data.frame(trees = 1:100),"
+"0","    metrics = roc_res"
+"0","  )"
+"1","[1m[33mError[39m in `check_installs()`:[22m
+[33m![39m Some package installs are required: 
+[36m•[39m 'C50'
+Backtrace:
+[90m 1. [39mc5_spec %>% ...
+[90m 3. [39m[1mtune[22m:::tune_grid.model_spec(...)
+[90m 5. [39mtune:::tune_grid.workflow(...)
+[90m 6. [39mtune:::tune_grid_workflow(...)
+[90m 7. [39mtune::check_workflow(workflow, pset = pset)
+[90m 8. [39m[1m[94mtune:::check_installs([39m[22mhardhat::extract_spec_parsnip(x)[1m[94m)[39m[22m
+"

@@ -1,0 +1,3 @@
+"0","all_tasks <- crossing(resamples, configurations)"
+"2","Error: object 'resamples' not found
+"

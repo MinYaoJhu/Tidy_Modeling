@@ -1,0 +1,3 @@
+"0","library(tidymodels)"
+"0","data(cells)"
+"0","cells <- cells %>% select(-case)"

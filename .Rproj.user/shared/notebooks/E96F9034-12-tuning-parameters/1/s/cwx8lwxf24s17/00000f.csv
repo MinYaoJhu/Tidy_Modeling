@@ -1,0 +1,19 @@
+"0","penalty()"
+"1","Amount of Regularization (quantitative)
+"
+"1","Transformer: "
+"1",""
+"1","log-10"
+"1",""
+"1"," ["
+"1",""
+"1","1e-100"
+"1",""
+"1",", "
+"1",""
+"1","Inf"
+"1",""
+"1","]
+"
+"1","Range (transformed scale): [-10, 0]
+"

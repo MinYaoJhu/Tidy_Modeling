@@ -1,0 +1,4 @@
+"0","#| echo = FALSE,"
+"0","#| fig.height = 3,"
+"0","#| fig.cap = ""Means and approximate 90% confidence intervals for the resampled binomial log-likelihood with three different link functions"","
+"0","#| fig.alt = ""Means and approximate 90% confidence intervals for the resampled binomial log-likelihood with three different link functions. The logit link has the largest value, followed by the probit link. The complementary log log link has far lower values."""

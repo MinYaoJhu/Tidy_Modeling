@@ -1,0 +1,8 @@
+"0","library(stringr)"
+"0","ch_2_vars <- str_subset(names(cells), ""ch_2"")"
+"0","ch_2_vars"
+"1","[1]"
+"1"," ""avg_inten_ch_2""  "
+"1"," ""total_inten_ch_2"""
+"1","
+"

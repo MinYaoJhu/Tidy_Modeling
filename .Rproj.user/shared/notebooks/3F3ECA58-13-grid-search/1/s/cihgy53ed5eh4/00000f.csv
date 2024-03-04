@@ -1,0 +1,30 @@
+"0","mlp_param <- extract_parameter_set_dials(mlp_spec)"
+"0","mlp_param %>% extract_parameter_dials(""hidden_units"")"
+"1","# Hidden Units (quantitative)
+"
+"1","Range: [1, 10]
+"
+"0","mlp_param %>% extract_parameter_dials(""penalty"")"
+"1","Amount of Regularization (quantitative)
+"
+"1","Transformer: "
+"1",""
+"1","log-10"
+"1",""
+"1"," ["
+"1",""
+"1","1e-100"
+"1",""
+"1",", "
+"1",""
+"1","Inf"
+"1",""
+"1","]
+"
+"1","Range (transformed scale): [-10, 0]
+"
+"0","mlp_param %>% extract_parameter_dials(""epochs"")"
+"1","# Epochs (quantitative)
+"
+"1","Range: [10, 1000]
+"

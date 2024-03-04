@@ -1,0 +1,6 @@
+"0","# identify the parameter using the id value:"
+"0","wflow_param %>% extract_parameter_dials(""threshold"")"
+"1","Threshold (quantitative)
+"
+"1","Range: [0, 0.1]
+"

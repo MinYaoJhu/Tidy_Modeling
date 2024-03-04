@@ -1,0 +1,10 @@
+"0","for (rs in resamples) {"
+"0","  # Create analysis and assessment sets"
+"0","  # Preprocess data (e.g. formula or recipe)"
+"0","  for (mod in configurations) {"
+"0","    # Fit model {mod} to the {rs} analysis set"
+"0","    # Predict the {rs} assessment set"
+"0","  }"
+"0","}"
+"2","Error: object 'resamples' not found
+"

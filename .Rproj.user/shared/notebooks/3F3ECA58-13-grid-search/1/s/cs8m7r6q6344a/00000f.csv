@@ -1,0 +1,32 @@
+"0","mcmc_args <- list(chains = 3, iter = 1000, cores = 3)"
+"0",""
+"0","linear_reg() %>% set_engine(""stan"", !!!mcmc_args)"
+"1","Linear Regression"
+"1",""
+"1"," Model Specification ("
+"1",""
+"1","regression"
+"1",""
+"1",")
+
+"
+"1","Engine-Specific Arguments:
+"
+"1","  chains = 3
+"
+"1",""
+"1","  iter = 1000
+"
+"1",""
+"1","  cores = 3
+"
+"1",""
+"1","
+"
+"1","Computational engine:"
+"1"," "
+"1","stan"
+"1"," "
+"1","
+
+"

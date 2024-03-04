@@ -1,0 +1,5 @@
+"0","#| fig.height = 6, "
+"0","#| fig.width = 6,"
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""Three tuning parameters with 15 points generated at random"","
+"0","#| fig.alt = ""A scatter plot matrix for three tuning parameters with 20 points generated at random. There are significant gaps in the parameter space."""
