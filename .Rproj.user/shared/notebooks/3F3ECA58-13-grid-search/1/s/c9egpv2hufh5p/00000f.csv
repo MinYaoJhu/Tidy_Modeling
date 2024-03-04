@@ -1,0 +1,113 @@
+"0","race_ci_plots <- function(x, iters = max(x$iter)) {"
+"0","  "
+"0","  x_rng <- extendrange(c(-x$estimate, -x$upper))"
+"0","  "
+"0","  for (i in 1:iters) {"
+"0","    if (i < 3) {"
+"0","      ttl <- paste0(""Iteration "", i, "": burn-in"")"
+"0","    } else {"
+"0","      ttl <- paste0(""Iteration "", i, "": testing"")"
+"0","    }"
+"0","    p <-"
+"0","      x %>% "
+"0","      dplyr::filter(iter == i) %>% "
+"0","      ggplot(aes(x = -estimate, y = .config, color = decision)) +"
+"0","      geom_vline(xintercept = 0, color = ""green"", lty = 2) +"
+"0","      geom_point(size = 2) +"
+"0","      labs(title = ttl, y = """", x = ""Loss of ROC AUC"") +"
+"0","      scale_color_manual(values = c(best = ""blue"", retain = ""black"", discard = ""grey""), "
+"0","                         drop = FALSE) +"
+"0","      scale_y_discrete(drop = FALSE) +"
+"0","      xlim(x_rng) + "
+"0","      theme_bw() +"
+"0","      theme(legend.position = ""top"")"
+"0","    "
+"0","    if (i >= 3) {"
+"0","      p <- p  + geom_errorbar(aes(xmin = -estimate, xmax = -upper), width = .3)"
+"0","    }"
+"0","    "
+"0","    print(p)"
+"0","  }"
+"0","  invisible(NULL)"
+"0","}"
+"0","av_capture_graphics("
+"0","  race_ci_plots(race_details),"
+"0","  output = ""race_results.mp4"","
+"0","  width = 720,"
+"0","  height = 720,"
+"0","  res = 120,"
+"0","  framerate = 1/3"
+"0",")"
+"2","using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2 AVX512
+"
+"2","profile High, level 5.2, 4:2:0, 8-bit
+"
+"2","264 - core 164 r3107M a8b68eb - H.264/MPEG-4 AVC codec - Copyleft 2003-2023 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=22 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+"
+"2","Output #0, mp4, to 'D:\Oldroyd_lab\GitHub\Tidy_Modeling\race_results.mp4':
+"
+"2","  Metadata:
+"
+"2","    encoder         : "
+"2","Lavf60.3.100"
+"2","
+"
+"2","  Stream #0:0"
+"2",": Video: h264 (avc1 / 0x31637661), yuv420p, 720x720, q=2-31"
+"2",", "
+"2","90k tbn"
+"2","
+"
+"2","Adding frame 1 at timestamp 0.00sec (90%)"
+"2","Adding frame 2 at timestamp 6.00sec (90%)"
+"2","Adding frame 3 at timestamp 3.00sec (90%)"
+"2","Adding frame 4 at timestamp 18.00sec (90%)"
+"2","Adding frame 5 at timestamp 12.00sec (90%)"
+"2","Adding frame 6 at timestamp 9.00sec (90%)"
+"2","Adding frame 7 at timestamp 15.00sec (90%)"
+"2","Adding frame 8 at timestamp 30.00sec (90%)"
+"2","Adding frame 9 at timestamp 24.00sec (90%)"
+"2","Adding frame 10 at timestamp 21.00sec (90%)"
+"2","Adding frame 11 at timestamp 27.00sec (90%)"
+"2"," - video stream completed!
+"
+"2","frame I:1     Avg QP: 7.61  size: 53942
+"
+"2","frame P:3     Avg QP:15.37  size:  2329
+"
+"2","frame B:7     Avg QP:16.94  size:   511
+"
+"2","consecutive B-frames:  9.1% 18.2%  0.0% 72.7%
+"
+"2","mb I  I16..4: 65.8%  0.7% 33.5%
+"
+"2","mb P  I16..4:  1.9%  0.3%  1.8%  P16..4:  3.0%  0.4%  0.1%  0.0%  0.0%    skip:92.3%
+"
+"2","mb B  I16..4:  0.1%  0.0%  0.2%  B16..8:  3.7%  0.3%  0.0%  direct: 0.1%  skip:95.5%  L0:41.0% L1:58.4% BI: 0.6%
+"
+"2","8x8 transform intra:1.6% inter:16.6%
+"
+"2","coded y,uvDC,uvAC intra: 22.0% 22.2% 22.1% inter: 0.3% 0.3% 0.2%
+"
+"2","i16 v,h,dc,p: 52% 46%  2%  0%
+"
+"2","i8 v,h,dc,ddl,ddr,vr,hd,vl,hu:  8% 15% 76%  1%  0%  0%  0%  0%  0%
+"
+"2","i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 33% 37% 17%  1%  2%  2%  3%  1%  4%
+"
+"2","i8c dc,h,v,p: 88%  3%  9%  0%
+"
+"2","Weighted P-Frames: Y:0.0% UV:0.0%
+"
+"2","ref P L0: 56.5%  0.1% 42.9%  0.5%
+"
+"2","ref B L0: 86.9% 11.9%  1.2%
+"
+"2","ref B L1: 97.5%  2.5%
+"
+"2","kb/s:15.64
+"
+"1","[1]"
+"1"," ""D:\\Oldroyd_lab\\GitHub\\Tidy_Modeling\\race_results.mp4"""
+"1","
+"

@@ -1,8 +1,0 @@
-"0","set.seed(1303)"
-"0","mlp_param %>% "
-"0","  grid_latin_hypercube(size = 20, original = FALSE) %>% "
-"0","  ggplot(aes(x = .panel_x, y = .panel_y)) + "
-"0","  geom_point() +"
-"0","  geom_blank() +"
-"0","  facet_matrix(vars(hidden_units, penalty, epochs), layer.diag = 2) + "
-"0","  labs(title = ""Latin Hypercube design with 20 candidates"")"

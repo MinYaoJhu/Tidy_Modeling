@@ -1,4 +1,0 @@
-"0","#| echo = FALSE,"
-"0","#| fig.cap = ""The `autoplot()` method results when used with a space-filling design"","
-"0","#| fig.alt = ""The `autoplot()` method results when used with a space-filling design. The trends show decreasing performance with the number of PCA components as well as the number of hidden units."""
-"0","autoplot(mlp_sfd_tune)"

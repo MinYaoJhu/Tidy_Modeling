@@ -1,2 +1,0 @@
-"0","mlp_param %>% "
-"0","  grid_regular(levels = c(hidden_units = 3, penalty = 2, epochs = 2))"

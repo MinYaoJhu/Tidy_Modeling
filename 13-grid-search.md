@@ -326,7 +326,7 @@ mlp_reg_tune <-
   mlp_wflow %>%
   tune_grid(
     cell_folds,
-    grid = mlp_param %>% grid_regular(levels = 2),
+    grid = mlp_param %>% grid_regular(levels = 3),
     metrics = roc_res
   )
 mlp_reg_tune
@@ -338,16 +338,16 @@ mlp_reg_tune
 ## # A tibble: 10 × 4
 ##    splits             id     .metrics          .notes          
 ##    <list>             <chr>  <list>            <list>          
-##  1 <split [1817/202]> Fold01 <tibble [16 × 8]> <tibble [0 × 3]>
-##  2 <split [1817/202]> Fold02 <tibble [16 × 8]> <tibble [0 × 3]>
-##  3 <split [1817/202]> Fold03 <tibble [16 × 8]> <tibble [0 × 3]>
-##  4 <split [1817/202]> Fold04 <tibble [16 × 8]> <tibble [0 × 3]>
-##  5 <split [1817/202]> Fold05 <tibble [16 × 8]> <tibble [0 × 3]>
-##  6 <split [1817/202]> Fold06 <tibble [16 × 8]> <tibble [0 × 3]>
-##  7 <split [1817/202]> Fold07 <tibble [16 × 8]> <tibble [0 × 3]>
-##  8 <split [1817/202]> Fold08 <tibble [16 × 8]> <tibble [0 × 3]>
-##  9 <split [1817/202]> Fold09 <tibble [16 × 8]> <tibble [0 × 3]>
-## 10 <split [1818/201]> Fold10 <tibble [16 × 8]> <tibble [0 × 3]>
+##  1 <split [1817/202]> Fold01 <tibble [81 × 8]> <tibble [0 × 3]>
+##  2 <split [1817/202]> Fold02 <tibble [81 × 8]> <tibble [0 × 3]>
+##  3 <split [1817/202]> Fold03 <tibble [81 × 8]> <tibble [0 × 3]>
+##  4 <split [1817/202]> Fold04 <tibble [81 × 8]> <tibble [0 × 3]>
+##  5 <split [1817/202]> Fold05 <tibble [81 × 8]> <tibble [0 × 3]>
+##  6 <split [1817/202]> Fold06 <tibble [81 × 8]> <tibble [0 × 3]>
+##  7 <split [1817/202]> Fold07 <tibble [81 × 8]> <tibble [0 × 3]>
+##  8 <split [1817/202]> Fold08 <tibble [81 × 8]> <tibble [0 × 3]>
+##  9 <split [1817/202]> Fold09 <tibble [81 × 8]> <tibble [0 × 3]>
+## 10 <split [1818/201]> Fold10 <tibble [81 × 8]> <tibble [0 × 3]>
 ```
 
 There are high-level convenience functions we can use to understand the results. First, the `autoplot()` method for regular grids shows the performance profiles across tuning parameters in Figure \@ref(fig:regular-grid-plot).  
@@ -377,11 +377,11 @@ show_best(mlp_reg_tune) %>% select(-.estimator)
 ## # A tibble: 5 × 9
 ##   hidden_units penalty epochs num_comp .metric  mean     n std_err .config      
 ##          <int>   <dbl>  <int>    <int> <chr>   <dbl> <int>   <dbl> <chr>        
-## 1           10       1     50        0 roc_auc 0.892    10 0.00864 Preprocessor…
-## 2            1       1    200        0 roc_auc 0.891    10 0.00799 Preprocessor…
-## 3            1       1     50        0 roc_auc 0.891    10 0.00795 Preprocessor…
-## 4            1       1    200       40 roc_auc 0.890    10 0.00784 Preprocessor…
-## 5            1       1     50       40 roc_auc 0.890    10 0.00778 Preprocessor…
+## 1            5       1     50        0 roc_auc 0.897    10 0.00857 Preprocessor…
+## 2           10       1    125        0 roc_auc 0.895    10 0.00898 Preprocessor…
+## 3           10       1     50        0 roc_auc 0.894    10 0.00960 Preprocessor…
+## 4            5       1    200        0 roc_auc 0.894    10 0.00784 Preprocessor…
+## 5            5       1    125        0 roc_auc 0.892    10 0.00822 Preprocessor…
 ```
 
 Based on these results, it would make sense to conduct another run of grid search with larger values of the weight decay penalty. 
@@ -395,7 +395,7 @@ mlp_sfd_tune <-
   mlp_wflow %>%
   tune_grid(
     cell_folds,
-    grid = 10,
+    grid = 20,
     # Pass in the parameter object to use the appropriate range: 
     param_info = mlp_param,
     metrics = roc_res
@@ -409,16 +409,16 @@ mlp_sfd_tune
 ## # A tibble: 10 × 4
 ##    splits             id     .metrics          .notes          
 ##    <list>             <chr>  <list>            <list>          
-##  1 <split [1817/202]> Fold01 <tibble [10 × 8]> <tibble [0 × 3]>
-##  2 <split [1817/202]> Fold02 <tibble [10 × 8]> <tibble [0 × 3]>
-##  3 <split [1817/202]> Fold03 <tibble [10 × 8]> <tibble [0 × 3]>
-##  4 <split [1817/202]> Fold04 <tibble [10 × 8]> <tibble [0 × 3]>
-##  5 <split [1817/202]> Fold05 <tibble [10 × 8]> <tibble [0 × 3]>
-##  6 <split [1817/202]> Fold06 <tibble [10 × 8]> <tibble [0 × 3]>
-##  7 <split [1817/202]> Fold07 <tibble [10 × 8]> <tibble [0 × 3]>
-##  8 <split [1817/202]> Fold08 <tibble [10 × 8]> <tibble [0 × 3]>
-##  9 <split [1817/202]> Fold09 <tibble [10 × 8]> <tibble [0 × 3]>
-## 10 <split [1818/201]> Fold10 <tibble [10 × 8]> <tibble [0 × 3]>
+##  1 <split [1817/202]> Fold01 <tibble [20 × 8]> <tibble [0 × 3]>
+##  2 <split [1817/202]> Fold02 <tibble [20 × 8]> <tibble [0 × 3]>
+##  3 <split [1817/202]> Fold03 <tibble [20 × 8]> <tibble [0 × 3]>
+##  4 <split [1817/202]> Fold04 <tibble [20 × 8]> <tibble [0 × 3]>
+##  5 <split [1817/202]> Fold05 <tibble [20 × 8]> <tibble [0 × 3]>
+##  6 <split [1817/202]> Fold06 <tibble [20 × 8]> <tibble [0 × 3]>
+##  7 <split [1817/202]> Fold07 <tibble [20 × 8]> <tibble [0 × 3]>
+##  8 <split [1817/202]> Fold08 <tibble [20 × 8]> <tibble [0 × 3]>
+##  9 <split [1817/202]> Fold09 <tibble [20 × 8]> <tibble [0 × 3]>
+## 10 <split [1818/201]> Fold10 <tibble [20 × 8]> <tibble [0 × 3]>
 ```
 
 The `autoplot()` method will also work with these designs, although the format of the results will be different. Figure \@ref(fig:sfd-plot) was produced using `autoplot(mlp_sfd_tune)`.
@@ -447,11 +447,11 @@ show_best(mlp_sfd_tune) %>% select(-.estimator)
 ## # A tibble: 5 × 9
 ##   hidden_units       penalty epochs num_comp .metric  mean     n std_err .config
 ##          <int>         <dbl>  <int>    <int> <chr>   <dbl> <int>   <dbl> <chr>  
-## 1            2 0.0676            65       40 roc_auc 0.881    10 0.00808 Prepro…
-## 2            9 0.553             99       23 roc_auc 0.874    10 0.00974 Prepro…
-## 3            4 0.000000820      140        8 roc_auc 0.871    10 0.0104  Prepro…
-## 4            1 0.00000000111     83        6 roc_auc 0.868    10 0.00788 Prepro…
-## 5            3 0.0000000308     163       14 roc_auc 0.866    10 0.00979 Prepro…
+## 1            8 0.594             97       22 roc_auc 0.880    10 0.00998 Prepro…
+## 2            3 0.00000000649    135        8 roc_auc 0.878    10 0.00953 Prepro…
+## 3            9 0.141            177       11 roc_auc 0.873    10 0.0104  Prepro…
+## 4            8 0.0000000103      74        9 roc_auc 0.869    10 0.00761 Prepro…
+## 5            6 0.00581          129       15 roc_auc 0.865    10 0.00658 Prepro…
 ```
 
 Generally, it is a good idea to evaluate the models over multiple metrics so that different aspects of the model fit are taken into account. Also, it often makes sense to choose a slightly suboptimal parameter combination that is associated with a simpler model. For this model, simplicity corresponds to larger penalty values and/or fewer hidden units.  
@@ -476,9 +476,9 @@ select_best(mlp_reg_tune, metric = "roc_auc")
 
 ```
 ## # A tibble: 1 × 5
-##   hidden_units penalty epochs num_comp .config             
-##          <int>   <dbl>  <int>    <int> <chr>               
-## 1           10       1     50        0 Preprocessor1_Model4
+##   hidden_units penalty epochs num_comp .config              
+##          <int>   <dbl>  <int>    <int> <chr>                
+## 1            5       1     50        0 Preprocessor1_Model08
 ```
 
 Looking back at Figure \@ref(fig:regular-grid-plot), we can see that a model with a single hidden unit trained for 125 epochs on the original predictors with a large amount of penalization has performance competitive with this option, and is simpler. This is basically penalized logistic regression! To manually specify these parameters, we can create a tibble with these values and then use a _finalization_ function to splice the values back into the workflow: 
@@ -1002,12 +1002,12 @@ show_best(mlp_sfd_race, n = 10)
 ## # A tibble: 6 × 10
 ##   hidden_units  penalty epochs num_comp .metric .estimator  mean     n std_err
 ##          <int>    <dbl>  <int>    <int> <chr>   <chr>      <dbl> <int>   <dbl>
-## 1            8 8.14e- 1    177       15 roc_auc binary     0.890    10 0.00992
-## 2            3 4.02e- 2    151       10 roc_auc binary     0.885    10 0.00797
-## 3            5 1.30e-10     89        5 roc_auc binary     0.879    10 0.00860
-## 4            3 1.23e- 1     55       36 roc_auc binary     0.876    10 0.00858
-## 5            4 1.26e- 3    112        9 roc_auc binary     0.876    10 0.00982
-## 6            2 7.91e- 4    164        7 roc_auc binary     0.875    10 0.00814
+## 1            8 8.14e- 1    177       15 roc_auc binary     0.887    10 0.0103 
+## 2            3 4.02e- 2    151       10 roc_auc binary     0.885    10 0.00810
+## 3            3 1.23e- 1     55       36 roc_auc binary     0.878    10 0.0104 
+## 4            4 1.26e- 3    112        9 roc_auc binary     0.877    10 0.00990
+## 5            2 7.91e- 4    164        7 roc_auc binary     0.876    10 0.00762
+## 6            5 1.30e-10     89        5 roc_auc binary     0.876    10 0.00872
 ## # ℹ 1 more variable: .config <chr>
 ```
 

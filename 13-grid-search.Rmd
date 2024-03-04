@@ -18,8 +18,12 @@ library(lme4)
 data(cells)
 theme_set(theme_bw())
 
-#library(doMC)
-#registerDoMC(cores = parallel::detectCores(logical = TRUE))
+# All operating systems
+library(doParallel)
+
+# Create a cluster object and then register: 
+cl <- makePSOCKcluster(8)
+registerDoParallel(cl)
 
 library(kableExtra)
 
@@ -254,7 +258,7 @@ mlp_reg_tune <-
   mlp_wflow %>%
   tune_grid(
     cell_folds,
-    grid = mlp_param %>% grid_regular(levels = 2),
+    grid = mlp_param %>% grid_regular(levels = 3),
     metrics = roc_res
   )
 mlp_reg_tune
@@ -291,7 +295,7 @@ mlp_sfd_tune <-
   mlp_wflow %>%
   tune_grid(
     cell_folds,
-    grid = 10,
+    grid = 20,
     # Pass in the parameter object to use the appropriate range: 
     param_info = mlp_param,
     metrics = roc_res
