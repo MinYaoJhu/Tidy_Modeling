@@ -1,0 +1,38 @@
+"0","cost()"
+"1","Cost (quantitative)
+"
+"1","Transformer: "
+"1",""
+"1","log-2"
+"1",""
+"1"," ["
+"1",""
+"1","1e-100"
+"1",""
+"1",", "
+"1",""
+"1","Inf"
+"1",""
+"1","]
+"
+"1","Range (transformed scale): [-10, 5]
+"
+"0","rbf_sigma()"
+"1","Radial Basis Function sigma (quantitative)
+"
+"1","Transformer: "
+"1",""
+"1","log-10"
+"1",""
+"1"," ["
+"1",""
+"1","1e-100"
+"1",""
+"1",", "
+"1",""
+"1","Inf"
+"1",""
+"1","]
+"
+"1","Range (transformed scale): [-10, 0]
+"

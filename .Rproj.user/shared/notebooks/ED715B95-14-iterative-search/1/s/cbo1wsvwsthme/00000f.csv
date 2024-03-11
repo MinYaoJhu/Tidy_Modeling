@@ -1,0 +1,5 @@
+"0","so_start <- paste(""Iteration"", last_iter)"
+"0","so_start_index <- grep(so_start, svm_bo_output)"
+"0","if (length(so_start_index) > 0) {"
+"0","  cat(svm_bo_output[so_start_index:length(svm_bo_output)], sep = """")"
+"0","}"

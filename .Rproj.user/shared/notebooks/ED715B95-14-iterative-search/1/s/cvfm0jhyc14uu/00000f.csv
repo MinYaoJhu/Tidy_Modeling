@@ -1,0 +1,4 @@
+"0","so_stop_index <- grep(""^ 5"", svm_sa_output)"
+"0","if (length(so_stop_index) > 0) {"
+"0","  cat(svm_sa_output[1:so_stop_index], sep = ""\n"")"
+"0","}"

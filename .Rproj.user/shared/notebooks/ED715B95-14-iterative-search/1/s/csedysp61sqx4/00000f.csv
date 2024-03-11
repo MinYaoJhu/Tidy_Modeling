@@ -1,0 +1,51 @@
+"0","last_sa_iter <- max(result_history$.iter)"
+"0",""
+"0","so_start_index <- grep(paste0(""^"", last_sa_iter - 10), svm_sa_output)"
+"0","so_stop_index  <- grep(paste0(""^"", last_sa_iter), svm_sa_output)"
+"0","if (length(so_stop_index) > 0) {"
+"0","  cat(svm_sa_output[so_start_index:so_stop_index], sep = ""\n"")"
+"0","}"
+"1","40 ◯ accept suboptimal  roc_auc=0.89606 (+/-0.008203)
+"
+"1","
+"
+"1","41 ─ discard suboptimal roc_auc=0.87556 (+/-0.009272)
+"
+"1","
+"
+"1","42 ─ discard suboptimal roc_auc=0.87198 (+/-0.009301)
+"
+"1","
+"
+"1","43 ✖ restart from best  roc_auc=0.89801 (+/-0.008224)
+"
+"1","
+"
+"1","44 ◯ accept suboptimal  roc_auc=0.89006 (+/-0.008789)
+"
+"1","
+"
+"1","45 + better suboptimal  roc_auc=0.89781 (+/-0.008104)
+"
+"1","
+"
+"1","46 ◯ accept suboptimal  roc_auc=0.89563 (+/-0.008601)
+"
+"1","
+"
+"1","47 ─ discard suboptimal roc_auc=0.88527 (+/-0.008766)
+"
+"1","
+"
+"1","48 ◯ accept suboptimal  roc_auc=0.8922 (+/-0.008891)
+"
+"1","
+"
+"1","49 ─ discard suboptimal roc_auc=0.87691 (+/-0.008352)
+"
+"1","
+"
+"1","50 ◯ accept suboptimal  roc_auc=0.88803 (+/-0.008728)
+"
+"1","
+"

@@ -1,0 +1,314 @@
+"0","ctrl <- control_bayes(verbose = TRUE)"
+"0","# Creates control settings for the Bayesian optimization, enabling verbose output to track the progress."
+"0",""
+"0","set.seed(1403)"
+"0","svm_bo <-"
+"0","  svm_wflow %>%"
+"0","  tune_bayes("
+"0","    resamples = cell_folds,"
+"0","    metrics = roc_res,"
+"0","    initial = svm_initial,"
+"0","    param_info = svm_param,"
+"0","    iter = 25,"
+"0","    control = ctrl"
+"0","  )"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"
+"2","[34mi[39m [30mGaussian process model[39m
+"
+"2","[32m✓[39m [30mGaussian process model[39m
+"
+"2","[34mi[39m [30mGenerating 5000 candidates[39m
+"
+"2","[34mi[39m [30mPredicted candidates[39m
+"
+"2","[34mi[39m [30mEstimating performance[39m
+"
+"2","[32m✓[39m [30mEstimating performance[39m
+"

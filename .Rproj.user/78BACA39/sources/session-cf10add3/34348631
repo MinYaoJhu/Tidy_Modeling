@@ -3,7 +3,7 @@
     "path": "D:/Oldroyd_lab/GitHub/Tidy_Modeling/13-grid-search.Rmd",
     "project_path": "13-grid-search.Rmd",
     "type": "r_markdown",
-    "hash": "3062839030",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1709562285283.0,
@@ -12,8 +12,8 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "297,12",
-        "scrollLine": "288"
+        "cursorPosition": "20,0",
+        "scrollLine": "15"
     },
     "folds": "",
     "lastKnownWriteTime": 1709576904,
