@@ -356,7 +356,7 @@ autoplot(grid_results, id = "Cubist", metric = "rmse")
 
 There are also methods for `collect_predictions()` and `collect_metrics()`. 
 
-The example model screening with our concrete mixture data fits a total of `format(num_grid_models, big.mark = ",")` models. Using `r cores` workers in parallel, the estimation process took  `round(full_results_time[3]/60/60, 1)` hours to complete.
+The example model screening with our concrete mixture data fits a total of `format(num_grid_models, big.mark = ",")` models. Using `cores` workers in parallel, the estimation process took  `round(full_results_time[3]/60/60, 1)` hours to complete.
 
 ## Efficiently Screening Models {#racing-example}
 
