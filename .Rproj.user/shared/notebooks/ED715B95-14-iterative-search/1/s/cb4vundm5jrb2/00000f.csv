@@ -1563,41 +1563,41 @@
 "2","Adding frame 1530 at timestamp 152.90sec (98%)"
 "2"," - video stream completed!
 "
-"2","frame I:7     Avg QP: 7.10  size: 24665
+"2","frame I:7     Avg QP: 7.20  size: 24403
 "
-"2","frame P:394   Avg QP:16.22  size:  1052
+"2","frame P:394   Avg QP:16.09  size:  1050
 "
-"2","frame B:1129  Avg QP:10.83  size:    48
+"2","frame B:1129  Avg QP:10.86  size:    48
 "
 "2","consecutive B-frames:  0.7%  2.6%  0.8% 95.9%
 "
-"2","mb I  I16..4: 64.6% 10.1% 25.3%
+"2","mb I  I16..4: 63.7% 11.1% 25.1%
 "
 "2","mb P  I16..4:  0.0%  0.1%  0.2%  P16..4:  1.2%  0.2%  0.2%  0.0%  0.0%    skip:98.1%
 "
-"2","mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.8%  0.0%  0.0%  direct: 0.0%  skip:99.2%  L0:66.4% L1:33.4% BI: 0.2%
+"2","mb B  I16..4:  0.0%  0.0%  0.0%  B16..8:  0.8%  0.0%  0.0%  direct: 0.0%  skip:99.2%  L0:68.4% L1:31.4% BI: 0.2%
 "
-"2","8x8 transform intra:12.6% inter:10.6%
+"2","8x8 transform intra:13.6% inter:11.0%
 "
-"2","coded y,uvDC,uvAC intra: 27.3% 36.0% 34.1% inter: 0.2% 0.2% 0.2%
+"2","coded y,uvDC,uvAC intra: 27.9% 36.4% 34.6% inter: 0.2% 0.2% 0.2%
 "
-"2","i16 v,h,dc,p: 87%  9%  3%  0%
+"2","i16 v,h,dc,p: 87%  8%  4%  0%
 "
-"2","i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 39% 14% 45%  0%  1%  0%  1%  0%  0%
+"2","i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 38% 16% 43%  0%  0%  0%  1%  0%  0%
 "
 "2","i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 48% 24% 18%  1%  2%  2%  2%  1%  2%
 "
-"2","i8c dc,h,v,p: 70%  8% 18%  3%
+"2","i8c dc,h,v,p: 71%  8% 18%  3%
 "
 "2","Weighted P-Frames: Y:0.0% UV:0.0%
 "
-"2","ref P L0: 82.7%  8.3%  8.0%  1.0%
+"2","ref P L0: 81.9%  8.5%  8.5%  1.1%
 "
-"2","ref B L0: 35.4% 61.4%  3.2%
+"2","ref B L0: 32.9% 63.8%  3.3%
 "
 "2","ref B L1: 99.2%  0.8%
 "
-"2","kb/s:33.54
+"2","kb/s:33.37
 "
 "1","[1]"
 "1"," ""D:\\Oldroyd_lab\\GitHub\\Tidy_Modeling\\sa_search.mp4"""

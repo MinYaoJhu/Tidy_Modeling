@@ -1,7 +1,0 @@
-"0","#| out.width = ""80%"", "
-"0","#| echo = FALSE,"
-"0","#| warning = FALSE,"
-"0","#| fig.cap = ""Heatmap of the mean area under the ROC curve for a high density grid of tuning parameter values. The best point is a solid dot in the upper-right corner. "","
-"0","#| fig.alt = ""A heatmap of the mean area under the ROC curve for a high density grid of tuning parameter values. The best point is a solid dot in the upper-right corner. The surface has a ridge of high performance moving to the lower right. """
-"0","# See file extras/cells_svm_large.R"
-"0","knitr::include_graphics(""premade/roc_surface.png"")"
