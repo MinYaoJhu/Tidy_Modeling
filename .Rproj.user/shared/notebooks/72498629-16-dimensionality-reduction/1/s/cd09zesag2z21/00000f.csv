@@ -1,0 +1,6 @@
+"0","bean_rec_trained %>%"
+"0","  step_pls(all_numeric_predictors(), outcome = ""class"", num_comp = 4) %>%"
+"0","  prep() %>% "
+"0","  plot_top_loadings(component_number <= 4, n = 5, type = ""pls"") + "
+"0","  scale_fill_brewer(palette = ""Paired"") +"
+"0","  ggtitle(""Partial Least Squares"")"

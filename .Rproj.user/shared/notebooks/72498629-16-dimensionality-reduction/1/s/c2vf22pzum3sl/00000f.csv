@@ -1,0 +1,1 @@
+"0","bean_val_processed <- bake(bean_rec_trained, new_data = bean_validation)"

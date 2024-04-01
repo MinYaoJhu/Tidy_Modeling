@@ -1,0 +1,5 @@
+"0","#| dev = ""png"", "
+"0","#| echo = FALSE,"
+"0","#| fig.height = 7,"
+"0","#| fig.cap = ""ICA component scores for the bean validation set, colored by class"","
+"0","#| fig.alt = ""ICA component scores for the bean validation set, colored by class. There is significant overlap in the first two ICA components."""

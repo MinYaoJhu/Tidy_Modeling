@@ -1,0 +1,5 @@
+"0","#| dev = ""png"", "
+"0","#| echo = FALSE,"
+"0","#| fig.height = 7,"
+"0","#| fig.cap = ""Supervised UMAP component scores for the bean validation set, colored by class"","
+"0","#| fig.alt = ""Supervised UMAP component scores for the bean validation set, colored by class. There is again a very high degree of separation between clusters, and there are now fewer instances of one cluster containing multiple classes."""

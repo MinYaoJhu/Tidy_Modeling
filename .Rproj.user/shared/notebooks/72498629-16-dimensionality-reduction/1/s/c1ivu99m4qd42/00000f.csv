@@ -1,0 +1,5 @@
+"0","#| dev = ""png"", "
+"0","#| echo = FALSE,"
+"0","#| fig.height = 7,"
+"0","#| fig.cap = ""UMAP component scores for the bean validation set, colored by class"","
+"0","#| fig.alt = ""UMAP component scores for the bean validation set, colored by class. There is a very high degree of separation between clusters, but several of the clusters contain more than one class."""

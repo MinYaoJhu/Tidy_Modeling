@@ -1,0 +1,6 @@
+"0","#| echo = FALSE,"
+"0","#| fig.height=6, "
+"0","#| fig.width=6, "
+"0","#| out.width=""70%"","
+"0","#| fig.cap = ""Correlation matrix of the predictors with variables ordered via clustering"","
+"0","#| fig.alt = ""A correlation matrix of the predictors with variables ordered via clustering. There are two to three clusters that have high within cluster correlations."""

@@ -1,0 +1,5 @@
+"0","#| echo = FALSE, "
+"0","#| out.width=""95%"","
+"0","#| fig.cap = ""Some example shapes and their eccentricity statistics"","
+"0","#| fig.alt = ""Some example shapes and their eccentricity statistics. Circles and squares have the smallest eccentricity values while X shapes and lightning bolts have the largest. Also, the eccentricity is the same when shapes are rotated."""
+"0","knitr::include_graphics(""premade/morphology.svg"")"

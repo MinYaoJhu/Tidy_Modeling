@@ -1,0 +1,33 @@
+"0","show_variables <- "
+"0","  bean_rec %>% "
+"0","  prep(log_changes = TRUE)"
+"1","step_zv"
+"1",""
+"1"," ("
+"1",""
+"1","zv_RLYwH"
+"1",""
+"1","): "
+"1","same number of columns
+
+"
+"1","step_orderNorm"
+"1",""
+"1"," ("
+"1",""
+"1","orderNorm_Jx8oD"
+"1",""
+"1","): "
+"1","same number of columns
+
+"
+"1","step_normalize"
+"1",""
+"1"," ("
+"1",""
+"1","normalize_GU75D"
+"1",""
+"1","): "
+"1","same number of columns
+
+"

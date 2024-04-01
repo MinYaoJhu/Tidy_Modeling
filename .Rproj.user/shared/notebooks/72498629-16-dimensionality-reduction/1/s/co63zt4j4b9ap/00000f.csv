@@ -1,0 +1,5 @@
+"0","#| dev = ""png"", "
+"0","#| echo = FALSE,"
+"0","#| fig.height = 7,"
+"0","#| fig.cap = ""Principal component scores for the bean validation set, colored by class"","
+"0","#| fig.alt = ""Principal component scores for the bean validation set, colored by class. The classes separate when the first two components are plotted against one another."""

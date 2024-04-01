@@ -1,0 +1,7 @@
+"0","#| echo = FALSE, "
+"0","#| out.width = '80%', "
+"0","#| warning = FALSE,"
+"0","#| fig.cap = ""Summary of recipe-related functions"","
+"0","#| fig.alt = ""A summary of the recipe-related functions."""
+"0",""
+"0","knitr::include_graphics(""premade/recipes-process.svg"")"

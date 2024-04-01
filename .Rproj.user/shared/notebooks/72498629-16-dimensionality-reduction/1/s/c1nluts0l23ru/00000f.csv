@@ -1,0 +1,31 @@
+"0","bean_rec_trained <- prep(bean_rec)"
+"0","bean_rec_trained"
+"2","
+"
+"2","[36m──[39m [1mRecipe[22m [36m───────────────────────────────────────────────────────────────────────[39m
+"
+"2","
+"
+"2","── Inputs 
+"
+"2","Number of variables by role
+"
+"2","outcome:    1
+predictor: 16
+"
+"2","
+"
+"2","── Training information 
+"
+"2","Training data contained 10206 data points and no incomplete rows.
+"
+"2","
+"
+"2","── Operations 
+"
+"2","[36m•[39m Zero variance filter removed: [34m<none>[39m | [3mTrained[23m
+"
+"2","[36m•[39m orderNorm transformation on: [34marea[39m and [34mperimeter[39m, ... | [3mTrained[23m
+"
+"2","[36m•[39m Centering and scaling for: [34marea[39m and [34mperimeter[39m, ... | [3mTrained[23m
+"

@@ -1,0 +1,5 @@
+"0","#| dev = ""png"", "
+"0","#| fig.height = 7,"
+"0","#| echo = FALSE,"
+"0","#| fig.cap = ""PLS component scores for the bean validation set, colored by class"","
+"0","#| fig.alt = ""PLS component scores for the bean validation set, colored by class. The first two PLS components are nearly identical to the first two PCA components."""

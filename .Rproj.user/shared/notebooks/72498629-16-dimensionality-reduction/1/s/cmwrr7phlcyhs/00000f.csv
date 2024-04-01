@@ -1,0 +1,30 @@
+"0","bean_rec_trained %>% "
+"0","  step_dummy(cornbread) %>%  # <- not a real predictor"
+"0","  prep(verbose = TRUE)"
+"1","oper 1 step zv"
+"1"," "
+"1","[pre-trained]
+"
+"1","oper 2 step orderNorm"
+"1"," "
+"1","[pre-trained]
+"
+"1","oper 3 step normalize"
+"1"," "
+"1","[pre-trained]
+"
+"1","oper 4 step dummy"
+"1"," "
+"1","[training]"
+"1"," "
+"1","
+"
+"1","[1m[33mError[39m in `step_dummy()`:[22m
+[1mCaused by error in `prep()`:[22m
+[33m![39m Can't select columns that don't exist.
+[31m✖[39m Column `cornbread` doesn't exist.
+Backtrace:
+[90m 1. [39mbean_rec_trained %>% step_dummy(cornbread) %>% ...
+[90m 3. [39m[1mrecipes[22m:::prep.recipe(., verbose = TRUE)
+[90m 8. [39m[1m[94mrecipes:::prep.step_dummy([39m[22mx$steps[[i]], training = training, info = x$term_info[1m[94m)[39m[22m
+"

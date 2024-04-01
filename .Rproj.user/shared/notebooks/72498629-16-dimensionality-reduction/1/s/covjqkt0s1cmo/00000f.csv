@@ -1,0 +1,4 @@
+"0","#| echo = FALSE, "
+"0","#| fig.height=4,"
+"0","#| fig.cap = ""The `area` predictor before and after preprocessing"","
+"0","#| fig.alt = ""The `area` predictor before and after preprocessing. The before panel shows a right-skewed, slightly bimodal distribution. The after panel has a distribution that is fairly bell shaped."""

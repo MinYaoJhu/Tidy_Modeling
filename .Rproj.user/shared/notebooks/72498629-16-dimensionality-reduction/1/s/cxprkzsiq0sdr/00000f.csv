@@ -1,0 +1,6 @@
+"0","rankings <- "
+"0","  rank_results(bean_res, select_best = TRUE) %>% "
+"0","  mutate(method = map_chr(wflow_id, ~ str_split(.x, ""_"", simplify = TRUE)[1])) "
+"0",""
+"0","tidymodels_prefer()"
+"0","filter(rankings, rank <= 5) %>% dplyr::select(rank, mean, model, method)"
