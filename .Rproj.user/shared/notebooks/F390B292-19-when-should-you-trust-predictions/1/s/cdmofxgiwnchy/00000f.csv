@@ -1,0 +1,8 @@
+"0","res_2020 <-"
+"0","  predict(lm_fit, Chicago_2020) %>%"
+"0","  bind_cols("
+"0","    predict(lm_fit, Chicago_2020, type = ""pred_int""),"
+"0","    Chicago_2020"
+"0","  ) "
+"0",""
+"0","res_2020 %>% select(date, contains("".pred""))"

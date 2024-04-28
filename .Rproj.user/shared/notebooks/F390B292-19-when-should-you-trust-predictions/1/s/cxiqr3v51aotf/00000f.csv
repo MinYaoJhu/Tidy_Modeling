@@ -1,0 +1,2 @@
+"0","test_pred <- augment(two_class_mod, testing_set)"
+"0","test_pred %>% head()"

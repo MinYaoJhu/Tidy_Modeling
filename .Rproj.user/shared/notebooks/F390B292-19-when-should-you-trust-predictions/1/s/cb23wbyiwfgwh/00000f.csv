@@ -1,0 +1,4 @@
+"0","#| echo = FALSE,"
+"0","#| out.width=""80%"","
+"0","#| fig.cap = ""The effect of equivocal zones on model performance"","
+"0","#| fig.alt = ""The effect of equivocal zones on model performance. There is a slight increase in accuracy at the expense of a falling reportable rate."""

@@ -1,0 +1,5 @@
+"0","test_pred <- "
+"0","  test_pred %>% "
+"0","  bind_cols("
+"0","    predict(two_class_mod, testing_set, type = ""pred_int"", std_error = TRUE)"
+"0","  )"

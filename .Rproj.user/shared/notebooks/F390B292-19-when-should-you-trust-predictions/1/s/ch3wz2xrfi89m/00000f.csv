@@ -1,0 +1,10 @@
+"0","library(applicable)"
+"0","pca_stat <- apd_pca(~ ., data = Chicago_train %>% select(one_of(stations)), "
+"0","                    threshold = 0.99)"
+"0","pca_stat"
+"1","# Predictors:
+   20
+# Principal Components:
+   9 components were needed
+   to capture at least 99% of the
+   total variation in the predictors."

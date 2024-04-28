@@ -1,0 +1,1 @@
+"0","res_2020 %>% select(date, ridership, starts_with("".pred""))"

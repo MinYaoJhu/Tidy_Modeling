@@ -1,0 +1,1 @@
+"0","score(pca_stat, Chicago_test) %>% select(starts_with(""distance""))"

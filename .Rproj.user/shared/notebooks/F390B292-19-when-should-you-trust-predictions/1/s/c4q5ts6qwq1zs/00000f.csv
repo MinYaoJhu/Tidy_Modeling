@@ -1,0 +1,8 @@
+"0","res_test <-"
+"0","  predict(lm_fit, Chicago_test) %>%"
+"0","  bind_cols("
+"0","    predict(lm_fit, Chicago_test, type = ""pred_int""),"
+"0","    Chicago_test"
+"0","  )"
+"0",""
+"0","res_test %>% select(date, ridership, starts_with("".pred""))"
