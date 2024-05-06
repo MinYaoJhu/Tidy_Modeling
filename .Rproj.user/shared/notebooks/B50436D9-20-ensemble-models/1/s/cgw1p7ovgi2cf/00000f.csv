@@ -1,0 +1,28 @@
+"0","stacks() %>% "
+"0","  add_candidates(grid_results) %>% "
+"0","  as_tibble() %>% "
+"0","  mutate("
+"0","    sample_num = row_number(),"
+"0","    buffer_1 = """","
+"0","    buffer_2 = """") %>% "
+"0","  slice_head(n = 6) %>% "
+"0","  select(sample_num, CART_bagged_1_1, starts_with(""MARS""), Cubist_1_01,"
+"0","         buffer_1, Cubist_1_18, buffer_2) %>% "
+"0","  knitr::kable("
+"0","    digits = 2,"
+"0","    align = rep(""c"", 8),"
+"0","    col.names = c(""Sample #"", ""Bagged Tree"", ""MARS 1"", ""MARS 2"", ""Cubist 1"", "
+"0","                  ""..."", ""Cubist 25"", ""...""),"
+"0","    caption = ""Predictions from candidate tuning parameter configurations."","
+"0","    label = ""ensemble-candidate-preds"""
+"0","  ) %>% "
+"0","  kable_styling(""striped"", full_width = TRUE) %>% "
+"0","  add_header_above(c("" "", ""Ensemble Candidate Predictions"" = 7)) %>% "
+"0","  row_spec(0, align = ""c"")"
+"1","[1m[33mError[39m in `select()`:[22m
+[33m![39m Can't select columns that don't exist.
+[31m✖[39m Column `Cubist_1_18` doesn't exist.
+Backtrace:
+[90m 1. [39m... %>% row_spec(0, align = ""c"")
+[90m 7. [39m[1m[94mdplyr:::select.data.frame([39m[22m...[1m[94m)[39m[22m
+"

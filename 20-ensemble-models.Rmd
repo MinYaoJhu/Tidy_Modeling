@@ -1,3 +1,12 @@
+---
+title: "20 Ensembles of Models"
+author: "Min-Yao"
+date: "2024-05-06"
+output: 
+  html_document: 
+    keep_md: true
+---
+
 ```{r ensembles-setup, include = FALSE}
 knitr::opts_chunk$set(fig.path = "figures/")
 library(tidymodels)
@@ -20,7 +29,7 @@ Model stacking combines the predictions for multiple models of any type. For exa
 :::
 
 
-This chapter shows how to stack predictive models using the `r pkg(stacks)` package. We'll re-use the results from Chapter \@ref(workflow-sets) where multiple models were evaluated to predict the compressive strength of concrete mixtures.
+This chapter shows how to stack predictive models using the `pkg(stacks)` package. We'll re-use the results from Chapter \@ref(workflow-sets) where multiple models were evaluated to predict the compressive strength of concrete mixtures.
 
 The process of building a stacked ensemble is:
 
@@ -53,7 +62,7 @@ Simple validation sets can also be used with stacking since tidymodels considers
 
 For the concrete example, the training set used for model stacking has columns for all of the candidate tuning parameter results. Table \@ref(tab:ensemble-candidate-preds) presents the first six rows and selected columns.
 
-```{r ensembles-data-example, echo = FALSE, results = "asis", warning = FALSE, message = FALSE}
+```{r ensembles-data-example, echo = FALSE, results = "asis", warning = FALSE, message = FALSE, eval=FALSE}
 stacks() %>% 
   add_candidates(grid_results) %>% 
   as_tibble() %>% 
@@ -85,7 +94,7 @@ For classification models, the candidate prediction columns would be predicted c
 
 To summarize where we are so far, the first step to stacking is to assemble the assessment set predictions for the training set from each candidate model. We can use these assessment set predictions to move forward and build a stacked ensemble.
 
-To start ensembling with the `r pkg(stacks)` package, create an empty data stack using the `stacks()` function and then add candidate models. Recall that we used workflow sets to fit a wide variety of models to these data. We'll use the racing results:
+To start ensembling with the `pkg(stacks)` package, create an empty data stack using the `stacks()` function and then add candidate models. Recall that we used workflow sets to fit a wide variety of models to these data. We'll use the racing results:
 
 ```{r ensembles-race}
 race_results
@@ -111,7 +120,7 @@ Recall that racing methods (Section \@ref(racing)) are more efficient since they
 Why use the racing results instead of the full set of candidate models contained in `grid_results`? Either can be used. We found better performance for these data using the racing results. This might be due to the racing method pre-selecting the best model(s) from the larger grid. 
 :::
 
-If we had not used the `r pkg(workflowsets)` package, objects from the `r pkg(tune)` and `r pkg(finetune)` could also be passed to `add_candidates()`. This can include both grid and iterative search objects. 
+If we had not used the `pkg(workflowsets)` package, objects from the `pkg(tune)` and `pkg(finetune)` could also be passed to `add_candidates()`. This can include both grid and iterative search objects. 
 
 ## Blend the Predictions {#blend-predictions}
 
@@ -120,7 +129,7 @@ The training set predictions and the corresponding observed outcome data are use
 - Using the lasso penalty can remove candidates (and sometimes whole model types) from the ensemble. 
 - The correlation between ensemble candidates tends to be very high, and regularization helps alleviate this issue. 
 
-@breiman1996stacked also suggested that, when a linear model is used to blend the predictions, it might be helpful to constrain the blending coefficients to be nonnegative. We have generally found this to be good advice and it is the default for the `r pkg(stacks)` package (but it can be changed via an optional argument). 
+@breiman1996stacked also suggested that, when a linear model is used to blend the predictions, it might be helpful to constrain the blending coefficients to be nonnegative. We have generally found this to be good advice and it is the default for the `pkg(stacks)` package (but it can be changed via an optional argument). 
 
 Since our outcome is numeric, linear regression is used for the metamodel. Fitting the metamodel is as straightforward as using: 
 
@@ -321,7 +330,7 @@ ens_rmse <- dplyr::filter(ens$metrics, penalty == ens$penalty$penalty & .metric 
 boost_rmse <- collect_metrics(boosting_test_results) %>% dplyr::filter(.metric == "rmse")
 ```
 
-The `r pkg(stacks)` package has a function, `fit_members()`, that trains and returns these models: 
+The `pkg(stacks)` package has a function, `fit_members()`, that trains and returns these models: 
 
 ```{r ensembles-fit-members}
 ens <- fit_members(ens)
@@ -347,4 +356,4 @@ This is moderately better than our best single model. It is fairly common for st
 
 ## Chapter Summary {#ensembles-summary}
 
-This chapter demonstrated how to combine different models into an ensemble for better predictive performance. The process of creating the ensemble can automatically eliminate candidate models to find a small subset that improves performance. The `r pkg(stacks)` package has a fluent interface for combining resampling and tuning results into a meta-model. 
+This chapter demonstrated how to combine different models into an ensemble for better predictive performance. The process of creating the ensemble can automatically eliminate candidate models to find a small subset that improves performance. The `pkg(stacks)` package has a fluent interface for combining resampling and tuning results into a meta-model. 
