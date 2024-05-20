@@ -151,6 +151,8 @@ This evaluates the meta-learning model over a predefined grid of lasso penalty v
 autoplot(ens)
 ```
 
+![](figures/ensembles-initial-blend-plot-1.png)<!-- -->
+
 <div class="figure">
 <img src="figures/stacking-autoplot-1.png" alt="The results of using the `autoplot()` method on the blended stacks object."  />
 <p class="caption">Results of using the `autoplot()` method on the blended stacks object</p>
@@ -172,6 +174,8 @@ Now, in Figure \@ref(fig:stacking-autoplot-redo), we see a range where the ensem
 ```r
 autoplot(ens)
 ```
+
+![](figures/ensembles-autoplot-calc-1.png)<!-- -->
 
 <div class="figure">
 <img src="figures/stacking-autoplot-redo-1.png" alt="The results of using the `autoplot()` method on the updated blended stacks object."  />
@@ -233,6 +237,8 @@ autoplot(ens, "weights") +
   theme(legend.position = "none") +
   lims(x = c(-0.01, 0.8))
 ```
+
+![](figures/ensembles-blending-weights-1.png)<!-- -->
 
 <div class="figure">
 <img src="figures/blending-weights-1.png" alt="fig.alt = &quot;Blending coefficients for the stacking ensemble. The boosted tree and boosted tree models have the largest effects on the ensemble predictions.&quot;"  />
