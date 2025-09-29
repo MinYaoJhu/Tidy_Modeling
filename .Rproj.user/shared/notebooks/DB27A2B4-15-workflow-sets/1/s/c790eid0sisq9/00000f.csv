@@ -1,0 +1,67 @@
+"0","grid_ctrl <-"
+"0","   control_grid("
+"0","      save_pred = TRUE,"
+"0","      parallel_over = ""everything"","
+"0","      save_workflow = TRUE"
+"0","   )"
+"0",""
+"0","full_results_time <- "
+"0","   system.time("
+"0","      grid_results <- "
+"0","         all_workflows %>% "
+"0","         workflow_map(seed = 1503, resamples = concrete_folds, grid = 10, "
+"0","                      control = grid_ctrl, verbose = TRUE)"
+"0","   )"
+"2","[34mi[39m [30m 1 of 12 tuning:     MARS[39m
+"
+"2","[32m✔[39m [30m 1 of 12 tuning:     MARS[39m[30m (4.1s)[39m
+"
+"2","[34mi[39m [30m 2 of 12 tuning:     CART[39m
+"
+"2","[32m✔[39m [30m 2 of 12 tuning:     CART[39m[30m (4.1s)[39m
+"
+"2","[34mi[39m	[30mNo tuning parameters. `fit_resamples()` will be attempted[39m
+"
+"2","[34mi[39m [30m 3 of 12 resampling: CART_bagged[39m
+"
+"2","[32m✔[39m [30m 3 of 12 resampling: CART_bagged[39m[30m (7.6s)[39m
+"
+"2","[34mi[39m [30m 4 of 12 tuning:     RF[39m
+"
+"2","[34mi[39m [30mCreating pre-processing data to finalize unknown parameter: mtry[39m
+"
+"2","[32m✔[39m [30m 4 of 12 tuning:     RF[39m[30m (32.5s)[39m
+"
+"2","[34mi[39m [30m 5 of 12 tuning:     boosting[39m
+"
+"2","[32m✔[39m [30m 5 of 12 tuning:     boosting[39m[30m (1m 15.9s)[39m
+"
+"2","[34mi[39m [30m 6 of 12 tuning:     Cubist[39m
+"
+"2","[32m✔[39m [30m 6 of 12 tuning:     Cubist[39m[30m (1m 10.4s)[39m
+"
+"2","[34mi[39m [30m 7 of 12 tuning:     SVM_radial[39m
+"
+"2","[32m✔[39m [30m 7 of 12 tuning:     SVM_radial[39m[30m (13.1s)[39m
+"
+"2","[34mi[39m [30m 8 of 12 tuning:     SVM_poly[39m
+"
+"2","[32m✔[39m [30m 8 of 12 tuning:     SVM_poly[39m[30m (3m 59.3s)[39m
+"
+"2","[34mi[39m [30m 9 of 12 tuning:     KNN[39m
+"
+"2","[32m✔[39m [30m 9 of 12 tuning:     KNN[39m[30m (20.8s)[39m
+"
+"2","[34mi[39m [30m10 of 12 tuning:     neural_network[39m
+"
+"2","[32m✔[39m [30m10 of 12 tuning:     neural_network[39m[30m (47.2s)[39m
+"
+"2","[34mi[39m [30m11 of 12 tuning:     full_quad_linear_reg[39m
+"
+"2","[32m✔[39m [30m11 of 12 tuning:     full_quad_linear_reg[39m[30m (18.7s)[39m
+"
+"2","[34mi[39m [30m12 of 12 tuning:     full_quad_KNN[39m
+"
+"2","[32m✔[39m [30m12 of 12 tuning:     full_quad_KNN[39m[30m (5m 7.7s)[39m
+"
+"0","num_grid_models <- nrow(collect_metrics(grid_results, summarize = FALSE)) / 2"

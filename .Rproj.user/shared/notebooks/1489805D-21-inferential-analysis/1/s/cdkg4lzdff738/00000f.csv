@@ -1,0 +1,4 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = ""80%"","
+"0","#| fig.cap = ""Empirical distribution of the test statistic under the null hypothesis. The vertical line indicates the observed test statistic."","
+"0","#| fig.alt = ""The empirical distribution of the test statistic under the null hypothesis. The vertical line indicates the observed test statistic and is far away form the mainstream of the distribution."""

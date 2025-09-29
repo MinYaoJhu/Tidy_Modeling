@@ -1,0 +1,4 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = '100%', "
+"0","#| fig.cap = ""Estimated RMSE for the full grid and racing results."","
+"0","#| fig.alt = ""Estimated RMSE for the full grid and racing results. The results show that many models have the same RMSE result and the others are very similar."""

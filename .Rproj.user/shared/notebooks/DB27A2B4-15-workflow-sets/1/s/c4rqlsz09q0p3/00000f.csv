@@ -1,0 +1,6 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = '100%', "
+"0","#| fig.width = 8, "
+"0","#| fig.height = 5.75,"
+"0","#| fig.cap = ""Estimated RMSE (and approximate confidence intervals) for the best model configuration in each workflow in the racing results."","
+"0","#| fig.alt = ""Estimated RMSE (and approximate confidence intervals) for the best model configuration in each workflow in the racing results. The y axis is the estimated RMSE and the x axis is the model rank based on RMSE. Cubist rules and boosted trees show the smallest RMSE values. """

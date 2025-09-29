@@ -1,0 +1,11 @@
+"0","library(infer)"
+"0",""
+"0","observed <- "
+"0","  bioChemists %>%"
+"0","  specify(art ~ fem) %>%"
+"0","  calculate(stat = ""diff in means"", order = c(""Men"", ""Women""))"
+"0","observed"
+"1","Response: art (numeric)
+Explanatory: fem (factor)"
+"1","
+"

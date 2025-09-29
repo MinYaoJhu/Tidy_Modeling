@@ -1,0 +1,11 @@
+"0","set.seed(2101)"
+"0","bootstrapped <- "
+"0","  bioChemists %>%"
+"0","  specify(art ~ fem)  %>%"
+"0","  generate(reps = 2000, type = ""bootstrap"") %>%"
+"0","  calculate(stat = ""diff in means"", order = c(""Men"", ""Women""))"
+"0","bootstrapped"
+"1","Response: art (numeric)
+Explanatory: fem (factor)"
+"1","
+"

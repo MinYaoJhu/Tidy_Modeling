@@ -1,0 +1,4 @@
+"0","set.seed(2103)"
+"0","glm_boot <- "
+"0","  reg_intervals(art ~ ., data = bioChemists, model_fn = ""glm"", family = poisson)"
+"0","glm_boot"

@@ -1,0 +1,13 @@
+"0","set.seed(2102)"
+"0","permuted <- "
+"0","  bioChemists %>%"
+"0","  specify(art ~ fem)  %>%"
+"0","  hypothesize(null = ""independence"") %>%"
+"0","  generate(reps = 2000, type = ""permute"") %>%"
+"0","  calculate(stat = ""diff in means"", order = c(""Men"", ""Women""))"
+"0","permuted"
+"1","Response: art (numeric)
+Explanatory: fem (factor)
+Null Hypothesis: independence"
+"1","
+"

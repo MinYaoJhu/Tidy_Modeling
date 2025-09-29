@@ -1,0 +1,6 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = '100%', "
+"0","#| fig.width = 8, "
+"0","#| fig.height = 4.5,"
+"0","#| fig.cap = ""The `autoplot()` results for the Cubist model contained in the workflow set."","
+"0","#| fig.alt = ""The `autoplot()` results for the Cubist model contained in the workflow set. The visalization has a panel for each tuning pameter and shows performance versus the parameter values."""

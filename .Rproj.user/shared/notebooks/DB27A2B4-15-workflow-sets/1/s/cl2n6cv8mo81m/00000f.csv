@@ -1,0 +1,41 @@
+"0","knitr::opts_chunk$set(fig.path = ""figures/"")"
+"0","library(tidymodels)"
+"0","library(workflowsets)"
+"0","library(baguette)"
+"0","library(rules)"
+"0","library(finetune)"
+"0","tidymodels_prefer()"
+"0","caching <- FALSE"
+"0",""
+"0","# All operating systems"
+"0","library(doParallel)"
+"2","Loading required package: foreach
+"
+"2","
+Attaching package: ‘foreach’
+
+"
+"2","The following objects are masked from ‘package:purrr’:
+
+    accumulate, when
+
+"
+"2","Loading required package: iterators
+"
+"2","Loading required package: parallel
+"
+"0","# Create a cluster object and then register: "
+"0","cl <- makePSOCKcluster(8)"
+"0","registerDoParallel(cl)"
+"0",""
+"0","tidymodels_prefer()"
+"0",""
+"0","# cores <- parallel::detectCores()"
+"0","# if (!grepl(""mingw32"", R.Version()$platform)) {"
+"0","#    library(doMC)"
+"0","#    registerDoMC(cores = cores)"
+"0","# } else {"
+"0","#    library(doParallel)"
+"0","#    cl <- makePSOCKcluster(cores)"
+"0","#    registerDoParallel(cl)"
+"0","# }"

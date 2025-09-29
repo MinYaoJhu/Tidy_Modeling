@@ -1,0 +1,6 @@
+"0","bootstrap_models <-"
+"0","  bootstrap_models %>%"
+"0","  mutate(zero_coefs  = map(zip, ~ tidy(.x, type = ""zero"")))"
+"0",""
+"0","# One example:"
+"0","bootstrap_models$zero_coefs[[1]]"

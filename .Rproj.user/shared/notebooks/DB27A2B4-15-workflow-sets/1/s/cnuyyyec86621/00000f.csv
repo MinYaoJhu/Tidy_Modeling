@@ -1,0 +1,4 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = '100%', "
+"0","#| fig.cap = ""Observed versus predicted values for the test set."","
+"0","#| fig.alt = ""Observed versus predicted values for the test set. The values fall closely along the 45 degree line of identity."""

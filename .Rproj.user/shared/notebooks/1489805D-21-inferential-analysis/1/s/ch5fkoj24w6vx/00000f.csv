@@ -1,0 +1,9 @@
+"0","anova("
+"0","  extract_fit_engine(zero_inflated_fit),"
+"0","  extract_fit_engine(log_lin_reduced),"
+"0","  test = ""LRT"""
+"0",") %>%"
+"0","  tidy()"
+"2","Error in UseMethod(""anova"") : 
+  no applicable method for 'anova' applied to an object of class ""zeroinfl""
+"

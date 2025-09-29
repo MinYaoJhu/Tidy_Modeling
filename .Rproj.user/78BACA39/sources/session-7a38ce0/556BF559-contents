@@ -140,7 +140,7 @@ ens <- blend_predictions(concrete_stack)
 
 This evaluates the meta-learning model over a predefined grid of lasso penalty values and uses an internal resampling method to determine the best value. The `autoplot()` method, shown in Figure \@ref(fig:stacking-autoplot), helps us understand if the default penalization method was sufficient: 
 
-```{r ensembles-initial-blend-plot, eval=FALSE}
+```{r ensembles-initial-blend-plot}
 autoplot(ens)
 ```
 
@@ -161,7 +161,7 @@ ens <- blend_predictions(concrete_stack, penalty = 10^seq(-2, -0.5, length = 20)
 
 Now, in Figure \@ref(fig:stacking-autoplot-redo), we see a range where the ensemble model becomes worse than with our first blend (but not by much). The $R^2$ values increase with more members and larger penalties.
 
-```{r ensembles-autoplot-calc, eval = FALSE}
+```{r ensembles-autoplot-calc}
 autoplot(ens)
 ```
 
@@ -208,7 +208,7 @@ num_types <- xfun::numbers_to_words(length(unique(res$type)))
 
 The regularized linear regression meta-learning model contained `r num_coefs` blending coefficients across `r num_types` types of models. The `autoplot()` method can be used again to show the contributions of each model type, to produce Figure \@ref(fig:blending-weights). 
 
-```{r ensembles-blending-weights, eval = FALSE}
+```{r ensembles-blending-weights}
 autoplot(ens, "weights") +
   geom_text(aes(x = weight + 0.01, label = model), hjust = 0) + 
   theme(legend.position = "none") +

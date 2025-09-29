@@ -1,0 +1,3 @@
+"0","bioChemists %>% "
+"0","  group_by(fem) %>% "
+"0","  summarize(counts = sum(art), n = length(art))"

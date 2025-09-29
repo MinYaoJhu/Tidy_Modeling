@@ -1,0 +1,4 @@
+"0","#| echo = FALSE,"
+"0","#| out.width = ""80%"","
+"0","#| fig.cap = ""The bootstrap distribution of the difference in means. The highlighted region is the confidence interval."","
+"0","#| fig.alt = ""The bootstrap distribution of the difference in means. The highlighted region is the confidence interval, which does not include a value of zero."""

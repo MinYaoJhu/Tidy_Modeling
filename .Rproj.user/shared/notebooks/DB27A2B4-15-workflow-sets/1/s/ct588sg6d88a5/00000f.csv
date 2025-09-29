@@ -1,0 +1,5 @@
+"0","best_results <- "
+"0","   race_results %>% "
+"0","   extract_workflow_set_result(""boosting"") %>% "
+"0","   select_best(metric = ""rmse"")"
+"0","best_results"
